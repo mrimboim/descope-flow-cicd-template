@@ -1,0 +1,285 @@
+{
+  "startTask": "11",
+  "tasks": {
+    "10": {
+      "id": "10",
+      "name": "Verified Successfully",
+      "next": {},
+      "screenId": "SC3FTN78YpBogBSj2eqOq1oP07uNi",
+      "type": "screen",
+      "view": {
+        "x": 1764,
+        "y": -432
+      }
+    },
+    "11": {
+      "action": "loadUser",
+      "id": "11",
+      "name": "Step Up",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "11.end"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 468,
+        "y": -96
+      }
+    },
+    "11.end": {
+      "action": "step-up",
+      "id": "11.end",
+      "name": "Step Up",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "2"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 468,
+        "y": -96
+      }
+    },
+    "12": {
+      "action": "oauth-start-sign-in",
+      "arguments": {
+        "allowSetDefaultProvider": {
+          "type": "inline",
+          "value": ""
+        },
+        "defaultProvider": {
+          "type": "inline",
+          "value": ""
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": "12.end"
+        },
+        "prompt": {
+          "type": "inline",
+          "value": []
+        },
+        "redirectUrl": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "id": "12",
+      "name": "Sign In / OAuth",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "12.end"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 1368,
+        "y": 72
+      }
+    },
+    "12.end": {
+      "action": "exchange-oauth-code",
+      "arguments": {
+        "exchangeStepId": {
+          "type": "inline",
+          "value": "12.end"
+        },
+        "redirectUrl": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "id": "12.end",
+      "name": "Sign In / OAuth",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "7"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 1368,
+        "y": 72
+      }
+    },
+    "2": {
+      "allInputKeys": [
+        "email"
+      ],
+      "calculatedInputKeys": true,
+      "id": "2",
+      "inputKeys": [
+        "email"
+      ],
+      "name": "Step Up",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "QLItcaT9fe",
+            "taskId": "8"
+          },
+          {
+            "interactionId": "MoYs6IGLo1",
+            "taskId": "12"
+          }
+        ]
+      },
+      "screenId": "SC3FTN76jYe7I4jD0SMRorNgC7iMO",
+      "type": "screen",
+      "view": {
+        "x": 948,
+        "y": -96
+      }
+    },
+    "7": {
+      "action": "logged-in",
+      "id": "7",
+      "name": "Generate JWT",
+      "next": {},
+      "type": "automated",
+      "view": {
+        "x": 1992,
+        "y": 48
+      }
+    },
+    "8": {
+      "action": "sign-in-magic-linkv2-email",
+      "arguments": {
+        "extraTemplateVals": {
+          "type": "inline",
+          "value": ""
+        },
+        "providerId": {
+          "type": "inline",
+          "value": ""
+        },
+        "skipVerify": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": ""
+        },
+        "uri": {
+          "type": "inline",
+          "value": ""
+        },
+        "verifyStepId": {
+          "type": "inline",
+          "value": "8.end"
+        }
+      },
+      "id": "8",
+      "name": "Sign In / Magic Link / Email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "9"
+          },
+          {
+            "interactionId": "success",
+            "taskId": "8.end"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 1368,
+        "y": -216
+      }
+    },
+    "8.end": {
+      "action": "verify-magic-link",
+      "arguments": {
+        "providerId": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": ""
+        },
+        "uri": {
+          "type": "inline",
+          "value": ""
+        },
+        "verifyStepId": {
+          "type": "inline",
+          "value": "8.end"
+        }
+      },
+      "id": "8.end",
+      "name": "Sign In / Magic Link / Email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "7"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 1368,
+        "y": -216
+      }
+    },
+    "9": {
+      "id": "9",
+      "name": "Magic Link Sent",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "EbW8KMdjAx",
+            "taskId": "2"
+          },
+          {
+            "interactionId": "polling",
+            "taskId": "10"
+          },
+          {
+            "interactionId": "resend",
+            "taskId": "8"
+          }
+        ]
+      },
+      "screenId": "SC3FTN78BKf1Ehi1wiLnw0RtKbXZa",
+      "type": "screen",
+      "view": {
+        "x": 1368,
+        "y": -564
+      }
+    },
+    "start": {
+      "id": "start",
+      "name": "start",
+      "next": {
+        "rules": [
+          {
+            "taskId": "11"
+          }
+        ]
+      },
+      "view": {
+        "x": 288,
+        "y": -48
+      }
+    }
+  }
+}
