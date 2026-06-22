@@ -1,0 +1,216 @@
+{
+  "contents": {
+    "EbW8KMdjAx": {
+      "custom": {
+        "type": "button"
+      },
+      "displayName": "Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "WzZtEzEpyY",
+      "props": {
+        "children": "Choose another authentication method",
+        "data-type": "button",
+        "formNoValidate": false,
+        "full-width": true,
+        "id": "EbW8KMdjAx",
+        "mode": "primary",
+        "size": "sm",
+        "variant": "link"
+      },
+      "type": {
+        "resolvedName": "Button"
+      }
+    },
+    "LgBFKYoM2h": {
+      "custom": {},
+      "displayName": "Error Message",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+        "data-type": "error-message",
+        "full-width": false,
+        "id": "LgBFKYoM2h",
+        "italic": false,
+        "mode": "error",
+        "text-align": "center",
+        "variant": "body1"
+      },
+      "type": {
+        "resolvedName": "ErrorMessage"
+      }
+    },
+    "R4ubbo8hKX": {
+      "custom": {},
+      "displayName": "Text",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+        "children": "Click the link in the email to continue",
+        "full-width": false,
+        "id": "R4ubbo8hKX",
+        "italic": false,
+        "mode": "primary",
+        "text-align": "center",
+        "variant": "subtitle2"
+      },
+      "type": {
+        "resolvedName": "Text"
+      }
+    },
+    "ROOT": {
+      "custom": {},
+      "displayName": "Container",
+      "hidden": false,
+      "isCanvas": true,
+      "linkedNodes": {},
+      "nodes": [
+        "hLL454bn-h",
+        "R4ubbo8hKX",
+        "lpP_khmMrA",
+        "WzZtEzEpyY",
+        "LgBFKYoM2h"
+      ],
+      "props": {
+        "align": "center",
+        "background": "",
+        "data-editor-type": "container",
+        "direction": "column",
+        "id": "ROOT",
+        "justify": "center",
+        "paddingX": "4",
+        "paddingY": "4",
+        "spaceBetween": "5",
+        "width": "100%"
+      },
+      "type": {
+        "resolvedName": "Container"
+      }
+    },
+    "WzZtEzEpyY": {
+      "custom": {},
+      "displayName": "Container",
+      "hidden": false,
+      "isCanvas": true,
+      "linkedNodes": {},
+      "nodes": [
+        "resend",
+        "EbW8KMdjAx"
+      ],
+      "parent": "ROOT",
+      "props": {
+        "align": "center",
+        "background": "",
+        "data-editor-type": "container",
+        "direction": "column",
+        "id": "WzZtEzEpyY",
+        "justify": "start",
+        "paddingX": "4",
+        "paddingY": "4",
+        "spaceBetween": "1.5",
+        "width": "100%"
+      },
+      "type": {
+        "resolvedName": "Container"
+      }
+    },
+    "hLL454bn-h": {
+      "custom": {},
+      "displayName": "Text",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+        "children": "We've sent a verification link to {{sentTo.maskedEmail}}",
+        "full-width": false,
+        "id": "hLL454bn-h",
+        "italic": false,
+        "mode": "primary",
+        "text-align": "center",
+        "variant": "subtitle1"
+      },
+      "type": {
+        "resolvedName": "Text"
+      }
+    },
+    "lpP_khmMrA": {
+      "custom": {
+        "type": "polling"
+      },
+      "displayName": "Polling",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+        "color": "primary",
+        "data-type": "polling",
+        "id": "lpP_khmMrA",
+        "size": "md",
+        "variant": "linear"
+      },
+      "type": {
+        "resolvedName": "PollingLoader"
+      }
+    },
+    "resend": {
+      "custom": {
+        "type": "button"
+      },
+      "displayName": "Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "WzZtEzEpyY",
+      "props": {
+        "children": "Send again",
+        "data-type": "button",
+        "formNoValidate": false,
+        "full-width": true,
+        "id": "resend",
+        "mode": "primary",
+        "size": "sm",
+        "variant": "contained"
+      },
+      "type": {
+        "resolvedName": "Button"
+      }
+    }
+  },
+  "interactions": [
+    {
+      "icon": "",
+      "id": "EbW8KMdjAx",
+      "label": "Choose another authentication method",
+      "subType": "",
+      "type": ""
+    },
+    {
+      "icon": "",
+      "id": "polling",
+      "label": "Polling",
+      "subType": "",
+      "type": ""
+    },
+    {
+      "icon": "",
+      "id": "resend",
+      "label": "Send again",
+      "subType": "",
+      "type": ""
+    }
+  ],
+  "screenId": "SC3FTN733QDct8NKpjI33h2IBY3UG"
+}

@@ -1,0 +1,18 @@
+{
+  "componentsVersion": "2.1.13",
+  "description": "Default Descope Step Up flow; used for extra user validation, via Magic Link or Social Logins, before performing high risk actions in the application.",
+  "disabled": false,
+  "fingerprint": false,
+  "name": "Step Up",
+  "screens": [
+    "magic-link-sent",
+    "step-up",
+    "verified-successfully"
+  ],
+  "sharedInteractions": [
+    {
+      "id": "7.success",
+      "type": "success"
+    }
+  ]
+}

@@ -1,0 +1,322 @@
+{
+  "startTask": "0",
+  "tasks": {
+    "0": {
+      "allInputKeys": [
+        "email"
+      ],
+      "calculatedInputKeys": true,
+      "id": "0",
+      "inputKeys": [
+        "email"
+      ],
+      "inputsMetadata": [
+        {
+          "displayName": "Email Input",
+          "key": "email"
+        }
+      ],
+      "name": "Sign In Screen",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "_Lh3K_C2J_",
+            "taskId": "5"
+          },
+          {
+            "interactionId": "WSMbfRepR0",
+            "taskId": "8"
+          }
+        ]
+      },
+      "screenId": "SC3FTN79pmvnowDHvPHC0CZppOHHU",
+      "type": "screen",
+      "view": {
+        "x": 792,
+        "y": 168
+      }
+    },
+    "4": {
+      "action": "logged-in",
+      "id": "4",
+      "name": "End",
+      "next": {},
+      "type": "automated",
+      "view": {
+        "x": 1668,
+        "y": 264
+      }
+    },
+    "5": {
+      "action": "sign-in-magic-linkv2-email",
+      "arguments": {
+        "extraTemplateVals": {
+          "type": "inline",
+          "value": ""
+        },
+        "providerId": {
+          "type": "inline",
+          "value": ""
+        },
+        "skipVerify": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": ""
+        },
+        "uri": {
+          "type": "inline",
+          "value": ""
+        },
+        "useRecoveryEmail": {
+          "type": "inline",
+          "value": ""
+        },
+        "verifyStepId": {
+          "type": "inline",
+          "value": "5.end"
+        }
+      },
+      "id": "5",
+      "name": "Sign In / Magic Link / Email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "6"
+          },
+          {
+            "interactionId": "success",
+            "taskId": "5.end"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 1164,
+        "y": 36
+      }
+    },
+    "5.end": {
+      "action": "verify-magic-link",
+      "arguments": {
+        "extraTemplateVals": {
+          "type": "inline",
+          "value": ""
+        },
+        "providerId": {
+          "type": "inline",
+          "value": ""
+        },
+        "skipVerify": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": ""
+        },
+        "uri": {
+          "type": "inline",
+          "value": ""
+        },
+        "useRecoveryEmail": {
+          "type": "inline",
+          "value": ""
+        },
+        "verifyStepId": {
+          "type": "inline",
+          "value": "5.end"
+        }
+      },
+      "id": "5.end",
+      "name": "Sign In / Magic Link / Email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "4"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 1164,
+        "y": 36
+      }
+    },
+    "6": {
+      "allInputKeys": [],
+      "contextKeys": [
+        "sentTo.maskedEmail"
+      ],
+      "id": "6",
+      "inputsMetadata": [],
+      "name": "Magic Link Sent",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "EbW8KMdjAx",
+            "taskId": "0"
+          },
+          {
+            "interactionId": "polling",
+            "taskId": "7"
+          },
+          {
+            "interactionId": "resend",
+            "taskId": "5"
+          }
+        ]
+      },
+      "screenId": "SC3FTN733QDct8NKpjI33h2IBY3UG",
+      "type": "screen",
+      "view": {
+        "x": 1164,
+        "y": -288
+      }
+    },
+    "7": {
+      "allInputKeys": [],
+      "id": "7",
+      "inputsMetadata": [],
+      "name": "Verified Successfully",
+      "next": {},
+      "screenId": "SC3FTN77SjmwgWbIUKXrqz2mSdqts",
+      "type": "screen",
+      "view": {
+        "x": 1596,
+        "y": -168
+      }
+    },
+    "8": {
+      "action": "oauth-start-sign-in",
+      "arguments": {
+        "allowSetDefaultProvider": {
+          "type": "inline",
+          "value": ""
+        },
+        "defaultProvider": {
+          "type": "inline",
+          "value": ""
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": "8.end"
+        },
+        "forceNonNative": {
+          "type": "inline",
+          "value": ""
+        },
+        "loginHint": {
+          "type": "inline",
+          "value": ""
+        },
+        "popup": {
+          "type": "inline",
+          "value": ""
+        },
+        "prompt": {
+          "type": "inline",
+          "value": []
+        },
+        "rawResponse": {
+          "type": "inline",
+          "value": ""
+        },
+        "redirectUrl": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "id": "8",
+      "name": "Sign In / OAuth",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "8.end"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 1164,
+        "y": 324
+      }
+    },
+    "8.end": {
+      "action": "exchange-oauth-code",
+      "arguments": {
+        "allowSetDefaultProvider": {
+          "type": "inline",
+          "value": ""
+        },
+        "defaultProvider": {
+          "type": "inline",
+          "value": ""
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": "8.end"
+        },
+        "forceNonNative": {
+          "type": "inline",
+          "value": ""
+        },
+        "loginHint": {
+          "type": "inline",
+          "value": ""
+        },
+        "popup": {
+          "type": "inline",
+          "value": ""
+        },
+        "prompt": {
+          "type": "inline",
+          "value": []
+        },
+        "rawResponse": {
+          "type": "inline",
+          "value": ""
+        },
+        "redirectUrl": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "id": "8.end",
+      "name": "Sign In / OAuth",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "4"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 1164,
+        "y": 324
+      }
+    },
+    "start": {
+      "id": "start",
+      "name": "start",
+      "next": {
+        "rules": [
+          {
+            "taskId": "0"
+          }
+        ]
+      },
+      "view": {
+        "x": 588,
+        "y": 240
+      }
+    }
+  }
+}

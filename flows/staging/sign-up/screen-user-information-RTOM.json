@@ -1,0 +1,201 @@
+{
+  "contents": {
+    "5duCm174Kt": {
+      "custom": {},
+      "displayName": "Text",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "TyGsnnXzO9",
+      "props": {
+        "children": "Email address: {{sentTo.maskedEmail}}",
+        "full-width": false,
+        "id": "5duCm174Kt",
+        "italic": false,
+        "mode": "secondary",
+        "text-align": "center",
+        "variant": "body1"
+      },
+      "type": {
+        "resolvedName": "Text"
+      }
+    },
+    "BIw-ZDRfiI": {
+      "custom": {
+        "type": "button"
+      },
+      "displayName": "Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+        "children": "Submit",
+        "data-type": "button",
+        "formNoValidate": false,
+        "full-width": true,
+        "id": "BIw-ZDRfiI",
+        "mode": "primary",
+        "size": "md",
+        "variant": "contained"
+      },
+      "type": {
+        "resolvedName": "Button"
+      }
+    },
+    "HEPkJMD0gC": {
+      "custom": {
+        "type": "input"
+      },
+      "displayName": "Full Name Input",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+        "bordered": true,
+        "full-width": true,
+        "id": "HEPkJMD0gC",
+        "label": "Full name",
+        "max": 100,
+        "name": "fullName",
+        "placeholder": "Full name",
+        "required": false,
+        "size": "md",
+        "type": "text"
+      },
+      "type": {
+        "resolvedName": "FullNameInput"
+      }
+    },
+    "ROOT": {
+      "custom": {},
+      "displayName": "Container",
+      "hidden": false,
+      "isCanvas": true,
+      "linkedNodes": {},
+      "nodes": [
+        "xhiW7ijsnO",
+        "HEPkJMD0gC",
+        "TyGsnnXzO9",
+        "BIw-ZDRfiI",
+        "__GNCTEtiL"
+      ],
+      "props": {
+        "align": "center",
+        "background": "",
+        "data-editor-type": "container",
+        "direction": "column",
+        "id": "ROOT",
+        "justify": "center",
+        "paddingX": "4",
+        "paddingY": "8",
+        "spaceBetween": "4",
+        "width": "100%"
+      },
+      "type": {
+        "resolvedName": "Container"
+      }
+    },
+    "TyGsnnXzO9": {
+      "custom": {},
+      "displayName": "Container",
+      "hidden": false,
+      "isCanvas": true,
+      "linkedNodes": {},
+      "nodes": [
+        "5duCm174Kt",
+        "bZjfg72_0q"
+      ],
+      "parent": "ROOT",
+      "props": {
+        "align": "center",
+        "background": "#ffffff00",
+        "data-editor-type": "container",
+        "direction": "row",
+        "id": "TyGsnnXzO9",
+        "justify": "between",
+        "paddingX": "5",
+        "paddingY": "0",
+        "spaceBetween": "0",
+        "width": "100%"
+      },
+      "type": {
+        "resolvedName": "Container"
+      }
+    },
+    "__GNCTEtiL": {
+      "custom": {},
+      "displayName": "Error Message",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+        "data-type": "error-message",
+        "full-width": false,
+        "id": "__GNCTEtiL",
+        "italic": false,
+        "mode": "error",
+        "text-align": "center",
+        "variant": "body1"
+      },
+      "type": {
+        "resolvedName": "ErrorMessage"
+      }
+    },
+    "bZjfg72_0q": {
+      "custom": {},
+      "displayName": "Image",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "TyGsnnXzO9",
+      "props": {
+        "alt": "Image",
+        "id": "bZjfg72_0q",
+        "src": "https://imgs.descope.com/flows/common/v1/green-checkmark.png",
+        "width": "30px"
+      },
+      "type": {
+        "resolvedName": "Image"
+      }
+    },
+    "xhiW7ijsnO": {
+      "custom": {},
+      "displayName": "Text",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+        "children": "To complete your sign up, please provide the following information",
+        "full-width": false,
+        "id": "xhiW7ijsnO",
+        "italic": false,
+        "mode": "primary",
+        "text-align": "center",
+        "variant": "subtitle2"
+      },
+      "type": {
+        "resolvedName": "Text"
+      }
+    }
+  },
+  "interactions": [
+    {
+      "icon": "",
+      "id": "BIw-ZDRfiI",
+      "label": "Submit",
+      "subType": "",
+      "type": ""
+    }
+  ],
+  "screenId": "SC3FTN76CVgwU1TeuiCxQRbGbRTOM"
+}
