@@ -1,0 +1,137 @@
+name: '[Reusable] Open Flow Promotion PR'
+
+# Step 1 of the PR-gated flow promotion.
+# Exports the chosen flows from SOURCE and commits ONLY those flow files into the
+# tracked directory `flows/<target_key>/`, then opens a pull request. The PR diff
+# shows exactly which flow definitions will change. Nothing is imported here —
+# the deploy workflow (flows-deploy.yml) handles that when the PR is merged.
+
+on:
+  workflow_call:
+    inputs:
+      source_project_id:
+        description: 'Descope project to export flows FROM'
+        required: true
+        type: string
+      target_key:
+        description: "Target slug; flows are committed under flows/<target_key>/ (e.g. staging, production)"
+        required: true
+        type: string
+      target_label:
+        description: 'Human-readable target name for the PR text'
+        required: false
+        type: string
+        default: ''
+      flows:
+        description: "Comma-separated flow IDs to promote, or 'all'"
+        required: true
+        type: string
+        default: 'all'
+      descope_base_url:
+        description: 'Override the Descope base URL'
+        required: false
+        type: string
+        default: 'https://api.descope.com'
+      descopecli_version:
+        description: 'The version of the descope CLI tool to use'
+        required: false
+        type: string
+        default: 'v0.8.14'
+    secrets:
+      source_management_key:
+        description: 'A management key with access to the source project'
+        required: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  open-pr:
+    name: 'Open PR for flows/${{ inputs.target_key }}'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Descope CLI
+        uses: descope/descopecli/.github/actions/install@main
+        with:
+          version: ${{ inputs.descopecli_version }}
+
+      - name: Export flows from source project
+        env:
+          DESCOPE_MANAGEMENT_KEY: ${{ secrets.source_management_key }}
+          DESCOPE_BASE_URL: ${{ inputs.descope_base_url }}
+        run: |
+          set -euo pipefail
+          echo "Exporting snapshot from SOURCE project ${{ inputs.source_project_id }}"
+          rm -rf ./_source
+          mkdir -p ./_source
+          descope project snapshot export "${{ inputs.source_project_id }}" --path ./_source
+          if [ ! -d ./_source/flows ]; then
+            echo "::error::Source snapshot has no flows directory — nothing to promote"
+            exit 1
+          fi
+          echo "Flows available in source:"
+          ls -1 ./_source/flows
+
+      - name: Sync selected flows into tracked directory
+        env:
+          FLOWS: ${{ inputs.flows }}
+          TARGET_KEY: ${{ inputs.target_key }}
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          DEST="flows/${TARGET_KEY}"
+          mkdir -p "$DEST"
+
+          if [ "$FLOWS" = "all" ]; then
+            echo "Staging ALL flows from source into $DEST"
+            for d in ./_source/flows/*/; do
+              name="$(basename "$d")"
+              echo "  - $name"
+              rm -rf "$DEST/$name"
+              cp -R "$d" "$DEST/$name"
+            done
+          else
+            IFS=',' read -ra IDS <<< "$FLOWS"
+            for raw in "${IDS[@]}"; do
+              id="$(echo "$raw" | xargs)"
+              [ -z "$id" ] && continue
+              if [ ! -d "./_source/flows/$id" ]; then
+                echo "::error::Flow '$id' not found in source project ${{ inputs.source_project_id }}"
+                exit 1
+              fi
+              echo "  - $id"
+              rm -rf "$DEST/$id"
+              cp -R "./_source/flows/$id" "$DEST/$id"
+            done
+          fi
+
+          rm -rf ./_source
+          echo "Managed flows under $DEST:"
+          ls -1 "$DEST"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: descope/promote-flows-${{ inputs.target_key }}
+          delete-branch: true
+          add-paths: flows/${{ inputs.target_key }}
+          assignees: ${{ github.actor }}
+          commit-message: 'Promote flows -> ${{ inputs.target_key }}'
+          title: 'Promote flows -> ${{ inputs.target_label || inputs.target_key }}'
+          body: |
+            ### Flow promotion
+
+            - **Source project:** `${{ inputs.source_project_id }}`
+            - **Target:** `${{ inputs.target_label || inputs.target_key }}`
+            - **Flows:** `${{ inputs.flows }}`
+
+            This PR updates the managed flow set under `flows/${{ inputs.target_key }}/`.
+            The diff below is exactly which flow definitions will change.
+
+            On merge, the **Flows 2 — Deploy** workflow exports a fresh snapshot of the
+            target, swaps these flows in, validates, and imports — leaving connectors and
+            all other settings in place.

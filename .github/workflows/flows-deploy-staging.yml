@@ -1,0 +1,20 @@
+name: 'Flows 2 — Deploy: Staging'
+
+on:
+  push:
+    branches: [ 'main' ]
+    paths:
+      - 'flows/staging/**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/flows-deploy.yml
+    with:
+      target_project_id: ${{ vars.STAGING_PROJECT_ID }}
+      target_key: staging
+      environment_name: ''
+      descope_base_url: ${{ vars.DESCOPE_BASE_URL || 'https://api.descope.com' }}
+    secrets:
+      target_management_key: ${{ secrets.STAGING_MANAGEMENT_KEY || secrets.MANAGEMENT_KEY }}
+      connector_secrets: ${{ secrets.STAGING_CONNECTOR_SECRETS }}

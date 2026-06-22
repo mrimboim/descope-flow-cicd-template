@@ -1,0 +1,153 @@
+name: '[Reusable] Deploy Promoted Flows'
+
+# Step 2 of the PR-gated flow promotion. Runs after a promotion PR merges.
+# Exports a fresh snapshot of TARGET (preserving its connectors/settings), overlays
+# the merged flows from `flows/<target_key>/`, validates, then imports.
+
+on:
+  workflow_call:
+    inputs:
+      target_project_id:
+        description: 'Descope project to import the flows INTO'
+        required: true
+        type: string
+      target_key:
+        description: 'Target slug; reads managed flows from flows/<target_key>/'
+        required: true
+        type: string
+      environment_name:
+        description: 'Optional GitHub Environment to run under (extra approval gate / env secrets)'
+        required: false
+        type: string
+        default: ''
+      descope_base_url:
+        description: 'Override the Descope base URL'
+        required: false
+        type: string
+        default: 'https://api.descope.com'
+      descopecli_version:
+        description: 'The version of the descope CLI tool to use'
+        required: false
+        type: string
+        default: 'v0.8.14'
+    secrets:
+      target_management_key:
+        description: 'A management key with access to the target project'
+        required: true
+      connector_secrets:
+        description: 'Optional JSON (secrets-input format) with secrets for the target'
+        required: false
+
+jobs:
+  deploy:
+    name: 'Deploy flows into ${{ inputs.target_project_id }}'
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment_name }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Descope CLI
+        uses: descope/descopecli/.github/actions/install@main
+        with:
+          version: ${{ inputs.descopecli_version }}
+
+      - name: Export fresh snapshot from target project
+        env:
+          DESCOPE_MANAGEMENT_KEY: ${{ secrets.target_management_key }}
+          DESCOPE_BASE_URL: ${{ inputs.descope_base_url }}
+        run: |
+          set -euo pipefail
+          echo "Exporting snapshot from TARGET project ${{ inputs.target_project_id }}"
+          rm -rf ./_target
+          mkdir -p ./_target
+          descope project snapshot export "${{ inputs.target_project_id }}" --path ./_target
+
+      - name: Overlay merged flows into target snapshot
+        env:
+          TARGET_KEY: ${{ inputs.target_key }}
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          SRC="flows/${TARGET_KEY}"
+          if [ ! -d "$SRC" ]; then
+            echo "::error::No managed flows directory at $SRC"
+            exit 1
+          fi
+          mkdir -p ./_target/flows
+          echo "Applying managed flows from $SRC"
+          for d in "$SRC"/*/; do
+            name="$(basename "$d")"
+            echo "  - $name"
+            rm -rf "./_target/flows/$name"
+            cp -R "$d" "./_target/flows/$name"
+          done
+          echo "Target flows after overlay:"
+          ls -1 ./_target/flows
+
+      - name: Prepare connector secrets file
+        id: secrets
+        env:
+          CONNECTOR_SECRETS: ${{ secrets.connector_secrets }}
+        run: |
+          set -euo pipefail
+          SECRETS_FILE="$(mktemp)"
+          if [ -n "${CONNECTOR_SECRETS:-}" ]; then
+            printf '%s' "$CONNECTOR_SECRETS" > "$SECRETS_FILE"
+          else
+            printf '{}' > "$SECRETS_FILE"
+          fi
+          echo "file=$SECRETS_FILE" >> "$GITHUB_OUTPUT"
+
+      - name: Validate modified target snapshot
+        env:
+          DESCOPE_MANAGEMENT_KEY: ${{ secrets.target_management_key }}
+          DESCOPE_BASE_URL: ${{ inputs.descope_base_url }}
+        run: |
+          set +e
+          MISSING="$(mktemp)"
+          FAILURES="$(mktemp)"
+          descope project snapshot validate "${{ inputs.target_project_id }}" \
+            --path ./_target \
+            --secrets-input "${{ steps.secrets.outputs.file }}" \
+            --secrets-output "$MISSING" \
+            --failures-output "$FAILURES"
+          result=$?
+          if [ "$result" = "2" ]; then
+            {
+              echo "## Deploy aborted — validation failed"
+              echo "Nothing was imported."
+            } >> "$GITHUB_STEP_SUMMARY"
+            if [ -s "$FAILURES" ]; then
+              {
+                echo "### Failures"
+                sed -e 's/^/- /' "$FAILURES"
+              } >> "$GITHUB_STEP_SUMMARY"
+            fi
+            if [ -s "$MISSING" ]; then
+              {
+                echo "### Missing secrets"
+                echo "Add these to the target's connector_secrets value, then re-run:"
+                echo '```json'
+                cat "$MISSING"
+                echo '```'
+              } >> "$GITHUB_STEP_SUMMARY"
+            fi
+          fi
+          exit $result
+
+      - name: Import modified snapshot into target
+        env:
+          DESCOPE_MANAGEMENT_KEY: ${{ secrets.target_management_key }}
+          DESCOPE_BASE_URL: ${{ inputs.descope_base_url }}
+        run: |
+          set -euo pipefail
+          echo "Importing modified snapshot into TARGET project ${{ inputs.target_project_id }}"
+          descope project snapshot import "${{ inputs.target_project_id }}" \
+            --path ./_target \
+            --secrets-input "${{ steps.secrets.outputs.file }}"
+          {
+            echo "## Deploy complete"
+            echo "Imported managed flows from \`flows/${{ inputs.target_key }}/\` into \`${{ inputs.target_project_id }}\`."
+            echo "Connectors and other settings in the target were left in place."
+          } >> "$GITHUB_STEP_SUMMARY"

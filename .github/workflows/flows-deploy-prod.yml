@@ -1,0 +1,23 @@
+name: 'Flows 2 — Deploy: Production'
+
+on:
+  push:
+    branches: [ 'main' ]
+    paths:
+      - 'flows/production/**'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/flows-deploy.yml
+    with:
+      target_project_id: ${{ vars.PRODUCTION_PROJECT_ID }}
+      target_key: production
+      # Set this to 'production' and configure the Environment with required
+      # reviewers if you want an extra approval gate on the import itself
+      # (the merged PR is already the primary gate).
+      environment_name: ''
+      descope_base_url: ${{ vars.DESCOPE_BASE_URL || 'https://api.descope.com' }}
+    secrets:
+      target_management_key: ${{ secrets.PRODUCTION_MANAGEMENT_KEY || secrets.MANAGEMENT_KEY }}
+      connector_secrets: ${{ secrets.PRODUCTION_CONNECTOR_SECRETS }}

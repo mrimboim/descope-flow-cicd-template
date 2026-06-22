@@ -1,0 +1,21 @@
+name: 'Flows 1 — Open PR: Staging -> Production'
+
+on:
+  workflow_dispatch:
+    inputs:
+      flows:
+        description: "Comma-separated flow IDs to promote, or 'all'"
+        required: true
+        default: 'all'
+
+jobs:
+  open-pr:
+    uses: ./.github/workflows/flows-open-pr.yml
+    with:
+      source_project_id: ${{ vars.STAGING_PROJECT_ID }}
+      target_key: production
+      target_label: Production
+      flows: ${{ inputs.flows }}
+      descope_base_url: ${{ vars.DESCOPE_BASE_URL || 'https://api.descope.com' }}
+    secrets:
+      source_management_key: ${{ secrets.STAGING_MANAGEMENT_KEY || secrets.MANAGEMENT_KEY }}
