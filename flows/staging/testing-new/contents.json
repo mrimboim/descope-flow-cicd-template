@@ -1,0 +1,118 @@
+{
+  "startTask": "1",
+  "tasks": {
+    "0": {
+      "action": "logged-in",
+      "id": "0",
+      "name": "End",
+      "next": {},
+      "type": "automated",
+      "view": {
+        "x": 792,
+        "y": 0
+      }
+    },
+    "1": {
+      "calculatedInputKeys": true,
+      "id": "1",
+      "name": "New Screen",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "o3SgHDcA8-",
+            "taskId": "2"
+          }
+        ]
+      },
+      "screenId": "SC3G6P4eetW3sbW5u2s2RJSTburNj",
+      "type": "screen",
+      "view": {
+        "x": 180,
+        "y": -144
+      }
+    },
+    "2": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "endpoint",
+              "type": "string",
+              "value": ""
+            },
+            {
+              "key": "timeout",
+              "type": "number",
+              "value": 3
+            },
+            {
+              "key": "payload",
+              "type": "string",
+              "value": "{}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": false
+        },
+        "command": {
+          "type": "inline",
+          "value": "get"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI3FTNEPbQ3bnJis8wiwSRDizhLwS"
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": "httpResult"
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "http"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "request_error": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "2",
+      "name": "Generic HTTP / GET",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "0"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 636,
+        "y": -240
+      }
+    },
+    "start": {
+      "id": "start",
+      "name": "start",
+      "next": {
+        "rules": [
+          {
+            "taskId": "1"
+          }
+        ]
+      },
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  }
+}

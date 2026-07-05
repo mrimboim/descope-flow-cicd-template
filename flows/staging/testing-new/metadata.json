@@ -1,0 +1,21 @@
+{
+  "componentsVersion": "3.14.7",
+  "description": "",
+  "disabled": false,
+  "fingerprint": false,
+  "name": "testing-new",
+  "references": {
+    "connectors": {
+      "test": "CI3FTNEPbQ3bnJis8wiwSRDizhLwS"
+    }
+  },
+  "screens": [
+    "3G6P4eetW3sbW5u2s2RJSTburNj"
+  ],
+  "sharedInteractions": [
+    {
+      "id": "0.success",
+      "type": "success"
+    }
+  ]
+}
