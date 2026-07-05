@@ -85,6 +85,27 @@ jobs:
           echo "Target flows after overlay:"
           ls -1 ./_target/flows
 
+      - name: Rebuild flows manifest
+        # The importer reads flows/flows.json to know which flow directories exist.
+        # Overlaying a brand-new flow adds its folder but not its entry, so it would
+        # be ignored on import. Rebuild the manifest from the directories present so
+        # newly promoted flows are actually registered in the target project.
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          cd ./_target/flows
+          IDS_FILE="$(mktemp)"
+          for d in */; do
+            name="${d%/}"
+            [ -d "$name" ] || continue
+            printf '%s\n' "$name" >> "$IDS_FILE"
+          done
+          sort -o "$IDS_FILE" "$IDS_FILE"
+          jq -R -s 'split("\n") | map(select(length > 0)) | {flows: .}' "$IDS_FILE" > flows.json
+          echo "Rebuilt flows/flows.json:"
+          cat flows.json
+
+
       - name: Prepare connector secrets file
         id: secrets
         env:
