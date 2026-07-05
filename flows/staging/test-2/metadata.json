@@ -1,0 +1,25 @@
+{
+  "componentsVersion": "3.14.7",
+  "description": "",
+  "disabled": false,
+  "fingerprint": false,
+  "name": "test2",
+  "screens": [
+    "3G6RUEYm7SeNZO0dnfIhv0uvMG4"
+  ],
+  "sharedInteractions": [
+    {
+      "id": "0.success",
+      "type": "success"
+    },
+    {
+      "id": "2.8.success",
+      "type": "success"
+    },
+    {
+      "id": "3.success",
+      "label": "Success",
+      "type": "success"
+    }
+  ]
+}
