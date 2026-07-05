@@ -1,0 +1,802 @@
+{
+  "startTask": "0",
+  "tasks": {
+    "0": {
+      "allInputKeys": [
+        "email"
+      ],
+      "calculatedInputKeys": true,
+      "id": "0",
+      "inputKeys": [
+        "email"
+      ],
+      "name": "Sign Up Screen",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "ekknuJxLv5",
+            "taskId": "13"
+          },
+          {
+            "interactionId": "WN6nz9hWd5",
+            "taskId": "19"
+          }
+        ]
+      },
+      "screenId": "SC3FTN76Wa9lfYJY6sq7uvfTz5l9Q",
+      "type": "screen",
+      "view": {
+        "x": 240,
+        "y": -408
+      }
+    },
+    "12": {
+      "allInputKeys": [
+        "fullName"
+      ],
+      "contextKeys": [
+        "sentTo.maskedEmail"
+      ],
+      "id": "12",
+      "inputKeys": [
+        "fullName"
+      ],
+      "name": "User Information",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "BIw-ZDRfiI",
+            "taskId": "8"
+          }
+        ]
+      },
+      "screenId": "SC3FTN76CVgwU1TeuiCxQRbGbRTOM",
+      "type": "screen",
+      "view": {
+        "x": 3072,
+        "y": 492
+      }
+    },
+    "13": {
+      "action": "sign-up-magic-link-email",
+      "arguments": {
+        "extraTemplateVals": {
+          "type": "inline",
+          "value": ""
+        },
+        "providerId": {
+          "type": "inline",
+          "value": ""
+        },
+        "skipVerify": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": ""
+        },
+        "uri": {
+          "type": "inline",
+          "value": ""
+        },
+        "verifyStepId": {
+          "type": "inline",
+          "value": "13.end"
+        }
+      },
+      "id": "13",
+      "name": "Sign Up / Magic Link / Email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "14"
+          },
+          {
+            "interactionId": "success",
+            "taskId": "13.end"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 1680,
+        "y": -660
+      }
+    },
+    "13.end": {
+      "action": "verify-magic-link",
+      "arguments": {
+        "extraTemplateVals": {
+          "type": "inline",
+          "value": ""
+        },
+        "providerId": {
+          "type": "inline",
+          "value": ""
+        },
+        "skipVerify": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": ""
+        },
+        "uri": {
+          "type": "inline",
+          "value": ""
+        },
+        "verifyStepId": {
+          "type": "inline",
+          "value": "13.end"
+        }
+      },
+      "id": "13.end",
+      "name": "Sign Up / Magic Link / Email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "7"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 1680,
+        "y": -660
+      }
+    },
+    "14": {
+      "contextKeys": [
+        "sentTo.maskedEmail"
+      ],
+      "id": "14",
+      "name": "Magic Link Sent",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "EbW8KMdjAx",
+            "taskId": "0"
+          },
+          {
+            "interactionId": "polling",
+            "taskId": "15"
+          },
+          {
+            "interactionId": "resend",
+            "taskId": "13"
+          }
+        ]
+      },
+      "screenId": "SC3FTN75CSANdQrQnYJVvDmEF8qE0",
+      "type": "screen",
+      "view": {
+        "x": 708,
+        "y": -360
+      }
+    },
+    "15": {
+      "id": "15",
+      "name": "Verified Successfully",
+      "next": {},
+      "screenId": "SC3FTN74CzqMebG5xYsRgRe3zFbQ8",
+      "type": "screen",
+      "view": {
+        "x": 1104,
+        "y": -228
+      }
+    },
+    "16": {
+      "action": "update-user-magic-link-email",
+      "arguments": {
+        "addToLoginIDs": {
+          "type": "inline",
+          "value": ""
+        },
+        "extraTemplateVals": {
+          "type": "inline",
+          "value": ""
+        },
+        "onMergeUseExisting": {
+          "type": "inline",
+          "value": ""
+        },
+        "providerId": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": ""
+        },
+        "uri": {
+          "type": "inline",
+          "value": ""
+        },
+        "verifyStepId": {
+          "type": "inline",
+          "value": "16.end"
+        }
+      },
+      "id": "16",
+      "name": "Update User / Magic Link / Email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "17"
+          },
+          {
+            "interactionId": "success",
+            "taskId": "16.end"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 2544,
+        "y": 444
+      }
+    },
+    "16.end": {
+      "action": "verify-magic-link",
+      "arguments": {
+        "addToLoginIDs": {
+          "type": "inline",
+          "value": ""
+        },
+        "extraTemplateVals": {
+          "type": "inline",
+          "value": ""
+        },
+        "onMergeUseExisting": {
+          "type": "inline",
+          "value": ""
+        },
+        "providerId": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": ""
+        },
+        "uri": {
+          "type": "inline",
+          "value": ""
+        },
+        "verifyStepId": {
+          "type": "inline",
+          "value": "16.end"
+        }
+      },
+      "id": "16.end",
+      "name": "Update User / Magic Link / Email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "12"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 2544,
+        "y": 444
+      }
+    },
+    "17": {
+      "contextKeys": [
+        "sentTo.maskedEmail"
+      ],
+      "id": "17",
+      "name": "Magic Link Sent",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "polling",
+            "taskId": "18"
+          },
+          {
+            "interactionId": "resend",
+            "taskId": "16"
+          }
+        ]
+      },
+      "screenId": "SC3FTN77w0eJHFqGLhl15WSmtj7j5",
+      "type": "screen",
+      "view": {
+        "x": 3456,
+        "y": -504
+      }
+    },
+    "18": {
+      "id": "18",
+      "name": "Verified Successfully",
+      "next": {},
+      "screenId": "SC3FTN77hXxEjsFSk1yr8MnhbiMl0",
+      "type": "screen",
+      "view": {
+        "x": 2952,
+        "y": 204
+      }
+    },
+    "19": {
+      "action": "oauth-start-sign-up",
+      "arguments": {
+        "allowSetDefaultProvider": {
+          "type": "inline",
+          "value": ""
+        },
+        "defaultProvider": {
+          "type": "inline",
+          "value": ""
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": "19.end"
+        },
+        "forceNonNative": {
+          "type": "inline",
+          "value": ""
+        },
+        "loginHint": {
+          "type": "inline",
+          "value": ""
+        },
+        "popup": {
+          "type": "inline",
+          "value": ""
+        },
+        "prompt": {
+          "type": "inline",
+          "value": []
+        },
+        "rawResponse": {
+          "type": "inline",
+          "value": ""
+        },
+        "redirectUrl": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "id": "19",
+      "name": "Sign Up / OAuth",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "19.end"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 1188,
+        "y": 1416
+      }
+    },
+    "19.end": {
+      "action": "exchange-oauth-code",
+      "arguments": {
+        "allowSetDefaultProvider": {
+          "type": "inline",
+          "value": ""
+        },
+        "defaultProvider": {
+          "type": "inline",
+          "value": ""
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": "19.end"
+        },
+        "forceNonNative": {
+          "type": "inline",
+          "value": ""
+        },
+        "loginHint": {
+          "type": "inline",
+          "value": ""
+        },
+        "popup": {
+          "type": "inline",
+          "value": ""
+        },
+        "prompt": {
+          "type": "inline",
+          "value": []
+        },
+        "rawResponse": {
+          "type": "inline",
+          "value": ""
+        },
+        "redirectUrl": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "id": "19.end",
+      "name": "Sign Up / OAuth",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "9"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 1188,
+        "y": 1416
+      }
+    },
+    "20": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "endpoint",
+              "type": "string",
+              "value": ""
+            },
+            {
+              "key": "timeout",
+              "type": "number",
+              "value": 3
+            },
+            {
+              "key": "payload",
+              "type": "string",
+              "value": "{}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": false
+        },
+        "command": {
+          "type": "inline",
+          "value": "get"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI3FTNKObU0l3uO6eZh1qm3h76sVf"
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": "httpResult"
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "http"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "request_error": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "20",
+      "name": "APPPLE",
+      "next": {},
+      "type": "automated",
+      "view": {
+        "x": 780,
+        "y": 144
+      }
+    },
+    "21": {
+      "action": "scriptlet",
+      "arguments": {
+        "outputPath": {
+          "type": "inline",
+          "value": "scriptletResult"
+        },
+        "overrideForm": {
+          "type": "inline",
+          "value": ""
+        },
+        "scriptArgs": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "arg1",
+              "type": "context",
+              "value": "form.displayName"
+            }
+          ]
+        },
+        "scriptCode": {
+          "type": "inline",
+          "value": "asset:value-af65f64f651b344f99e9b892484e5e3298a2af945198e3dde390bcedd4a2588f.txt"
+        }
+      },
+      "errorHandlingV2": {
+        "ScriptletFailed": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "21",
+      "name": "Test",
+      "next": {},
+      "type": "automated",
+      "view": {
+        "x": 264,
+        "y": -36
+      }
+    },
+    "22": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "endpoint",
+              "type": "string",
+              "value": ""
+            },
+            {
+              "key": "timeout",
+              "type": "number",
+              "value": 3
+            },
+            {
+              "key": "payload",
+              "type": "string",
+              "value": "{}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": false
+        },
+        "command": {
+          "type": "inline",
+          "value": "get"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI3FTNKObU0l3uO6eZh1qm3h76sVf"
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": "httpResult"
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "http"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "request_error": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "22",
+      "name": "Generic HTTP / GET",
+      "next": {},
+      "type": "automated",
+      "view": {
+        "x": 1236,
+        "y": 180
+      }
+    },
+    "23": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "endpoint",
+              "type": "string",
+              "value": ""
+            },
+            {
+              "key": "timeout",
+              "type": "number",
+              "value": 3
+            },
+            {
+              "key": "payload",
+              "type": "string",
+              "value": "{}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": false
+        },
+        "command": {
+          "type": "inline",
+          "value": "get"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI3FTNKObU0l3uO6eZh1qm3h76sVf"
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": "httpResult"
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "http"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "request_error": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "23",
+      "name": "Get user",
+      "next": {},
+      "type": "automated",
+      "view": {
+        "x": 1656,
+        "y": 120
+      }
+    },
+    "5": {
+      "allInputKeys": [
+        "email",
+        "fullName"
+      ],
+      "id": "5",
+      "inputKeys": [
+        "email",
+        "fullName"
+      ],
+      "name": "User Information - Unverified - Email Only",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "YdTju2idN0",
+            "taskId": "16"
+          }
+        ]
+      },
+      "screenId": "SC3FTN75VweiR07f43Qyr0LjUrGsy",
+      "type": "screen",
+      "view": {
+        "x": 3864,
+        "y": -744
+      }
+    },
+    "6": {
+      "action": "logged-in",
+      "id": "6",
+      "name": "End",
+      "next": {},
+      "type": "automated",
+      "view": {
+        "x": 3936,
+        "y": 660
+      }
+    },
+    "7": {
+      "allInputKeys": [
+        "fullName"
+      ],
+      "id": "7",
+      "inputKeys": [
+        "fullName"
+      ],
+      "name": "User Information",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "YmnUFw8eeb",
+            "taskId": "8"
+          }
+        ]
+      },
+      "screenId": "SC3FTN73rGO1m4XMl0WOSIaH4XYlw",
+      "type": "screen",
+      "view": {
+        "x": 2820,
+        "y": -516
+      }
+    },
+    "8": {
+      "action": "update-user-properties",
+      "id": "8",
+      "name": "Update User / Properties",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "6"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 3432,
+        "y": 60
+      }
+    },
+    "9": {
+      "conditions": [
+        {
+          "atomicConditions": [
+            {
+              "operator": "is-true",
+              "predicate": {
+                "type": "inline",
+                "value": ""
+              },
+              "target": {
+                "type": "context",
+                "value": "authInfo.user.verifiedEmail"
+              }
+            }
+          ],
+          "interactionId": "0n1omopbeyad",
+          "name": "Verified"
+        },
+        {
+          "interactionId": "ELSE",
+          "name": "Not verified"
+        }
+      ],
+      "id": "9",
+      "name": "Is email verified?",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "0n1omopbeyad",
+            "taskId": "7"
+          },
+          {
+            "interactionId": "ELSE",
+            "taskId": "5"
+          }
+        ]
+      },
+      "type": "condition",
+      "view": {
+        "x": 2088,
+        "y": -480
+      }
+    },
+    "start": {
+      "id": "start",
+      "name": "start",
+      "next": {
+        "rules": [
+          {
+            "taskId": "0"
+          }
+        ]
+      },
+      "view": {
+        "x": 12,
+        "y": 252
+      }
+    }
+  }
+}

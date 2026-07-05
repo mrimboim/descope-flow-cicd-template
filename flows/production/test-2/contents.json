@@ -1,0 +1,93 @@
+{
+  "startTask": "0",
+  "tasks": {
+    "0": {
+      "action": "logged-in",
+      "id": "0",
+      "name": "End",
+      "next": {},
+      "type": "automated",
+      "view": {
+        "x": 792,
+        "y": 0
+      }
+    },
+    "1": {
+      "calculatedInputKeys": true,
+      "id": "1",
+      "name": "New Screen",
+      "next": {},
+      "screenId": "SC3G6RUEYm7SeNZO0dnfIhv0uvMG4",
+      "type": "screen",
+      "view": {
+        "x": 228,
+        "y": -168
+      }
+    },
+    "2": {
+      "arguments": {
+        "flowId": {
+          "type": "inline",
+          "value": "sign-up-or-in"
+        }
+      },
+      "id": "2",
+      "name": "Sign Up or In",
+      "next": {},
+      "type": "flow",
+      "view": {
+        "x": 360,
+        "y": -60
+      }
+    },
+    "3": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": ""
+        },
+        "async": {
+          "type": "inline",
+          "value": ""
+        },
+        "command": {
+          "type": "inline",
+          "value": "post"
+        },
+        "connectorId": {
+          "type": "inline"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "http"
+        }
+      },
+      "id": "3",
+      "name": "Generic HTTP / POST",
+      "next": {},
+      "type": "automated",
+      "view": {
+        "x": 252,
+        "y": -276
+      }
+    },
+    "start": {
+      "id": "start",
+      "name": "start",
+      "next": {},
+      "view": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  }
+}

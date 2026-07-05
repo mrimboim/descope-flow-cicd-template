@@ -1,0 +1,22 @@
+{
+  "componentsVersion": "3.14.9",
+  "description": "Default Descope Sign Up or In flow; enables users to sign up or in via Magic Link or Social Logins. Registration information includes Full Name.",
+  "disabled": false,
+  "fingerprint": false,
+  "name": "Sign Up or In",
+  "screens": [
+    "magic-link-sent-V7O7",
+    "magic-link-sent-kS35",
+    "user-information",
+    "user-information-unverified-email-only",
+    "verified-successfully-P6Mr",
+    "verified-successfully-jSPW",
+    "welcome-screen"
+  ],
+  "sharedInteractions": [
+    {
+      "id": "8.success",
+      "type": "success"
+    }
+  ]
+}
