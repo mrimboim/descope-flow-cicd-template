@@ -17,6 +17,7 @@
         "mode": "primary",
         "target": "_blank",
         "text-align": "center",
+        "tooltipText": "Tooltip text",
         "variant": "body1"
       },
       "type": {
@@ -40,6 +41,7 @@
         "link-target-blank": true,
         "mode": "primary",
         "text-align": "center",
+        "tooltipText": "Tooltip text",
         "variant": "body1"
       },
       "type": {
@@ -63,6 +65,7 @@
         "link-target-blank": true,
         "mode": "primary",
         "text-align": "center",
+        "tooltipText": "Tooltip text",
         "variant": "body1"
       },
       "type": {
@@ -113,6 +116,7 @@
       "nodes": [],
       "parent": "n1Uhr1hcw0",
       "props": {
+        "aria-label": "Sign in with Google",
         "children": "Sign in with Google",
         "color": "primary",
         "data-descope-provider": "google",
@@ -125,6 +129,7 @@
         "st-label-spacing": "10px",
         "startIcon": "google",
         "startIconColorText": false,
+        "tooltipText": "Tooltip text",
         "variant": "outline"
       },
       "type": {
@@ -168,6 +173,7 @@
         "mode": "primary",
         "target": "_blank",
         "text-align": "center",
+        "tooltipText": "Tooltip text",
         "variant": "body1"
       },
       "type": {
@@ -193,6 +199,7 @@
         "id": "_Lh3K_C2J_",
         "mode": "primary",
         "size": "md",
+        "tooltipText": "Tooltip text",
         "variant": "contained"
       },
       "type": {
@@ -239,7 +246,7 @@
       "nodes": [],
       "parent": "ROOT",
       "props": {
-        "children": "Welcome!",
+        "children": "Whats up ? \n\n",
         "full-width": false,
         "id": "eMTNXK-AHL",
         "isEnriched": true,
@@ -247,6 +254,7 @@
         "link-target-blank": true,
         "mode": "primary",
         "text-align": "center",
+        "tooltipText": "Tooltip text",
         "variant": "h3"
       },
       "type": {
@@ -324,6 +332,7 @@
         "hide-when-empty": true,
         "id": "vnhmHHhrzY",
         "italic": false,
+        "link-target-blank": true,
         "mode": "error",
         "text-align": "center",
         "variant": "body1"
@@ -339,14 +348,14 @@
       "id": "WSMbfRepR0",
       "label": "Sign in with Google",
       "subType": "social",
-      "type": ""
+      "type": "button"
     },
     {
       "icon": "",
       "id": "_Lh3K_C2J_",
       "label": "Sign In",
       "subType": "",
-      "type": ""
+      "type": "button"
     }
   ],
   "screenId": "SC3FTN79pmvnowDHvPHC0CZppOHHU"
