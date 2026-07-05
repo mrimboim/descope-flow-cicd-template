@@ -1,5 +1,5 @@
 {
-  "componentsVersion": "3.14.0",
+  "componentsVersion": "3.14.7",
   "description": "Default Descope Sign Up flow; enables users to sign up via Magic Link or Social Logins. Registration information includes Full Name.",
   "disabled": false,
   "fingerprint": false,
