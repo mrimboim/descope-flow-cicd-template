@@ -1,5 +1,5 @@
 {
-  "componentsVersion": "3.14.7",
+  "componentsVersion": "3.17.0",
   "description": "Default Descope Sign In flow; enables users to sign in via Magic Link or Social Logins (after initial registration).",
   "disabled": false,
   "fingerprint": false,
