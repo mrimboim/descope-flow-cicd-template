@@ -84,6 +84,7 @@
         "ro0hUNzmTB",
         "_Lh3K_C2J_",
         "X1NGL9Nm9z",
+        "cf5EF1n0xK",
         "n1Uhr1hcw0",
         "vnhmHHhrzY"
       ],
@@ -237,6 +238,37 @@
         "resolvedName": "EmailInput"
       }
     },
+    "cf5EF1n0xK": {
+      "custom": {
+        "subType": "social",
+        "type": "button"
+      },
+      "displayName": "Github Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+        "aria-label": "Sign in with Github",
+        "children": "Sign in with Github",
+        "color": "primary",
+        "data-descope-provider": "github",
+        "data-type": "social",
+        "formNoValidate": true,
+        "full-width": true,
+        "id": "cf5EF1n0xK",
+        "size": "md",
+        "st-label-spacing": "10px",
+        "startIcon": "github",
+        "startIconColorText": false,
+        "tooltipText": "Tooltip text",
+        "variant": "outline"
+      },
+      "type": {
+        "resolvedName": "GithubButton"
+      }
+    },
     "eMTNXK-AHL": {
       "custom": {},
       "displayName": "Text",
@@ -246,7 +278,7 @@
       "nodes": [],
       "parent": "ROOT",
       "props": {
-        "children": "Hello world\n\n",
+        "children": "Hello world 2\n\n",
         "full-width": false,
         "id": "eMTNXK-AHL",
         "isEnriched": true,
@@ -355,6 +387,13 @@
       "id": "_Lh3K_C2J_",
       "label": "Sign In",
       "subType": "",
+      "type": "button"
+    },
+    {
+      "icon": "github",
+      "id": "cf5EF1n0xK",
+      "label": "Sign in with Github",
+      "subType": "social",
       "type": "button"
     }
   ],
