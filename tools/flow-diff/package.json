@@ -1,0 +1,13 @@
+{
+  "name": "flow-diff",
+  "version": "0.3.0",
+  "description": "Git-style visual diff for Descope flow JSON exports (graph SVG/PNG + real screen renders via Descope's rendering engine)",
+  "private": true,
+  "dependencies": {
+    "@descope/page-editor-components": "^2.0.204",
+    "playwright-core": "^1.50.0",
+    "pngjs": "^7.0.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  }
+}

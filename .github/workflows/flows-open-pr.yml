@@ -5,6 +5,14 @@ name: '[Reusable] Open Flow Promotion PR'
 # tracked directory `flows/<target_key>/`, then opens a pull request. The PR diff
 # shows exactly which flow definitions will change. Nothing is imported here —
 # the deploy workflow (flows-deploy.yml) handles that when the PR is merged.
+#
+# Visual diffs: when `visual_diffs` is enabled, tools/flow-diff renders git-style
+# images of what changed (flow graph, screens via the Descope rendering engine,
+# conditions, actions, connectors) and commits them under
+# `flow-diffs/<target_key>/<flow_id>/<oldhash>-<newhash>/`.
+# The hash-named folder is new on every change and the previous folder is deleted
+# in the same commit, so the PR's "Files changed" shows the images as ADDED —
+# you only ever see the current diff's images, never an old-vs-new image slider.
 
 on:
   workflow_call:
@@ -27,6 +35,21 @@ on:
         required: true
         type: string
         default: 'all'
+      visual_diffs:
+        description: 'Generate visual flow diff images and commit them into the PR'
+        required: false
+        type: boolean
+        default: true
+      inline_pr_images:
+        description: 'Also inline the diff images in the PR description (requires visual_diffs)'
+        required: false
+        type: boolean
+        default: true
+      pixel_render:
+        description: 'Render real screens with the Descope engine (installs Chromium; slower CI). Off = graph + structural panels only.'
+        required: false
+        type: boolean
+        default: true
       descope_base_url:
         description: 'Override the Descope base URL'
         required: false
@@ -113,25 +136,112 @@ jobs:
           echo "Managed flows under $DEST:"
           ls -1 "$DEST"
 
+      # At this point the working tree holds the NEW flow files while HEAD still
+      # holds what's currently deployed to the target — exactly the two versions
+      # the visual diff needs.
+      - name: Generate visual flow diffs
+        if: ${{ inputs.visual_diffs }}
+        env:
+          TARGET_KEY: ${{ inputs.target_key }}
+          PIXEL: ${{ inputs.pixel_render }}
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          pip install --quiet cairosvg
+          EXTRA=""
+          if [ "$PIXEL" = "true" ]; then
+            (cd tools/flow-diff \
+              && npm install --no-audit --no-fund \
+              && npx playwright-core install --with-deps chromium-headless-shell)
+          else
+            EXTRA="--no-pixel"
+          fi
+
+          # previous run's images are removed in this same commit, so the PR only
+          # ever contains the current diff's images (shown as ADDED files)
+          rm -rf "flow-diffs/$TARGET_KEY"
+
+          for d in flows/$TARGET_KEY/*/; do
+            id="$(basename "$d")"
+            f="${d}${id}.json"
+            if [ ! -f "$f" ]; then
+              f="$(ls "$d"*.json 2>/dev/null | head -1 || true)"
+            fi
+            [ -n "${f:-}" ] && [ -f "$f" ] || { echo "  - $id: no flow json found, skipping"; continue; }
+
+            if ! git cat-file -e "HEAD:$f" 2>/dev/null; then
+              echo "  - $id: new flow (no previous version), skipping visual diff"
+              continue
+            fi
+            git show "HEAD:$f" > /tmp/old-flow.json
+            if cmp -s /tmp/old-flow.json "$f"; then
+              echo "  - $id: unchanged"
+              continue
+            fi
+
+            oldh="$(git rev-parse "HEAD:$f" | cut -c1-7)"
+            newh="$(sha1sum "$f" | cut -c1-7)"
+            out="flow-diffs/$TARGET_KEY/$id/$oldh-$newh"
+            echo "  - $id: $oldh -> $newh"
+            python3 tools/flow-diff/flow_diff.py /tmp/old-flow.json "$f" -o "$out" $EXTRA
+            rm -f "$out/.pixel-changes.json"
+          done
+
+      - name: Compose PR body
+        env:
+          TARGET_KEY: ${{ inputs.target_key }}
+          TARGET_LABEL: ${{ inputs.target_label || inputs.target_key }}
+          SOURCE_PROJECT: ${{ inputs.source_project_id }}
+          FLOWS: ${{ inputs.flows }}
+          INLINE: ${{ inputs.visual_diffs && inputs.inline_pr_images }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          BODY=/tmp/pr-body.md
+          cat > "$BODY" << EOF
+          ### Flow promotion
+
+          - **Source project:** \`$SOURCE_PROJECT\`
+          - **Target:** \`$TARGET_LABEL\`
+          - **Flows:** \`$FLOWS\`
+
+          This PR updates the managed flow set under \`flows/$TARGET_KEY/\`.
+          The diff below is exactly which flow definitions will change.
+
+          On merge, the **Flows 2 — Deploy** workflow exports a fresh snapshot of the
+          target, swaps these flows in, validates, and imports — leaving connectors and
+          all other settings in place.
+          EOF
+
+          if [ "$INLINE" = "true" ]; then
+            shopt -s nullglob
+            RAW="https://github.com/$REPO/raw/descope/promote-flows-$TARGET_KEY"
+            for dir in flow-diffs/$TARGET_KEY/*/*/; do
+              dir="${dir%/}"
+              id="$(basename "$(dirname "$dir")")"
+              {
+                echo ""
+                echo "<details>"
+                echo "<summary><b>🖼 Visual diff: ${id}</b> — click to expand</summary>"
+                echo ""
+                for img in "$dir"/*.png; do
+                  echo "![$(basename "$img" .png)]($RAW/$img)"
+                  echo ""
+                done
+                echo "</details>"
+              } >> "$BODY"
+            done
+          fi
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
           branch: descope/promote-flows-${{ inputs.target_key }}
           delete-branch: true
-          add-paths: flows/${{ inputs.target_key }}
+          add-paths: |
+            flows/${{ inputs.target_key }}
+            flow-diffs/${{ inputs.target_key }}
           assignees: ${{ github.actor }}
           commit-message: 'Promote flows -> ${{ inputs.target_key }}'
           title: 'Promote flows -> ${{ inputs.target_label || inputs.target_key }}'
-          body: |
-            ### Flow promotion
-
-            - **Source project:** `${{ inputs.source_project_id }}`
-            - **Target:** `${{ inputs.target_label || inputs.target_key }}`
-            - **Flows:** `${{ inputs.flows }}`
-
-            This PR updates the managed flow set under `flows/${{ inputs.target_key }}/`.
-            The diff below is exactly which flow definitions will change.
-
-            On merge, the **Flows 2 — Deploy** workflow exports a fresh snapshot of the
-            target, swaps these flows in, validates, and imports — leaving connectors and
-            all other settings in place.
+          body-path: /tmp/pr-body.md
