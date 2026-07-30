@@ -136,9 +136,11 @@ jobs:
           echo "Managed flows under $DEST:"
           ls -1 "$DEST"
 
-      # At this point the working tree holds the NEW flow files while HEAD still
-      # holds what's currently deployed to the target — exactly the two versions
-      # the visual diff needs.
+      # At this point the working tree holds the NEW flow directories while HEAD
+      # still holds what's currently deployed to the target — exactly the two
+      # versions the visual diff needs. Each snapshot flow is a DIRECTORY
+      # (contents.json + metadata.json + screen-*.json); flow_diff.py accepts the
+      # directory directly.
       - name: Generate visual flow diffs
         if: ${{ inputs.visual_diffs }}
         env:
@@ -162,28 +164,27 @@ jobs:
           rm -rf "flow-diffs/$TARGET_KEY"
 
           for d in flows/$TARGET_KEY/*/; do
+            d="${d%/}"
             id="$(basename "$d")"
-            f="${d}${id}.json"
-            if [ ! -f "$f" ]; then
-              f="$(ls "$d"*.json 2>/dev/null | head -1 || true)"
-            fi
-            [ -n "${f:-}" ] && [ -f "$f" ] || { echo "  - $id: no flow json found, skipping"; continue; }
 
-            if ! git cat-file -e "HEAD:$f" 2>/dev/null; then
+            if ! git rev-parse -q --verify "HEAD:$d" >/dev/null 2>&1; then
               echo "  - $id: new flow (no previous version), skipping visual diff"
               continue
             fi
-            git show "HEAD:$f" > /tmp/old-flow.json
-            if cmp -s /tmp/old-flow.json "$f"; then
+            if [ -z "$(git status --porcelain -- "$d")" ]; then
               echo "  - $id: unchanged"
               continue
             fi
 
-            oldh="$(git rev-parse "HEAD:$f" | cut -c1-7)"
-            newh="$(sha1sum "$f" | cut -c1-7)"
+            # reconstruct the OLD flow directory from HEAD
+            rm -rf /tmp/old-flow && mkdir -p /tmp/old-flow
+            git archive HEAD -- "$d" | tar -x -C /tmp/old-flow
+
+            oldh="$(git rev-parse "HEAD:$d" | cut -c1-7)"
+            newh="$(find "$d" -type f -print0 | sort -z | xargs -0 sha1sum | sha1sum | cut -c1-7)"
             out="flow-diffs/$TARGET_KEY/$id/$oldh-$newh"
             echo "  - $id: $oldh -> $newh"
-            python3 tools/flow-diff/flow_diff.py /tmp/old-flow.json "$f" -o "$out" $EXTRA
+            python3 tools/flow-diff/flow_diff.py "/tmp/old-flow/$d" "$d" -o "$out" $EXTRA
             rm -f "$out/.pixel-changes.json"
           done
 
