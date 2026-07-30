@@ -36,6 +36,37 @@
             "resolvedName": "Link"
           }
         },
+        "7GQnOKn5hG": {
+          "custom": {
+            "subType": "social",
+            "type": "button"
+          },
+          "displayName": "Facebook Button",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "ROOT",
+          "props": {
+            "aria-label": "Sign in with Facebook",
+            "children": "Sign in with Facebook",
+            "color": "primary",
+            "data-descope-provider": "facebook",
+            "data-type": "social",
+            "formNoValidate": true,
+            "full-width": true,
+            "id": "7GQnOKn5hG",
+            "size": "md",
+            "st-label-spacing": "10px",
+            "startIcon": "facebook",
+            "startIconColorText": false,
+            "tooltipText": "Tooltip text",
+            "variant": "outline"
+          },
+          "type": {
+            "resolvedName": "FacebookButton"
+          }
+        },
         "IcQvsZ54WE": {
           "custom": {},
           "displayName": "Text",
@@ -96,6 +127,7 @@
             "ro0hUNzmTB",
             "_Lh3K_C2J_",
             "X1NGL9Nm9z",
+            "7GQnOKn5hG",
             "cf5EF1n0xK",
             "n1Uhr1hcw0",
             "vnhmHHhrzY"
@@ -415,6 +447,13 @@
           "label": "Sign in with Github",
           "subType": "social",
           "type": "button"
+        },
+        {
+          "icon": "facebook",
+          "id": "7GQnOKn5hG",
+          "label": "Sign in with Facebook",
+          "subType": "social",
+          "type": "button"
         }
       ],
       "name": "Sign In Screen",
@@ -430,6 +469,10 @@
           },
           {
             "interactionId": "cf5EF1n0xK",
+            "taskId": "8"
+          },
+          {
+            "interactionId": "7GQnOKn5hG",
             "taskId": "8"
           }
         ]
