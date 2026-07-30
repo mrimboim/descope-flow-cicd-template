@@ -2,8 +2,12 @@
 """
 flow-diff — git-style visual diff for Descope flow JSON exports.
 
+Accepts console exports (single JSON file) or descope CLI snapshot flow
+directories (contents.json + metadata.json + screen-*.json).
+
 Usage:
     python3 flow_diff.py old.json new.json [-o OUTDIR] [--no-noise-filter] [--no-png]
+    python3 flow_diff.py flows/staging/sign-in-old/ flows/staging/sign-in/ -o out/
 
 Outputs (deterministic filenames, safe to commit):
     00-overview.svg/.png     full flow graph, changes highlighted
@@ -52,8 +56,25 @@ def tw(s, fs=12): return len(str(s)) * fs * 0.60   # crude text width estimate
 
 # ---------------------------------------------------------------- load & normalize
 def load_flow(path):
+    """Accepts either a console export (single JSON file with contents/screens/
+    metadata) or a descope CLI snapshot flow DIRECTORY (contents.json +
+    metadata.json + screen-*.json files)."""
+    if os.path.isdir(path):
+        def rd(p):
+            with open(p) as f:
+                return json.load(f)
+        flow = {"flowId": os.path.basename(os.path.normpath(path))}
+        cpath, mpath = os.path.join(path, "contents.json"), os.path.join(path, "metadata.json")
+        flow["contents"] = rd(cpath) if os.path.exists(cpath) else {"tasks": {}}
+        flow["metadata"] = rd(mpath) if os.path.exists(mpath) else {}
+        flow["screens"] = [rd(os.path.join(path, f)) for f in sorted(os.listdir(path))
+                           if f.startswith("screen-") and f.endswith(".json")]
+        return flow
     with open(path) as f:
-        return json.load(f)
+        data = json.load(f)
+    if "contents" not in data and "flow" in data:  # tolerate {"flow": {...}} wrappers
+        return data["flow"]
+    return data
 
 def node_kind(task):
     action = task.get("action") or ""
@@ -805,7 +826,8 @@ def main():
 
     # overview
     cv = diff["componentsVersion"]
-    sub = f'{args.old.split("/")[-1]} → {args.new.split("/")[-1]}   components {cv["old"]} → {cv["new"]}'
+    def label(p): return os.path.basename(os.path.normpath(p))
+    sub = f'{label(args.old)} → {label(args.new)}   components {cv["old"]} → {cv["new"]}'
     svg = render_graph(nodes, edges, f'Flow diff: {diff["flowId"]}', sub)
     files["overview"] = write_svg_png(svg, args.out, "00-overview", png)
 
@@ -841,7 +863,8 @@ def main():
                 changes_path = os.path.join(args.out, ".pixel-changes.json")
                 with open(changes_path, "w") as f:
                     json.dump(hl, f)
-                r = subprocess.run(["node", renderer, args.old, args.new,
+                r = subprocess.run(["node", renderer, os.path.abspath(args.old),
+                                    os.path.abspath(args.new),
                                     os.path.abspath(args.out), os.path.abspath(changes_path)],
                                    cwd=os.path.dirname(renderer), capture_output=True,
                                    text=True, timeout=300)

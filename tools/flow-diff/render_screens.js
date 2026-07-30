@@ -8,7 +8,8 @@
  * the OLD/NEW renders using the semantic diff (green added / red removed /
  * orange modified) instead of a raw pixel diff.
  *
- * Usage: node render_screens.js old.json new.json outdir [changes.json]
+ * Usage: node render_screens.js old newDir outdir [changes.json]
+ *   old/new: console export file OR descope CLI snapshot flow directory
  *   changes.json: { "<screenId>": { "added": [ids], "removed": [ids], "changed": [ids] } }
  *   (if omitted, renders every screen with no highlights)
  * Emits: <outdir>/21-pixel-<screenId>.png   (OLD | NEW side by side)
@@ -125,10 +126,21 @@ function composite(oldPng, newPng, title, hasOld, hasNew) {
     ${imgs}</svg>`;
 }
 
+function loadFlow(p) {
+  // console export file OR descope CLI snapshot flow directory
+  if (fs.statSync(p).isDirectory()) {
+    const screens = fs.readdirSync(p)
+      .filter((f) => f.startsWith('screen-') && f.endsWith('.json')).sort()
+      .map((f) => JSON.parse(fs.readFileSync(path.join(p, f), 'utf8')));
+    return { screens };
+  }
+  return JSON.parse(fs.readFileSync(p, 'utf8'));
+}
+
 (async () => {
   const [oldPath, newPath, outdir, changesPath] = process.argv.slice(2);
-  const oldFlow = JSON.parse(fs.readFileSync(oldPath, 'utf8'));
-  const newFlow = JSON.parse(fs.readFileSync(newPath, 'utf8'));
+  const oldFlow = loadFlow(oldPath);
+  const newFlow = loadFlow(newPath);
   const toMap = (f) => Object.fromEntries((f.screens || []).map((s) => [s.screenId, s.contents]));
   const oldS = toMap(oldFlow), newS = toMap(newFlow);
   let changes = null;
