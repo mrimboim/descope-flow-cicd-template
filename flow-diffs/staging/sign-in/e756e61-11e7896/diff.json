@@ -1,0 +1,266 @@
+{
+ "componentsVersion": {
+  "new": "3.18.2",
+  "old": "3.18.2"
+ },
+ "conditions": {},
+ "edges": {
+  "added": [
+   [
+    "0",
+    "Kl4hJnUjt-",
+    "8"
+   ]
+  ],
+  "removed": [
+   [
+    "0",
+    "Cf2ZQ46VfU",
+    "8"
+   ],
+   [
+    "0",
+    "bL-cGpwCvI",
+    "9"
+   ],
+   [
+    "9",
+    "success",
+    "4"
+   ]
+  ],
+  "rewired": []
+ },
+ "errors": [],
+ "flowId": "sign-in",
+ "screens": {
+  "added": [],
+  "modified": {
+   "SC3FTN79pmvnowDHvPHC0CZppOHHU": {
+    "nodes_added": [
+     "Kl4hJnUjt-"
+    ],
+    "nodes_removed": [
+     "Cf2ZQ46VfU"
+    ],
+    "prop_changes": {
+     "ROOT": [
+      [
+       "<nodes>",
+       [
+        "eMTNXK-AHL",
+        "bL-cGpwCvI",
+        "ro0hUNzmTB",
+        "_Lh3K_C2J_",
+        "X1NGL9Nm9z",
+        "Cf2ZQ46VfU",
+        "n1Uhr1hcw0",
+        "vnhmHHhrzY"
+       ],
+       [
+        "eMTNXK-AHL",
+        "bL-cGpwCvI",
+        "ro0hUNzmTB",
+        "_Lh3K_C2J_",
+        "X1NGL9Nm9z",
+        "Kl4hJnUjt-",
+        "n1Uhr1hcw0",
+        "vnhmHHhrzY"
+       ]
+      ]
+     ],
+     "bL-cGpwCvI": [
+      [
+       "autoComplete",
+       "webauthn",
+       null
+      ]
+     ],
+     "eMTNXK-AHL": [
+      [
+       "children",
+       "Welcome to Descope\n\n",
+       "Welcome to Descope Again\n\n"
+      ]
+     ]
+    }
+   }
+  },
+  "noise_suppressed": 0,
+  "removed": []
+ },
+ "tasks": {
+  "added": [],
+  "derived_only": [],
+  "field_changes": {
+   "0": [
+    [
+     "htmlTemplate.Cf2ZQ46VfU",
+     {
+      "custom": {
+       "subType": "social",
+       "type": "button"
+      },
+      "displayName": "Apple Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+       "aria-label": "Sign in with Apple",
+       "children": "Sign in with Apple",
+       "color": "primary",
+       "data-descope-provider": "apple",
+       "data-type": "social",
+       "formNoValidate": true,
+       "full-width": true,
+       "id": "Cf2ZQ46VfU",
+       "size": "md",
+       "st-label-spacing": "10px",
+       "startIcon": "apple",
+       "startIconColorText": false,
+       "tooltipText": "Tooltip text",
+       "variant": "outline"
+      },
+      "type": {
+       "resolvedName": "AppleButton"
+      }
+     },
+     null
+    ],
+    [
+     "htmlTemplate.Kl4hJnUjt-",
+     null,
+     {
+      "custom": {
+       "subType": "social",
+       "type": "button"
+      },
+      "displayName": "Apple Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+       "aria-label": "Sign in with Apple",
+       "children": "Sign in with Apple",
+       "color": "primary",
+       "data-descope-provider": "apple",
+       "data-type": "social",
+       "formNoValidate": true,
+       "full-width": true,
+       "id": "Kl4hJnUjt-",
+       "size": "md",
+       "st-label-spacing": "10px",
+       "startIcon": "apple",
+       "startIconColorText": false,
+       "tooltipText": "Tooltip text",
+       "variant": "outline"
+      },
+      "type": {
+       "resolvedName": "AppleButton"
+      }
+     }
+    ],
+    [
+     "htmlTemplate.ROOT.nodes",
+     [
+      "eMTNXK-AHL",
+      "bL-cGpwCvI",
+      "ro0hUNzmTB",
+      "_Lh3K_C2J_",
+      "X1NGL9Nm9z",
+      "Cf2ZQ46VfU",
+      "n1Uhr1hcw0",
+      "vnhmHHhrzY"
+     ],
+     [
+      "eMTNXK-AHL",
+      "bL-cGpwCvI",
+      "ro0hUNzmTB",
+      "_Lh3K_C2J_",
+      "X1NGL9Nm9z",
+      "Kl4hJnUjt-",
+      "n1Uhr1hcw0",
+      "vnhmHHhrzY"
+     ]
+    ],
+    [
+     "htmlTemplate.bL-cGpwCvI.props.autoComplete",
+     "webauthn",
+     null
+    ],
+    [
+     "htmlTemplate.eMTNXK-AHL.props.children",
+     "Welcome to Descope\n\n",
+     "Welcome to Descope Again\n\n"
+    ],
+    [
+     "interactions",
+     [
+      {
+       "icon": "apple",
+       "id": "Cf2ZQ46VfU",
+       "label": "Sign in with Apple",
+       "subType": "social",
+       "type": "button"
+      },
+      {
+       "icon": "google",
+       "id": "WSMbfRepR0",
+       "label": "Sign in with Google",
+       "subType": "social",
+       "type": "button"
+      },
+      {
+       "id": "_Lh3K_C2J_",
+       "label": "Sign In",
+       "type": "button"
+      },
+      {
+       "icon": "passkey",
+       "id": "bL-cGpwCvI",
+       "type": "input"
+      }
+     ],
+     [
+      {
+       "icon": "google",
+       "id": "WSMbfRepR0",
+       "label": "Sign in with Google",
+       "subType": "social",
+       "type": "button"
+      },
+      {
+       "id": "_Lh3K_C2J_",
+       "label": "Sign In",
+       "type": "button"
+      },
+      {
+       "icon": "apple",
+       "id": "Kl4hJnUjt-",
+       "label": "Sign in with Apple",
+       "subType": "social",
+       "type": "button"
+      }
+     ]
+    ]
+   ]
+  },
+  "modified": {
+   "0": [
+    "htmlTemplate",
+    "interactions",
+    "screen"
+   ]
+  },
+  "moved": [
+   "8"
+  ],
+  "removed": [
+   "9"
+  ]
+ }
+}

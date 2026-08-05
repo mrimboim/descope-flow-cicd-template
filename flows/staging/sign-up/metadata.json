@@ -4,7 +4,13 @@
   "disabled": false,
   "fingerprint": false,
   "name": "Sign Up",
+  "references": {
+    "connectors": {
+      "test": "CI3FTNEPbQ3bnJis8wiwSRDizhLwS"
+    }
+  },
   "screens": [
+    "3HVaWzTX0eZuiaRNdU0RNSluTZQ",
     "magic-link-sent-8qE0",
     "magic-link-sent-j7j5",
     "sign-up-screen",
@@ -30,6 +36,11 @@
     {
       "id": "26.success",
       "label": "Successful authentication",
+      "type": "success"
+    },
+    {
+      "id": "28.success",
+      "label": "Success",
       "type": "success"
     }
   ]
