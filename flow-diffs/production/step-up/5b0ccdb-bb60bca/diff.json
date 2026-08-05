@@ -1,0 +1,28 @@
+{
+ "componentsVersion": {
+  "new": "3.18.2",
+  "old": "3.14.9"
+ },
+ "conditions": {},
+ "edges": {
+  "added": [],
+  "removed": [],
+  "rewired": []
+ },
+ "errors": [],
+ "flowId": "step-up",
+ "screens": {
+  "added": [],
+  "modified": {},
+  "noise_suppressed": 0,
+  "removed": []
+ },
+ "tasks": {
+  "added": [],
+  "derived_only": [],
+  "field_changes": {},
+  "modified": {},
+  "moved": [],
+  "removed": []
+ }
+}
