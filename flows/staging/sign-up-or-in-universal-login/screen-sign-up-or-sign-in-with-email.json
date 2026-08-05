@@ -1,0 +1,387 @@
+{
+  "contents": {
+    "4wJtawGDMo": {
+      "custom": {
+        "type": "input"
+      },
+      "displayName": "Email Input",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+        "bordered": true,
+        "copy-to-clipboard": false,
+        "data-errormessage-pattern-mismatch": "Enter a valid email address.",
+        "data-errormessage-value-missing": "Please fill out this field.",
+        "external-input": false,
+        "full-width": true,
+        "id": "4wJtawGDMo",
+        "label": "Email",
+        "label-type": "floating",
+        "max": 100,
+        "name": "email",
+        "pattern": "^[\\w\\.\\%\\+\\-']+@[\\w\\.\\-]+\\.[A-Za-z]{2,}$",
+        "placeholder": "",
+        "required": true,
+        "size": "md",
+        "type": "email"
+      },
+      "type": {
+        "resolvedName": "EmailInput"
+      }
+    },
+    "C3_h_gd8kc": {
+      "custom": {
+        "subType": "social",
+        "type": "button"
+      },
+      "displayName": "Google Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "qke-0gD-ok",
+      "props": {
+        "aria-label": "Sign in with Google",
+        "children": "Continue with Google",
+        "color": "primary",
+        "data-descope-provider": "google",
+        "data-type": "social",
+        "formNoValidate": true,
+        "full-width": true,
+        "id": "C3_h_gd8kc",
+        "shape": "",
+        "size": "md",
+        "st-label-spacing": "10px",
+        "startIcon": "google",
+        "startIconColorText": false,
+        "variant": "outline"
+      },
+      "type": {
+        "resolvedName": "GoogleButton"
+      }
+    },
+    "COcMh1vzSn": {
+      "custom": {
+        "type": "button"
+      },
+      "displayName": "Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "sJzJr1_Ek8",
+      "props": {
+        "auto-submit": true,
+        "children": "Continue",
+        "color": "primary",
+        "data-type": "button",
+        "formNoValidate": false,
+        "full-width": true,
+        "id": "COcMh1vzSn",
+        "mode": "primary",
+        "size": "md",
+        "variant": "contained"
+      },
+      "type": {
+        "resolvedName": "Button"
+      }
+    },
+    "DY-8rUNtnX": {
+      "custom": {},
+      "displayName": "Container",
+      "hidden": false,
+      "isCanvas": true,
+      "linkedNodes": {},
+      "nodes": [
+        "cDmtaSAoSF",
+        "snOmO2tgDH"
+      ],
+      "parent": "ROOT",
+      "props": {
+        "align": "start",
+        "background": "#ffffff00",
+        "data-editor-type": "container",
+        "direction": "column",
+        "id": "DY-8rUNtnX",
+        "justify": "start",
+        "paddingX": "0",
+        "paddingY": "0",
+        "spaceBetween": "2.5",
+        "st-items-grow": 0,
+        "width": "100%"
+      },
+      "type": {
+        "resolvedName": "Container"
+      }
+    },
+    "Ms-RHbvu5r": {
+      "custom": {
+        "type": "button"
+      },
+      "displayName": "Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "qke-0gD-ok",
+      "props": {
+        "auto-submit": false,
+        "children": "Use mobile number",
+        "color": "primary",
+        "data-type": "button",
+        "formNoValidate": true,
+        "full-width": true,
+        "id": "Ms-RHbvu5r",
+        "shape": "",
+        "size": "md",
+        "startIcon": "asset:img-f8a36f1cd80a1089787914690f8bc9f999f41c2a22ce4514e68eedef6685287a.svg",
+        "variant": "outline"
+      },
+      "type": {
+        "resolvedName": "Button"
+      }
+    },
+    "O6g57IzhQ9": {
+      "custom": {},
+      "displayName": "Error Message",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+        "data-type": "error-message",
+        "full-width": true,
+        "hide-when-empty": true,
+        "id": "O6g57IzhQ9",
+        "italic": false,
+        "link-target-blank": true,
+        "mode": "error",
+        "text-align": "center",
+        "variant": "body2"
+      },
+      "type": {
+        "resolvedName": "ErrorMessage"
+      }
+    },
+    "ROOT": {
+      "custom": {},
+      "displayName": "Container",
+      "hidden": false,
+      "isCanvas": true,
+      "linkedNodes": {},
+      "nodes": [
+        "DY-8rUNtnX",
+        "O6g57IzhQ9",
+        "4wJtawGDMo",
+        "sJzJr1_Ek8",
+        "w6fFuo481i",
+        "qke-0gD-ok"
+      ],
+      "props": {
+        "align": "center",
+        "background": "",
+        "data-editor-type": "container",
+        "direction": "column",
+        "id": "ROOT",
+        "justify": "center",
+        "paddingX": "5",
+        "paddingY": "5",
+        "spaceBetween": "4",
+        "st-items-grow": 0,
+        "width": "100%"
+      },
+      "type": {
+        "resolvedName": "Container"
+      }
+    },
+    "cDmtaSAoSF": {
+      "custom": {},
+      "displayName": "Text",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "DY-8rUNtnX",
+      "props": {
+        "children": "Sign up or log in\n\n",
+        "full-width": true,
+        "id": "cDmtaSAoSF",
+        "isEnriched": true,
+        "italic": false,
+        "link-target-blank": true,
+        "mode": "primary",
+        "text-align": "left",
+        "variant": "h1"
+      },
+      "type": {
+        "resolvedName": "Text"
+      }
+    },
+    "qke-0gD-ok": {
+      "custom": {},
+      "displayName": "Container",
+      "hidden": false,
+      "isCanvas": true,
+      "linkedNodes": {},
+      "nodes": [
+        "C3_h_gd8kc",
+        "tI2yuCspWe",
+        "Ms-RHbvu5r"
+      ],
+      "parent": "ROOT",
+      "props": {
+        "align": "start",
+        "background": "#ffffff00",
+        "data-editor-type": "container",
+        "direction": "row",
+        "id": "qke-0gD-ok",
+        "justify": "center",
+        "paddingX": "0",
+        "paddingY": "0",
+        "spaceBetween": "2",
+        "st-items-grow": 0,
+        "width": "100%"
+      },
+      "type": {
+        "resolvedName": "Container"
+      }
+    },
+    "sJzJr1_Ek8": {
+      "custom": {},
+      "displayName": "Container",
+      "hidden": false,
+      "isCanvas": true,
+      "linkedNodes": {},
+      "nodes": [
+        "COcMh1vzSn"
+      ],
+      "parent": "ROOT",
+      "props": {
+        "align": "start",
+        "background": "#ffffff00",
+        "data-editor-type": "container",
+        "direction": "row",
+        "id": "sJzJr1_Ek8",
+        "justify": "center",
+        "paddingX": "0",
+        "paddingY": "0",
+        "spaceBetween": "3",
+        "st-items-grow": 0,
+        "width": "100%"
+      },
+      "type": {
+        "resolvedName": "Container"
+      }
+    },
+    "snOmO2tgDH": {
+      "custom": {},
+      "displayName": "Text",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "DY-8rUNtnX",
+      "props": {
+        "children": "By continuing, you agree to the [GoodRx Terms of Use](https://support.goodrx.com/hc/en-us/articles/115005225563-GoodRx-Terms-of-Use037\u0026m=dev) and [Privacy Policy](https://www.goodrx.com/about/privacy-policy).\n\n",
+        "full-width": true,
+        "id": "snOmO2tgDH",
+        "isEnriched": true,
+        "italic": false,
+        "link-target-blank": true,
+        "mode": "secondary",
+        "text-align": "left",
+        "variant": "body2"
+      },
+      "type": {
+        "resolvedName": "Text"
+      }
+    },
+    "tI2yuCspWe": {
+      "custom": {
+        "subType": "social",
+        "type": "button"
+      },
+      "displayName": "Apple Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "qke-0gD-ok",
+      "props": {
+        "aria-label": "Sign in with Apple",
+        "children": "Continue with Apple",
+        "color": "primary",
+        "data-descope-provider": "apple",
+        "data-type": "social",
+        "formNoValidate": true,
+        "full-width": true,
+        "id": "tI2yuCspWe",
+        "shape": "",
+        "size": "md",
+        "st-label-spacing": "10px",
+        "startIcon": "apple",
+        "startIconColorText": false,
+        "text-align": "center",
+        "variant": "outline"
+      },
+      "type": {
+        "resolvedName": "AppleButton"
+      }
+    },
+    "w6fFuo481i": {
+      "custom": {},
+      "displayName": "Divider",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+        "children": "Or",
+        "id": "w6fFuo481i",
+        "italic": false,
+        "mode": "secondary",
+        "variant": "body2",
+        "vertical": false
+      },
+      "type": {
+        "resolvedName": "Divider"
+      }
+    }
+  },
+  "interactions": [
+    {
+      "icon": "google",
+      "id": "C3_h_gd8kc",
+      "label": "Continue with Google",
+      "subType": "social",
+      "type": "button"
+    },
+    {
+      "icon": "",
+      "id": "COcMh1vzSn",
+      "label": "Continue",
+      "subType": "",
+      "type": "button"
+    },
+    {
+      "icon": "asset:img-f8a36f1cd80a1089787914690f8bc9f999f41c2a22ce4514e68eedef6685287a.svg",
+      "id": "Ms-RHbvu5r",
+      "label": "Use mobile number",
+      "subType": "",
+      "type": "button"
+    },
+    {
+      "icon": "apple",
+      "id": "tI2yuCspWe",
+      "label": "Continue with Apple",
+      "subType": "social",
+      "type": "button"
+    }
+  ],
+  "screenId": "SC2sdKDb5jfJ7Om6vQM0IEXPhiPHQ"
+}

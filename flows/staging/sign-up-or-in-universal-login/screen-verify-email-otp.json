@@ -1,0 +1,414 @@
+{
+  "contents": {
+    "3b__vb3v54": {
+      "custom": {},
+      "displayName": "Link",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "IYGJS7ZEaD",
+      "props": {
+        "children": "Need help?",
+        "full-width": false,
+        "href": "https://support.goodrx.com/hc/en-us/articles/115005084443-Logging-in-to-your-GoodRx-account#h_01GJ0VFAS64Q38SEBFR0FXQ4Q6",
+        "id": "3b__vb3v54",
+        "italic": false,
+        "mode": "primary",
+        "target": "_blank",
+        "text-align": "center",
+        "tooltipText": "Tooltip text",
+        "variant": "body1"
+      },
+      "type": {
+        "resolvedName": "Link"
+      }
+    },
+    "IYGJS7ZEaD": {
+      "custom": {},
+      "displayName": "Container",
+      "hidden": false,
+      "isCanvas": true,
+      "linkedNodes": {},
+      "nodes": [
+        "3b__vb3v54"
+      ],
+      "parent": "yZNZ2ZVVu_",
+      "props": {
+        "align": "start",
+        "background": "#ffffff00",
+        "data-editor-type": "container",
+        "direction": "row",
+        "id": "IYGJS7ZEaD",
+        "justify": "center",
+        "paddingX": "0",
+        "paddingY": "3",
+        "spaceBetween": "4",
+        "st-items-grow": 0,
+        "width": "100%"
+      },
+      "type": {
+        "resolvedName": "Container"
+      }
+    },
+    "ROOT": {
+      "custom": {},
+      "displayName": "Container",
+      "hidden": false,
+      "isCanvas": true,
+      "linkedNodes": {},
+      "nodes": [
+        "yZNZ2ZVVu_"
+      ],
+      "props": {
+        "align": "center",
+        "background": "",
+        "data-editor-type": "container",
+        "direction": "column",
+        "id": "ROOT",
+        "justify": "center",
+        "paddingX": "4",
+        "paddingY": "4",
+        "spaceBetween": "5",
+        "st-items-grow": 0,
+        "width": "100%"
+      },
+      "type": {
+        "resolvedName": "Container"
+      }
+    },
+    "UL8ixDtINn": {
+      "custom": {
+        "type": "button"
+      },
+      "displayName": "Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "Z4kqTMn4FL",
+      "props": {
+        "auto-submit": false,
+        "children": "Change email",
+        "color": "primary",
+        "data-type": "button",
+        "formNoValidate": true,
+        "full-width": true,
+        "id": "UL8ixDtINn",
+        "shape": "",
+        "size": "sm",
+        "st-host-direction": "",
+        "text-align": "left",
+        "tooltipText": "Tooltip text",
+        "variant": "link"
+      },
+      "type": {
+        "resolvedName": "Button"
+      }
+    },
+    "Z4kqTMn4FL": {
+      "custom": {},
+      "displayName": "Container",
+      "hidden": false,
+      "isCanvas": true,
+      "linkedNodes": {},
+      "nodes": [
+        "l9kArPlFH_",
+        "rX5zefR-EO",
+        "UL8ixDtINn"
+      ],
+      "parent": "yZNZ2ZVVu_",
+      "props": {
+        "align": "start",
+        "background": "#ffffff00",
+        "data-editor-type": "container",
+        "direction": "row",
+        "id": "Z4kqTMn4FL",
+        "justify": "start",
+        "paddingX": "0",
+        "paddingY": "0",
+        "spaceBetween": "0",
+        "st-items-grow": 1,
+        "width": "100%"
+      },
+      "type": {
+        "resolvedName": "Container"
+      }
+    },
+    "fyz-aN6hyx": {
+      "custom": {},
+      "displayName": "Error Message",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "mE60tqap-t",
+      "props": {
+        "color": "error",
+        "data-type": "error-message",
+        "full-width": true,
+        "hide-when-empty": true,
+        "id": "fyz-aN6hyx",
+        "italic": false,
+        "link-target-blank": true,
+        "mode": "error",
+        "text-align": "left",
+        "variant": "body2"
+      },
+      "type": {
+        "resolvedName": "ErrorMessage"
+      }
+    },
+    "l9kArPlFH_": {
+      "custom": {},
+      "displayName": "Text",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "Z4kqTMn4FL",
+      "props": {
+        "children": "Let's confirm it's you\n\n",
+        "full-width": true,
+        "id": "l9kArPlFH_",
+        "isEnriched": true,
+        "italic": false,
+        "link-target-blank": true,
+        "mode": "primary",
+        "text-align": "left",
+        "tooltipText": "Tooltip text",
+        "variant": "h1"
+      },
+      "type": {
+        "resolvedName": "Text"
+      }
+    },
+    "mE60tqap-t": {
+      "custom": {},
+      "displayName": "Container",
+      "hidden": false,
+      "isCanvas": true,
+      "linkedNodes": {},
+      "nodes": [
+        "oneTimeCodeId",
+        "fyz-aN6hyx"
+      ],
+      "parent": "yZNZ2ZVVu_",
+      "props": {
+        "align": "start",
+        "background": "#ffffff00",
+        "data-editor-type": "container",
+        "direction": "column",
+        "id": "mE60tqap-t",
+        "justify": "start",
+        "paddingX": "5",
+        "paddingY": "1",
+        "spaceBetween": "1",
+        "st-items-grow": 0,
+        "width": "100%"
+      },
+      "type": {
+        "resolvedName": "Container"
+      }
+    },
+    "oOOUcyEOVr": {
+      "custom": {},
+      "displayName": "Container",
+      "hidden": false,
+      "isCanvas": true,
+      "linkedNodes": {},
+      "nodes": [
+        "resend"
+      ],
+      "parent": "yZNZ2ZVVu_",
+      "props": {
+        "align": "start",
+        "background": "#ffffff00",
+        "data-editor-type": "container",
+        "direction": "row",
+        "id": "oOOUcyEOVr",
+        "justify": "between",
+        "paddingX": "0",
+        "paddingY": "0",
+        "spaceBetween": "0",
+        "st-items-grow": 0,
+        "width": "100%"
+      },
+      "type": {
+        "resolvedName": "Container"
+      }
+    },
+    "oneTimeCodeId": {
+      "custom": {
+        "type": "oneTimeCode"
+      },
+      "displayName": "One Time Code",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "mE60tqap-t",
+      "props": {
+        "bordered": true,
+        "data-auto-submit": true,
+        "data-errormessage-pattern-mismatch": "Must be a 6 digit number",
+        "data-errormessage-value-missing": "Please fill out this field.",
+        "digits": 6,
+        "full-width": false,
+        "fullWidth": false,
+        "id": "oneTimeCodeId",
+        "label": "",
+        "name": "code",
+        "required": true,
+        "size": "lg",
+        "st-host-direction": "",
+        "type": "tel"
+      },
+      "type": {
+        "resolvedName": "CodeInput"
+      }
+    },
+    "rX5zefR-EO": {
+      "custom": {},
+      "displayName": "Text",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "Z4kqTMn4FL",
+      "props": {
+        "children": "Enter the code we just sent to {{form.email}}\n\n",
+        "full-width": false,
+        "id": "rX5zefR-EO",
+        "isEnriched": true,
+        "italic": false,
+        "link-target-blank": true,
+        "mode": "primary",
+        "st-host-direction": "",
+        "text-align": "left",
+        "tooltipText": "Tooltip text",
+        "variant": "body1"
+      },
+      "type": {
+        "resolvedName": "Text"
+      }
+    },
+    "resend": {
+      "custom": {
+        "type": "button"
+      },
+      "displayName": "Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "oOOUcyEOVr",
+      "props": {
+        "auto-submit": false,
+        "children": "Send another code",
+        "color": "primary",
+        "data-type": "button",
+        "formNoValidate": true,
+        "full-width": true,
+        "id": "resend",
+        "mode": "primary",
+        "shape": "",
+        "size": "md",
+        "tooltipText": "Tooltip text",
+        "variant": "outline"
+      },
+      "type": {
+        "resolvedName": "Button"
+      }
+    },
+    "trOjxh3OUH": {
+      "custom": {
+        "type": "button"
+      },
+      "displayName": "Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "yZNZ2ZVVu_",
+      "props": {
+        "auto-submit": true,
+        "children": "Continue",
+        "color": "primary",
+        "data-type": "button",
+        "formNoValidate": false,
+        "full-width": true,
+        "id": "trOjxh3OUH",
+        "shape": "",
+        "size": "md",
+        "tooltipText": "Tooltip text",
+        "variant": "contained"
+      },
+      "type": {
+        "resolvedName": "Button"
+      }
+    },
+    "yZNZ2ZVVu_": {
+      "custom": {},
+      "displayName": "Container",
+      "hidden": false,
+      "isCanvas": true,
+      "linkedNodes": {},
+      "nodes": [
+        "Z4kqTMn4FL",
+        "mE60tqap-t",
+        "trOjxh3OUH",
+        "oOOUcyEOVr",
+        "IYGJS7ZEaD"
+      ],
+      "parent": "ROOT",
+      "props": {
+        "align": "center",
+        "background": "",
+        "data-editor-type": "container",
+        "direction": "column",
+        "id": "yZNZ2ZVVu_",
+        "justify": "start",
+        "paddingX": "4",
+        "paddingY": "4",
+        "spaceBetween": "1.5",
+        "st-items-grow": 0,
+        "width": "100%"
+      },
+      "type": {
+        "resolvedName": "Container"
+      }
+    }
+  },
+  "interactions": [
+    {
+      "icon": "",
+      "id": "UL8ixDtINn",
+      "label": "Change email",
+      "subType": "",
+      "type": "button"
+    },
+    {
+      "icon": "",
+      "id": "oneTimeCodeId",
+      "label": "Submit code",
+      "subType": "",
+      "type": "oneTimeCode"
+    },
+    {
+      "icon": "",
+      "id": "resend",
+      "label": "Send another code",
+      "subType": "",
+      "type": "button"
+    },
+    {
+      "icon": "",
+      "id": "trOjxh3OUH",
+      "label": "Continue",
+      "subType": "",
+      "type": "button"
+    }
+  ],
+  "screenId": "SC2sdKDZVB48SjhSw9oJinqfoUKPc"
+}
