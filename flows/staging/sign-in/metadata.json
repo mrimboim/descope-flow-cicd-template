@@ -6,13 +6,16 @@
   "name": "Sign In",
   "screens": [
     "magic-link-sent",
-    "sign-in-screen",
-    "verified-successfully"
+    "sign-in-screen"
   ],
   "sharedInteractions": [
     {
       "id": "4.success",
       "type": "success"
+    },
+    {
+      "id": "6.polling",
+      "label": "Polling"
     }
   ]
 }
