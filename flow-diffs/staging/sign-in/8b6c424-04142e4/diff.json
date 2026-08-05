@@ -8,14 +8,7 @@
   "added": [
    [
     "0",
-    "Kl4hJnUjt-",
-    "8"
-   ]
-  ],
-  "removed": [
-   [
-    "0",
-    "Cf2ZQ46VfU",
+    "FBl2WPGwan",
     "8"
    ],
    [
@@ -29,6 +22,13 @@
     "4"
    ]
   ],
+  "removed": [
+   [
+    "0",
+    "Kl4hJnUjt-",
+    "8"
+   ]
+  ],
   "rewired": []
  },
  "errors": [],
@@ -38,10 +38,10 @@
   "modified": {
    "SC3FTN79pmvnowDHvPHC0CZppOHHU": {
     "nodes_added": [
-     "Kl4hJnUjt-"
+     "FBl2WPGwan"
     ],
     "nodes_removed": [
-     "Cf2ZQ46VfU"
+     "Kl4hJnUjt-"
     ],
     "prop_changes": {
      "ROOT": [
@@ -53,7 +53,7 @@
         "ro0hUNzmTB",
         "_Lh3K_C2J_",
         "X1NGL9Nm9z",
-        "Cf2ZQ46VfU",
+        "Kl4hJnUjt-",
         "n1Uhr1hcw0",
         "vnhmHHhrzY"
        ],
@@ -63,8 +63,8 @@
         "ro0hUNzmTB",
         "_Lh3K_C2J_",
         "X1NGL9Nm9z",
-        "Kl4hJnUjt-",
         "n1Uhr1hcw0",
+        "FBl2WPGwan",
         "vnhmHHhrzY"
        ]
       ]
@@ -72,15 +72,15 @@
      "bL-cGpwCvI": [
       [
        "autoComplete",
-       "webauthn",
-       null
+       null,
+       "webauthn"
       ]
      ],
      "eMTNXK-AHL": [
       [
        "children",
-       "Welcome to Descope\n\n",
-       "Welcome to Descope Again\n\n"
+       "Welcome to Descope Again\n\n",
+       "Welcome to Descope\n\n"
       ]
      ]
     }
@@ -90,48 +90,49 @@
   "removed": []
  },
  "tasks": {
-  "added": [],
+  "added": [
+   "9"
+  ],
   "derived_only": [],
   "field_changes": {
    "0": [
     [
-     "htmlTemplate.Cf2ZQ46VfU",
+     "htmlTemplate.FBl2WPGwan",
+     null,
      {
       "custom": {
        "subType": "social",
        "type": "button"
       },
-      "displayName": "Apple Button",
+      "displayName": "Facebook Button",
       "hidden": false,
       "isCanvas": false,
       "linkedNodes": {},
       "nodes": [],
       "parent": "ROOT",
       "props": {
-       "aria-label": "Sign in with Apple",
-       "children": "Sign in with Apple",
+       "aria-label": "Sign in with Facebook",
+       "children": "Sign in with Facebook",
        "color": "primary",
-       "data-descope-provider": "apple",
+       "data-descope-provider": "facebook",
        "data-type": "social",
        "formNoValidate": true,
        "full-width": true,
-       "id": "Cf2ZQ46VfU",
+       "id": "FBl2WPGwan",
        "size": "md",
        "st-label-spacing": "10px",
-       "startIcon": "apple",
+       "startIcon": "facebook",
        "startIconColorText": false,
        "tooltipText": "Tooltip text",
        "variant": "outline"
       },
       "type": {
-       "resolvedName": "AppleButton"
+       "resolvedName": "FacebookButton"
       }
-     },
-     null
+     }
     ],
     [
      "htmlTemplate.Kl4hJnUjt-",
-     null,
      {
       "custom": {
        "subType": "social",
@@ -162,7 +163,8 @@
       "type": {
        "resolvedName": "AppleButton"
       }
-     }
+     },
+     null
     ],
     [
      "htmlTemplate.ROOT.nodes",
@@ -172,7 +174,7 @@
       "ro0hUNzmTB",
       "_Lh3K_C2J_",
       "X1NGL9Nm9z",
-      "Cf2ZQ46VfU",
+      "Kl4hJnUjt-",
       "n1Uhr1hcw0",
       "vnhmHHhrzY"
      ],
@@ -182,31 +184,45 @@
       "ro0hUNzmTB",
       "_Lh3K_C2J_",
       "X1NGL9Nm9z",
-      "Kl4hJnUjt-",
       "n1Uhr1hcw0",
+      "FBl2WPGwan",
       "vnhmHHhrzY"
      ]
     ],
     [
      "htmlTemplate.bL-cGpwCvI.props.autoComplete",
-     "webauthn",
-     null
+     null,
+     "webauthn"
     ],
     [
      "htmlTemplate.eMTNXK-AHL.props.children",
-     "Welcome to Descope\n\n",
-     "Welcome to Descope Again\n\n"
+     "Welcome to Descope Again\n\n",
+     "Welcome to Descope\n\n"
     ],
     [
      "interactions",
      [
       {
-       "icon": "apple",
-       "id": "Cf2ZQ46VfU",
-       "label": "Sign in with Apple",
+       "icon": "google",
+       "id": "WSMbfRepR0",
+       "label": "Sign in with Google",
        "subType": "social",
        "type": "button"
       },
+      {
+       "id": "_Lh3K_C2J_",
+       "label": "Sign In",
+       "type": "button"
+      },
+      {
+       "icon": "apple",
+       "id": "Kl4hJnUjt-",
+       "label": "Sign in with Apple",
+       "subType": "social",
+       "type": "button"
+      }
+     ],
+     [
       {
        "icon": "google",
        "id": "WSMbfRepR0",
@@ -223,25 +239,11 @@
        "icon": "passkey",
        "id": "bL-cGpwCvI",
        "type": "input"
-      }
-     ],
-     [
-      {
-       "icon": "google",
-       "id": "WSMbfRepR0",
-       "label": "Sign in with Google",
-       "subType": "social",
-       "type": "button"
       },
       {
-       "id": "_Lh3K_C2J_",
-       "label": "Sign In",
-       "type": "button"
-      },
-      {
-       "icon": "apple",
-       "id": "Kl4hJnUjt-",
-       "label": "Sign in with Apple",
+       "icon": "facebook",
+       "id": "FBl2WPGwan",
+       "label": "Sign in with Facebook",
        "subType": "social",
        "type": "button"
       }
@@ -256,11 +258,7 @@
     "screen"
    ]
   },
-  "moved": [
-   "8"
-  ],
-  "removed": [
-   "9"
-  ]
+  "moved": [],
+  "removed": []
  }
 }

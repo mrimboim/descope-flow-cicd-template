@@ -1,0 +1,85 @@
+{
+ "componentsVersion": {
+  "new": "3.18.2",
+  "old": "3.18.2"
+ },
+ "conditions": {},
+ "edges": {
+  "added": [
+   [
+    "30",
+    "success",
+    "31"
+   ],
+   [
+    "31",
+    "polling",
+    "32"
+   ],
+   [
+    "31",
+    "resend",
+    "30"
+   ]
+  ],
+  "removed": [
+   [
+    "14",
+    "polling",
+    "15"
+   ]
+  ],
+  "rewired": []
+ },
+ "errors": [
+  {
+   "error": "ConnectorFailed",
+   "new": null,
+   "old": {
+    "errorHandlingType": "automatic"
+   },
+   "status": "removed",
+   "task": "28",
+   "taskName": "Generic HTTP / GET"
+  },
+  {
+   "error": "request_error",
+   "new": null,
+   "old": {
+    "errorHandlingType": "automatic"
+   },
+   "status": "removed",
+   "task": "28",
+   "taskName": "Generic HTTP / GET"
+  }
+ ],
+ "flowId": "sign-up",
+ "screens": {
+  "added": [
+   "SC3HVdg4AivIi0pLOnbWW8AyxcpzO",
+   "SC3HVdg6oRd7Jhwd7O8g3scYBl15e"
+  ],
+  "modified": {},
+  "noise_suppressed": 0,
+  "removed": [
+   "SC3FTN74CzqMebG5xYsRgRe3zFbQ8"
+  ]
+ },
+ "tasks": {
+  "added": [
+   "30",
+   "31",
+   "32"
+  ],
+  "derived_only": [
+   "14"
+  ],
+  "field_changes": {},
+  "modified": {},
+  "moved": [],
+  "removed": [
+   "15",
+   "28"
+  ]
+ }
+}

@@ -170,10 +170,6 @@
             "taskId": "0"
           },
           {
-            "interactionId": "polling",
-            "taskId": "15"
-          },
-          {
             "interactionId": "resend",
             "taskId": "13"
           }
@@ -184,17 +180,6 @@
       "view": {
         "x": 708,
         "y": -360
-      }
-    },
-    "15": {
-      "id": "15",
-      "name": "Verified Successfully",
-      "next": {},
-      "screenId": "SC3FTN74CzqMebG5xYsRgRe3zFbQ8",
-      "type": "screen",
-      "view": {
-        "x": 1104,
-        "y": -228
       }
     },
     "16": {
@@ -566,67 +551,6 @@
         "y": -840
       }
     },
-    "28": {
-      "action": "connector",
-      "arguments": {
-        "args": {
-          "type": "inline",
-          "value": [
-            {
-              "key": "endpoint",
-              "type": "string",
-              "value": ""
-            },
-            {
-              "key": "timeout",
-              "type": "number",
-              "value": 3
-            },
-            {
-              "key": "payload",
-              "type": "string",
-              "value": "{}"
-            }
-          ]
-        },
-        "async": {
-          "type": "inline",
-          "value": false
-        },
-        "command": {
-          "type": "inline",
-          "value": "get"
-        },
-        "connectorId": {
-          "type": "inline",
-          "value": "CI3FTNEPbQ3bnJis8wiwSRDizhLwS"
-        },
-        "resultPath": {
-          "type": "inline",
-          "value": "httpResult"
-        },
-        "templateId": {
-          "type": "inline",
-          "value": "http"
-        }
-      },
-      "errorHandlingV2": {
-        "ConnectorFailed": {
-          "errorHandlingType": "automatic"
-        },
-        "request_error": {
-          "errorHandlingType": "automatic"
-        }
-      },
-      "id": "28",
-      "name": "Generic HTTP / GET",
-      "next": {},
-      "type": "automated",
-      "view": {
-        "x": 1860,
-        "y": -84
-      }
-    },
     "29": {
       "calculatedInputKeys": true,
       "id": "29",
@@ -637,6 +561,129 @@
       "view": {
         "x": 3996,
         "y": 108
+      }
+    },
+    "30": {
+      "action": "sign-up-or-in-magic-link-email",
+      "arguments": {
+        "extraTemplateVals": {
+          "type": "inline",
+          "value": ""
+        },
+        "providerId": {
+          "type": "inline",
+          "value": ""
+        },
+        "skipVerify": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": ""
+        },
+        "uri": {
+          "type": "inline",
+          "value": ""
+        },
+        "verifyStepId": {
+          "type": "inline",
+          "value": "30.end"
+        }
+      },
+      "id": "30",
+      "name": "Sign Up or In / Magic Link / Email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "31"
+          },
+          {
+            "interactionId": "success",
+            "taskId": "30.end"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 2112,
+        "y": -180
+      }
+    },
+    "30.end": {
+      "action": "verify-magic-link",
+      "arguments": {
+        "extraTemplateVals": {
+          "type": "inline",
+          "value": ""
+        },
+        "providerId": {
+          "type": "inline",
+          "value": ""
+        },
+        "skipVerify": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": ""
+        },
+        "uri": {
+          "type": "inline",
+          "value": ""
+        },
+        "verifyStepId": {
+          "type": "inline",
+          "value": "30.end"
+        }
+      },
+      "id": "30.end",
+      "name": "Sign Up or In / Magic Link / Email",
+      "next": {},
+      "type": "automated",
+      "view": {
+        "x": 2112,
+        "y": -180
+      }
+    },
+    "31": {
+      "calculatedInputKeys": true,
+      "contextKeys": [
+        "sentTo.maskedEmail"
+      ],
+      "id": "31",
+      "name": "Magic Link Sent",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "polling",
+            "taskId": "32"
+          },
+          {
+            "interactionId": "resend",
+            "taskId": "30"
+          }
+        ]
+      },
+      "screenId": "SC3HVdg4AivIi0pLOnbWW8AyxcpzO",
+      "type": "screen",
+      "view": {
+        "x": 2544,
+        "y": -180
+      }
+    },
+    "32": {
+      "calculatedInputKeys": true,
+      "id": "32",
+      "name": "Verified Successfully",
+      "next": {},
+      "screenId": "SC3HVdg6oRd7Jhwd7O8g3scYBl15e",
+      "type": "screen",
+      "view": {
+        "x": 2892,
+        "y": -84
       }
     },
     "5": {
