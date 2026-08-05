@@ -9,11 +9,11 @@
       "nodes": [],
       "parent": "ROOT",
       "props": {
+        "color": "error",
         "data-type": "error-message",
         "full-width": false,
         "id": "1sMmkeVxVT",
         "italic": false,
-        "mode": "error",
         "text-align": "center",
         "variant": "body1"
       },
@@ -89,5 +89,5 @@
     }
   },
   "interactions": [],
-  "screenId": "SC3FTN74CzqMebG5xYsRgRe3zFbQ8"
+  "screenId": "SC3HVdg6oRd7Jhwd7O8g3scYBl15e"
 }

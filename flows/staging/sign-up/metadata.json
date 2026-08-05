@@ -4,14 +4,10 @@
   "disabled": false,
   "fingerprint": false,
   "name": "Sign Up",
-  "references": {
-    "connectors": {
-      "test": "CI3FTNEPbQ3bnJis8wiwSRDizhLwS"
-    }
-  },
   "screens": [
     "3HVaWzTX0eZuiaRNdU0RNSluTZQ",
     "magic-link-sent-8qE0",
+    "magic-link-sent-cpzO",
     "magic-link-sent-j7j5",
     "sign-up-screen",
     "user-information-RTOM",
@@ -24,6 +20,10 @@
     {
       "id": "6.success",
       "type": "success"
+    },
+    {
+      "id": "14.polling",
+      "label": "Polling"
     },
     {
       "id": "17.polling",
@@ -39,8 +39,19 @@
       "type": "success"
     },
     {
-      "id": "28.success",
-      "label": "Success",
+      "id": "31.EbW8KMdjAx",
+      "label": "Choose another authentication method",
+      "type": "button"
+    },
+    {
+      "icon": "error",
+      "id": "31.polling-error",
+      "label": "Polling Expired",
+      "type": "polling"
+    },
+    {
+      "id": "30.end.success",
+      "label": "Successful authentication",
       "type": "success"
     }
   ]
