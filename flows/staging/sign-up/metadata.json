@@ -4,11 +4,6 @@
   "disabled": false,
   "fingerprint": false,
   "name": "Sign Up",
-  "references": {
-    "connectors": {
-      "test": "CI3FTNEPbQ3bnJis8wiwSRDizhLwS"
-    }
-  },
   "screens": [
     "magic-link-sent-8qE0",
     "magic-link-sent-j7j5",
@@ -16,8 +11,7 @@
     "user-information-RTOM",
     "user-information-XYlw",
     "user-information-unverified-email-only",
-    "verified-successfully-FbQ8",
-    "verified-successfully-iMl0",
+    "verified-successfully",
     "verify-otp"
   ],
   "sharedInteractions": [
@@ -26,19 +20,8 @@
       "type": "success"
     },
     {
-      "id": "20.success",
-      "label": "Success",
-      "type": "success"
-    },
-    {
-      "id": "22.success",
-      "label": "Success",
-      "type": "success"
-    },
-    {
-      "id": "23.success",
-      "label": "Success",
-      "type": "success"
+      "id": "17.polling",
+      "label": "Polling"
     },
     {
       "id": "25.pnOqEGpL1b",

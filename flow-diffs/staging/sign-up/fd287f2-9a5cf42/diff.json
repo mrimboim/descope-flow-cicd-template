@@ -1,59 +1,129 @@
 {
  "componentsVersion": {
   "new": "3.18.2",
-  "old": "3.14.7"
+  "old": "3.18.2"
  },
  "conditions": {},
  "edges": {
   "added": [
    [
     "0",
+    "6KGtvzyiH_",
+    "27"
+   ],
+   [
+    "0",
+    "keR6MsQTnS",
+    "19"
+   ],
+   [
+    "27",
+    "success",
+    "6"
+   ]
+  ],
+  "removed": [
+   [
+    "0",
     "Gjob4tKKNP",
     "19"
    ],
    [
-    "24",
-    "success",
-    "25"
-   ],
-   [
-    "25",
-    "oneTimeCodeId",
-    "26"
-   ],
-   [
-    "25",
-    "resend",
-    "24"
+    "17",
+    "polling",
+    "18"
    ]
   ],
-  "removed": [],
   "rewired": []
  },
  "errors": [
   {
-   "error": "ScriptletFailed",
+   "error": "ConnectorFailed",
    "new": null,
    "old": {
     "errorHandlingType": "automatic"
    },
    "status": "removed",
-   "task": "21",
-   "taskName": "Test"
+   "task": "20",
+   "taskName": "APPPLE"
+  },
+  {
+   "error": "request_error",
+   "new": null,
+   "old": {
+    "errorHandlingType": "automatic"
+   },
+   "status": "removed",
+   "task": "20",
+   "taskName": "APPPLE"
+  },
+  {
+   "error": "ConnectorFailed",
+   "new": null,
+   "old": {
+    "errorHandlingType": "automatic"
+   },
+   "status": "removed",
+   "task": "22",
+   "taskName": "Generic HTTP / GET"
+  },
+  {
+   "error": "request_error",
+   "new": null,
+   "old": {
+    "errorHandlingType": "automatic"
+   },
+   "status": "removed",
+   "task": "22",
+   "taskName": "Generic HTTP / GET"
+  },
+  {
+   "error": "ConnectorFailed",
+   "new": null,
+   "old": {
+    "errorHandlingType": "automatic"
+   },
+   "status": "removed",
+   "task": "23",
+   "taskName": "Get user"
+  },
+  {
+   "error": "request_error",
+   "new": null,
+   "old": {
+    "errorHandlingType": "automatic"
+   },
+   "status": "removed",
+   "task": "23",
+   "taskName": "Get user"
   }
  ],
  "flowId": "sign-up",
  "screens": {
-  "added": [
-   "SC3HUGAcKm6iZ2oCXvMvTsqZNW6wE"
-  ],
+  "added": [],
   "modified": {
    "SC3FTN76Wa9lfYJY6sq7uvfTz5l9Q": {
     "nodes_added": [
+     "keR6MsQTnS"
+    ],
+    "nodes_removed": [
      "Gjob4tKKNP"
     ],
-    "nodes_removed": [],
     "prop_changes": {
+     "6KGtvzyiH_": [
+      [
+       "autoComplete",
+       null,
+       "webauthn"
+      ]
+     ],
+     "NqE2Qh0Sq6": [
+      [
+       "children",
+       "Testing normal change jul 5\n\n",
+       "Welcome\n\n"
+      ]
+     ],
      "ROOT": [
       [
        "<nodes>",
@@ -64,6 +134,7 @@
         "ekknuJxLv5",
         "WdJMmKNDSv",
         "WrcNhwLdaS",
+        "Gjob4tKKNP",
         "ImJgP2GEdz"
        ],
        [
@@ -73,7 +144,7 @@
         "ekknuJxLv5",
         "WdJMmKNDSv",
         "WrcNhwLdaS",
-        "Gjob4tKKNP",
+        "keR6MsQTnS",
         "ImJgP2GEdz"
        ]
       ]
@@ -82,20 +153,20 @@
    }
   },
   "noise_suppressed": 0,
-  "removed": []
+  "removed": [
+   "SC3FTN77hXxEjsFSk1yr8MnhbiMl0"
+  ]
  },
  "tasks": {
   "added": [
-   "24",
-   "25",
-   "26"
+   "27"
   ],
   "derived_only": [
    "12",
    "14",
    "15",
    "17",
-   "18",
+   "25",
    "5",
    "7"
   ],
@@ -103,31 +174,32 @@
    "0": [
     [
      "clientScripts",
-     [],
-     null
+     null,
+     []
     ],
     [
      "componentsConditions",
-     [],
-     null
+     null,
+     []
     ],
     [
      "componentsConnectors",
-     {},
-     null
+     null,
+     {}
     ],
     [
      "connectorComponentProps",
-     {},
-     null
+     null,
+     {}
     ],
     [
      "dynamicSelects",
-     {},
-     null
+     null,
+     {}
     ],
     [
      "htmlTemplate",
+     null,
      {
       "6KGtvzyiH_": {
        "custom": {
@@ -140,6 +212,7 @@
        "nodes": [],
        "parent": "ROOT",
        "props": {
+        "autoComplete": "webauthn",
         "bordered": true,
         "copy-to-clipboard": false,
         "data-errormessage-pattern-mismatch": "Must be a valid email",
@@ -269,7 +342,7 @@
        "nodes": [],
        "parent": "ROOT",
        "props": {
-        "children": "Testing normal change jul 5\n\n",
+        "children": "Welcome\n\n",
         "full-width": false,
         "id": "NqE2Qh0Sq6",
         "isEnriched": true,
@@ -297,6 +370,7 @@
         "ekknuJxLv5",
         "WdJMmKNDSv",
         "WrcNhwLdaS",
+        "keR6MsQTnS",
         "ImJgP2GEdz"
        ],
        "props": {
@@ -443,6 +517,37 @@
         "resolvedName": "Button"
        }
       },
+      "keR6MsQTnS": {
+       "custom": {
+        "subType": "social",
+        "type": "button"
+       },
+       "displayName": "Facebook Button",
+       "hidden": false,
+       "isCanvas": false,
+       "linkedNodes": {},
+       "nodes": [],
+       "parent": "ROOT",
+       "props": {
+        "aria-label": "Sign in with Facebook",
+        "children": "Sign in with Facebook",
+        "color": "primary",
+        "data-descope-provider": "facebook",
+        "data-type": "social",
+        "formNoValidate": true,
+        "full-width": true,
+        "id": "keR6MsQTnS",
+        "size": "md",
+        "st-label-spacing": "10px",
+        "startIcon": "facebook",
+        "startIconColorText": false,
+        "tooltipText": "Tooltip text",
+        "variant": "outline"
+       },
+       "type": {
+        "resolvedName": "FacebookButton"
+       }
+      },
       "yraprtzr35": {
        "custom": {},
        "displayName": "Link",
@@ -466,12 +571,17 @@
         "resolvedName": "Link"
        }
       }
-     },
-     null
+     }
     ],
     [
      "interactions",
+     null,
      [
+      {
+       "icon": "passkey",
+       "id": "6KGtvzyiH_",
+       "type": "input"
+      },
       {
        "icon": "google",
        "id": "WN6nz9hWd5",
@@ -483,14 +593,20 @@
        "id": "ekknuJxLv5",
        "label": "Sign Up",
        "type": "button"
+      },
+      {
+       "icon": "facebook",
+       "id": "keR6MsQTnS",
+       "label": "Sign in with Facebook",
+       "subType": "social",
+       "type": "button"
       }
-     ],
-     null
+     ]
     ],
     [
      "recoveryCodesData",
-     [],
-     null
+     null,
+     []
     ]
    ]
   },
@@ -509,7 +625,10 @@
   },
   "moved": [],
   "removed": [
-   "21"
+   "18",
+   "20",
+   "22",
+   "23"
   ]
  }
 }
