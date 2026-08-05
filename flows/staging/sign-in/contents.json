@@ -36,35 +36,35 @@
             "resolvedName": "Link"
           }
         },
-        "7GQnOKn5hG": {
+        "Cf2ZQ46VfU": {
           "custom": {
             "subType": "social",
             "type": "button"
           },
-          "displayName": "Facebook Button",
+          "displayName": "Apple Button",
           "hidden": false,
           "isCanvas": false,
           "linkedNodes": {},
           "nodes": [],
           "parent": "ROOT",
           "props": {
-            "aria-label": "Sign in with Facebook",
-            "children": "Sign in with Facebook",
+            "aria-label": "Sign in with Apple",
+            "children": "Sign in with Apple",
             "color": "primary",
-            "data-descope-provider": "facebook",
+            "data-descope-provider": "apple",
             "data-type": "social",
             "formNoValidate": true,
             "full-width": true,
-            "id": "7GQnOKn5hG",
+            "id": "Cf2ZQ46VfU",
             "size": "md",
             "st-label-spacing": "10px",
-            "startIcon": "facebook",
+            "startIcon": "apple",
             "startIconColorText": false,
             "tooltipText": "Tooltip text",
             "variant": "outline"
           },
           "type": {
-            "resolvedName": "FacebookButton"
+            "resolvedName": "AppleButton"
           }
         },
         "IcQvsZ54WE": {
@@ -127,8 +127,7 @@
             "ro0hUNzmTB",
             "_Lh3K_C2J_",
             "X1NGL9Nm9z",
-            "7GQnOKn5hG",
-            "cf5EF1n0xK",
+            "Cf2ZQ46VfU",
             "n1Uhr1hcw0",
             "vnhmHHhrzY"
           ],
@@ -262,6 +261,7 @@
           "nodes": [],
           "parent": "ROOT",
           "props": {
+            "autoComplete": "webauthn",
             "bordered": true,
             "copy-to-clipboard": false,
             "data-errormessage-pattern-mismatch": "Must be a valid email",
@@ -282,37 +282,6 @@
             "resolvedName": "EmailInput"
           }
         },
-        "cf5EF1n0xK": {
-          "custom": {
-            "subType": "social",
-            "type": "button"
-          },
-          "displayName": "Github Button",
-          "hidden": false,
-          "isCanvas": false,
-          "linkedNodes": {},
-          "nodes": [],
-          "parent": "ROOT",
-          "props": {
-            "aria-label": "Sign in with Github",
-            "children": "Sign in with Github",
-            "color": "primary",
-            "data-descope-provider": "github",
-            "data-type": "social",
-            "formNoValidate": true,
-            "full-width": true,
-            "id": "cf5EF1n0xK",
-            "size": "md",
-            "st-label-spacing": "10px",
-            "startIcon": "github",
-            "startIconColorText": false,
-            "tooltipText": "Tooltip text",
-            "variant": "outline"
-          },
-          "type": {
-            "resolvedName": "GithubButton"
-          }
-        },
         "eMTNXK-AHL": {
           "custom": {},
           "displayName": "Text",
@@ -322,7 +291,7 @@
           "nodes": [],
           "parent": "ROOT",
           "props": {
-            "children": "Welcome\n\n",
+            "children": "Welcome to Descope\n\n",
             "full-width": false,
             "id": "eMTNXK-AHL",
             "isEnriched": true,
@@ -430,13 +399,6 @@
       ],
       "interactions": [
         {
-          "icon": "facebook",
-          "id": "7GQnOKn5hG",
-          "label": "Sign in with Facebook",
-          "subType": "social",
-          "type": "button"
-        },
-        {
           "icon": "google",
           "id": "WSMbfRepR0",
           "label": "Sign in with Google",
@@ -449,9 +411,15 @@
           "type": "button"
         },
         {
-          "icon": "github",
-          "id": "cf5EF1n0xK",
-          "label": "Sign in with Github",
+          "icon": "passkey",
+          "id": "bL-cGpwCvI",
+          "label": "",
+          "type": "input"
+        },
+        {
+          "icon": "apple",
+          "id": "Cf2ZQ46VfU",
+          "label": "Sign in with Apple",
           "subType": "social",
           "type": "button"
         }
@@ -460,19 +428,19 @@
       "next": {
         "rules": [
           {
-            "interactionId": "_Lh3K_C2J_",
-            "taskId": "5"
+            "interactionId": "bL-cGpwCvI",
+            "taskId": "9"
           },
           {
-            "interactionId": "7GQnOKn5hG",
-            "taskId": "8"
+            "interactionId": "_Lh3K_C2J_",
+            "taskId": "5"
           },
           {
             "interactionId": "WSMbfRepR0",
             "taskId": "8"
           },
           {
-            "interactionId": "cf5EF1n0xK",
+            "interactionId": "Cf2ZQ46VfU",
             "taskId": "8"
           }
         ]
@@ -481,8 +449,8 @@
       "screenId": "SC3FTN79pmvnowDHvPHC0CZppOHHU",
       "type": "screen",
       "view": {
-        "x": 792,
-        "y": 168
+        "x": 348,
+        "y": 180
       }
     },
     "4": {
@@ -611,10 +579,6 @@
             "taskId": "0"
           },
           {
-            "interactionId": "polling",
-            "taskId": "7"
-          },
-          {
             "interactionId": "resend",
             "taskId": "5"
           }
@@ -623,21 +587,8 @@
       "screenId": "SC3FTN733QDct8NKpjI33h2IBY3UG",
       "type": "screen",
       "view": {
-        "x": 1164,
-        "y": -288
-      }
-    },
-    "7": {
-      "allInputKeys": [],
-      "id": "7",
-      "inputsMetadata": [],
-      "name": "Verified Successfully",
-      "next": {},
-      "screenId": "SC3FTN77SjmwgWbIUKXrqz2mSdqts",
-      "type": "screen",
-      "view": {
-        "x": 1596,
-        "y": -168
+        "x": 864,
+        "y": -396
       }
     },
     "8": {
@@ -692,8 +643,8 @@
       },
       "type": "automated",
       "view": {
-        "x": 1164,
-        "y": 324
+        "x": 1176,
+        "y": 468
       }
     },
     "8.end": {
@@ -748,8 +699,72 @@
       },
       "type": "automated",
       "view": {
-        "x": 1164,
-        "y": 324
+        "x": 1176,
+        "y": 468
+      }
+    },
+    "9": {
+      "action": "webauthn-sign-up-or-in-start",
+      "arguments": {
+        "finishStepId": {
+          "type": "inline",
+          "value": "9.end"
+        },
+        "restrictPasskeyTypes": {
+          "type": "inline",
+          "value": ""
+        },
+        "userVerificationDiscouraged": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "id": "9",
+      "name": "Sign Up or In / Passkeys (WebAuthn)",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "9.end"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 948,
+        "y": 276
+      }
+    },
+    "9.end": {
+      "action": "webauthn-sign-up-or-in-finish",
+      "arguments": {
+        "finishStepId": {
+          "type": "inline",
+          "value": "9.end"
+        },
+        "restrictPasskeyTypes": {
+          "type": "inline",
+          "value": ""
+        },
+        "userVerificationDiscouraged": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "id": "9.end",
+      "name": "Sign Up or In / Passkeys (WebAuthn)",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "4"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 948,
+        "y": 276
       }
     },
     "start": {
@@ -763,8 +778,8 @@
         ]
       },
       "view": {
-        "x": 588,
-        "y": 240
+        "x": 108,
+        "y": 264
       }
     }
   }
