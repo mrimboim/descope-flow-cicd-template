@@ -1,0 +1,151 @@
+name: 'Descope Flow Visual Diff'
+description: >-
+  Renders git-style visual diffs for changed Descope flows: flow graph overview,
+  changed-region zooms, real screen renders via the Descope rendering engine,
+  and per-block condition/action/connector panels. Works with descope CLI
+  snapshot folders (project-cicd-template / ProjectSnapshot layout) and
+  single-file console exports (Terraform provider layout).
+
+inputs:
+  flows-path:
+    description: >-
+      Directory containing the flows. Supports snapshot flow directories
+      (<flows-path>/<flow-id>/contents.json + screen-*.json) and single-file
+      exports (<flows-path>/<flow-id>.json). Both may be mixed.
+    required: true
+    default: 'ProjectSnapshot/flows'
+  output-path:
+    description: 'Where diff images are written (commit this dir to show them in the PR)'
+    required: false
+    default: 'flow-diffs'
+  base-ref:
+    description: >-
+      Git ref holding the OLD flows. Leave empty to compare the working tree
+      against HEAD (for export-then-open-PR pipelines). In pull_request
+      workflows pass the PR base SHA.
+    required: false
+    default: ''
+  pixel-render:
+    description: 'Render real screens with the Descope engine (installs Chromium; ~1 min extra)'
+    required: false
+    default: 'true'
+  image-url-prefix:
+    description: >-
+      Prefix for image links in the markdown output, e.g.
+      https://github.com/OWNER/REPO/raw/BRANCH — use when embedding in a PR
+      body/comment. Empty = repo-relative links.
+    required: false
+    default: ''
+
+outputs:
+  changed-count:
+    description: 'Number of flows that had visual diffs generated'
+    value: ${{ steps.diff.outputs.changed }}
+  markdown-file:
+    description: 'Path to a PR-body-ready markdown fragment embedding the images'
+    value: ${{ steps.diff.outputs.markdown }}
+
+runs:
+  using: composite
+  steps:
+    - name: Install renderer dependencies
+      shell: bash
+      env:
+        PIXEL: ${{ inputs.pixel-render }}
+      run: |
+        set -euo pipefail
+        pip install --quiet cairosvg
+        if [ "$PIXEL" = "true" ]; then
+          cd "$GITHUB_ACTION_PATH/../../../tools/flow-diff"
+          npm install --no-audit --no-fund
+          npx playwright-core install --with-deps chromium-headless-shell
+        fi
+
+    - name: Generate visual flow diffs
+      id: diff
+      shell: bash
+      env:
+        FLOWS_PATH: ${{ inputs.flows-path }}
+        OUT: ${{ inputs.output-path }}
+        BASE_REF: ${{ inputs.base-ref }}
+        PIXEL: ${{ inputs.pixel-render }}
+        URL_PREFIX: ${{ inputs.image-url-prefix }}
+      run: |
+        set -euo pipefail
+        shopt -s nullglob
+        TOOLS="$GITHUB_ACTION_PATH/../../../tools/flow-diff"
+        BASE="${BASE_REF:-HEAD}"
+        EXTRA=""; [ "$PIXEL" = "true" ] || EXTRA="--no-pixel"
+        MD="$RUNNER_TEMP/flow-diff-pr.md"; : > "$MD"
+        CHANGED=0
+
+        # discover flow units: snapshot directories and single-file exports
+        units=()
+        for d in "$FLOWS_PATH"/*/; do
+          [ -f "${d}contents.json" ] && units+=("${d%/}")
+        done
+        for f in "$FLOWS_PATH"/*.json; do
+          case "$(basename "$f")" in flows.json|styles.json|theme.json) continue;; esac
+          python3 -c "import json,sys; d=json.load(open('$f')); sys.exit(0 if 'contents' in d else 1)" 2>/dev/null \
+            && units+=("$f")
+        done
+
+        rm -rf "$OUT"
+        for unit in "${units[@]}"; do
+          id="$(basename "$unit" .json)"
+
+          if ! git rev-parse -q --verify "$BASE:$unit" >/dev/null 2>&1; then
+            echo "  - $id: new flow (no previous version), skipping visual diff"
+            printf -- "- \xF0\x9F\x86\x95 **%s** \xE2\x80\x94 new flow (no previous version to diff against)\n" "$id" >> "$MD"
+            continue
+          fi
+
+          if [ -z "$BASE_REF" ]; then
+            changed_files="$(git status --porcelain -- "$unit")"
+          else
+            changed_files="$(git diff --name-only "$BASE" -- "$unit"; git status --porcelain -- "$unit")"
+          fi
+          if [ -z "$changed_files" ]; then
+            echo "  - $id: unchanged"
+            continue
+          fi
+
+          # reconstruct the OLD version from the base ref
+          rm -rf "$RUNNER_TEMP/old-flow" && mkdir -p "$RUNNER_TEMP/old-flow"
+          if [ -d "$unit" ]; then
+            git archive "$BASE" -- "$unit" | tar -x -C "$RUNNER_TEMP/old-flow"
+            OLD="$RUNNER_TEMP/old-flow/$unit"
+            newh="$(find "$unit" -type f -print0 | sort -z | xargs -0 sha1sum | sha1sum | cut -c1-7)"
+          else
+            git show "$BASE:$unit" > "$RUNNER_TEMP/old-flow/$id.json"
+            OLD="$RUNNER_TEMP/old-flow/$id.json"
+            newh="$(sha1sum "$unit" | cut -c1-7)"
+          fi
+          oldh="$(git rev-parse "$BASE:$unit" | cut -c1-7)"
+
+          out="$OUT/$id/$oldh-$newh"
+          echo "  - $id: $oldh -> $newh"
+          python3 "$TOOLS/flow_diff.py" "$OLD" "$unit" -o "$out" $EXTRA
+          rm -f "$out/.pixel-changes.json"
+          CHANGED=$((CHANGED+1))
+
+          {
+            echo ""
+            echo "<details>"
+            printf "<summary><b>\xF0\x9F\x96\xBC Visual diff: %s</b> \xE2\x80\x94 click to expand</summary>\n" "$id"
+            echo ""
+            for img in "$out"/*.png; do
+              if [ -n "$URL_PREFIX" ]; then
+                echo "![$(basename "$img" .png)]($URL_PREFIX/$img)"
+              else
+                echo "![$(basename "$img" .png)]($img)"
+              fi
+              echo ""
+            done
+            echo "</details>"
+          } >> "$MD"
+        done
+
+        echo "changed=$CHANGED" >> "$GITHUB_OUTPUT"
+        echo "markdown=$MD" >> "$GITHUB_OUTPUT"
+        echo "Generated visual diffs for $CHANGED flow(s) under $OUT/"

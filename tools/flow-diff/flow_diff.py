@@ -12,7 +12,7 @@ Usage:
 Outputs (deterministic filenames, safe to commit):
     00-overview.svg/.png     full flow graph, changes highlighted
     10-cluster-<slug>.png    zoomed view per changed region
-    20-screen-<slug>.png     structural screen diffs (old vs new)
+    20-screen-<slug>.png     screen diffs (craft tree + embedded real render)
     30-condition-<slug>.png  per-condition branch diffs
     40-action-<slug>.png     per-action field + error handling diffs
     50-connector-<slug>.png  per-connector diffs
@@ -117,8 +117,12 @@ def normalize(flow):
                 continue  # internal send->verify edge of a grouped pair
             edges.append((tid, r.get("interactionId") or "", dst))
     screens = {s["screenId"]: s.get("contents") or {} for s in flow.get("screens") or []}
+    # per-screen interactions registry (authoritative id -> label/type/icon)
+    screen_interactions = {s["screenId"]: {i.get("id"): i for i in s.get("interactions") or []}
+                           for s in flow.get("screens") or []}
     meta = flow.get("metadata") or {}
-    return {"tasks": tasks, "edges": edges, "screens": screens, "meta": meta,
+    return {"tasks": tasks, "edges": edges, "screens": screens,
+            "screen_interactions": screen_interactions, "meta": meta,
             "flowId": flow.get("flowId", "flow"), "startTask": flow["contents"].get("startTask")}
 
 # ---------------------------------------------------------------- diff engine
@@ -334,6 +338,20 @@ def interaction_label(flow, task, iid):
             ch = p.get("children") or p.get("label")
             if isinstance(ch, str) and ch.strip():
                 return ch.strip()
+    # LAST-RESORT fallback, only when the label would otherwise be a raw
+    # component id (e.g. passkey autofill registered on an email/phone input
+    # whose label prop is empty): use the screen's interactions registry and
+    # the component's displayName, e.g. "Email Input · passkey".
+    rec = (flow.get("screen_interactions") or {}).get(sid or "", {}).get(iid)
+    if rec:
+        if isinstance(rec.get("label"), str) and rec["label"].strip():
+            return rec["label"].strip()
+        node = flow["screens"].get(sid, {}).get(iid) if sid else None
+        disp = (node or {}).get("displayName") or rec.get("type") or ""
+        icon = rec.get("icon") or ""
+        friendly = " · ".join(x for x in (disp, icon) if x)
+        if friendly:
+            return friendly
     return iid
 
 def build_render_model(old, new, diff):
@@ -606,7 +624,13 @@ def png_size(path):
     return w, h
 
 def render_screen_panel(title, old_c, new_c, changes, subtitle="", pixel_png=None):
-    """Two columns (old/new) of the craft tree with diff highlighting + prop change list."""
+    """Two columns (old/new) of the craft tree with diff highlighting + prop change list.
+    Added/removed screens get a compact single panel (note + render) instead of
+    a before/after layout — there is no second side to compare against."""
+    if old_c is None or new_c is None:
+        return render_single_screen_panel(title, old_c if new_c is None else new_c,
+                                          removed=new_c is None, subtitle=subtitle,
+                                          pixel_png=pixel_png)
     colw, rowh, indent = 380, 26, 16
     changed_nodes = set(changes.get("prop_changes") or {})
     added_nodes = set(changes.get("nodes_added") or [])
@@ -664,14 +688,8 @@ def render_screen_panel(title, old_c, new_c, changes, subtitle="", pixel_png=Non
         p.append(f'<text x="24" y="54" font-size="11" fill="{C["dim"]}">{esc(subtitle)}</text>')
     p.append(f'<text x="24" y="{header_h-6}" font-size="12" font-weight="700" fill="{C["dim"]}">OLD</text>')
     p.append(f'<text x="{24+colw+24}" y="{header_h-6}" font-size="12" font-weight="700" fill="{C["dim"]}">NEW</text>')
-    if old_c:
-        parts, _ = col(old_c, 24, header_h, "old"); p += parts
-    else:
-        p.append(f'<text x="24" y="{header_h+20}" font-size="12" fill="{C["dim"]}">(screen did not exist)</text>')
-    if new_c:
-        parts, _ = col(new_c, 24 + colw + 24, header_h, "new"); p += parts
-    else:
-        p.append(f'<text x="{24+colw+24}" y="{header_h+20}" font-size="12" fill="{C["dim"]}">(screen deleted)</text>')
+    parts, _ = col(old_c, 24, header_h, "old"); p += parts
+    parts, _ = col(new_c, 24 + colw + 24, header_h, "new"); p += parts
     y = header_h + body_h
     if prop_lines:
         p.append(f'<text x="24" y="{y}" font-size="12" font-weight="700" fill="{C["text"]}">Property changes</text>')
@@ -686,6 +704,46 @@ def render_screen_panel(title, old_c, new_c, changes, subtitle="", pixel_png=Non
                  f'Rendered screen (Descope engine)</text>')
         p.append(f'<image x="24" y="{y+24}" width="{pix_w}" height="{pix_h}" '
                  f'href="data:image/png;base64,{pix_b64}"/>')
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
+            f'font-family="Helvetica, Arial, sans-serif">{"".join(p)}</svg>')
+
+def render_single_screen_panel(title, contents, removed, subtitle="", pixel_png=None):
+    """Compact panel for added/removed screens: colored note + one rendered screen
+    (falls back to a single craft-tree column when pixel rendering is off)."""
+    W = 2 * 380 + 3 * 24
+    accent = C["removed"] if removed else C["added"]
+    note = "This screen was deleted." if removed else "New screen."
+    pix_b64, pix_w, pix_h = None, 0, 0
+    if pixel_png and os.path.exists(pixel_png):
+        import base64
+        pw, ph = png_size(pixel_png)
+        pix_w = min(W - 48, 560)
+        pix_h = int(ph * pix_w / pw)
+        with open(pixel_png, "rb") as f:
+            pix_b64 = base64.b64encode(f.read()).decode()
+    rows = craft_tree_order(contents) if (contents and not pix_b64) else []
+    body_h = (pix_h + 20) if pix_b64 else (len(rows) * 26 + 20)
+    H = 96 + body_h + 24
+    p = [f'<rect width="{W}" height="{H}" fill="{C["bg"]}"/>',
+         f'<rect x="0" y="0" width="{W}" height="52" fill="{accent}" fill-opacity="0.15"/>',
+         f'<rect x="0" y="0" width="6" height="52" fill="{accent}"/>',
+         f'<text x="24" y="33" font-size="18" font-weight="700" fill="{accent}">{esc(title)}</text>',
+         f'<text x="24" y="70" font-size="11" fill="{C["dim"]}">{esc(subtitle)}</text>',
+         f'<text x="24" y="90" font-size="12" font-weight="600" fill="{C["text"]}">{esc(note)}</text>']
+    if pix_b64:
+        p.append(f'<image x="24" y="100" width="{pix_w}" height="{pix_h}" '
+                 f'href="data:image/png;base64,{pix_b64}"/>')
+    else:  # --no-pixel fallback: single structural column
+        y = 100
+        for nid, depth in rows:
+            t, txt = craft_label(contents[nid])
+            x = 24 + depth * 16
+            p.append(f'<rect x="{x}" y="{y}" width="{380 - depth*16}" height="21" rx="5" '
+                     f'fill="#f6f8fa" stroke="{C["border"]}" stroke-width="0.8"/>')
+            label = t + (f'  “{clip(txt, 200, 11)}”' if txt else "")
+            p.append(f'<text x="{x+8}" y="{y+14.5}" font-size="11" fill="{C["text"]}">'
+                     f'{esc(clip(label, 364 - depth*16, 11))}</text>')
+            y += 26
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
             f'font-family="Helvetica, Arial, sans-serif">{"".join(p)}</svg>')
 
@@ -902,6 +960,12 @@ def main():
         svg = render_screen_panel(f'Screen removed: {title}', old["screens"].get(sid), None,
                                   {}, subtitle=sid, pixel_png=pixel_files.get(sid))
         files["screens"].append(write_svg_png(svg, args.out, f'20-screen-removed-{slugify(title)}', png))
+
+    # the renders are embedded inside the 20-screen panels — drop the standalone
+    # 21-pixel images so the PR doesn't show near-duplicate screen artifacts
+    for p_ in pixel_files.values():
+        try: os.remove(p_)
+        except OSError: pass
 
     # per-block change panels (conditions / actions / connectors / subflows),
     # each with its own colored banner; error-handling changes fold into the
