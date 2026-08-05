@@ -6,378 +6,9 @@
         "email"
       ],
       "calculatedInputKeys": true,
-      "clientScripts": [],
-      "componentsConditions": [],
-      "componentsConnectors": {},
-      "connectorComponentProps": {},
-      "dynamicSelects": {},
-      "htmlTemplate": {
-        "6KGtvzyiH_": {
-          "custom": {
-            "type": "input"
-          },
-          "displayName": "Email Input",
-          "hidden": false,
-          "isCanvas": false,
-          "linkedNodes": {},
-          "nodes": [],
-          "parent": "ROOT",
-          "props": {
-            "bordered": true,
-            "copy-to-clipboard": false,
-            "data-errormessage-pattern-mismatch": "Must be a valid email",
-            "data-errormessage-value-missing": "Please fill out this field.",
-            "full-width": true,
-            "id": "6KGtvzyiH_",
-            "label": "",
-            "label-type": "static",
-            "max": 100,
-            "name": "email",
-            "pattern": "^[\\w._%+-]+@[\\w.-]+\\.[A-Za-z]{2,}$",
-            "placeholder": "Email address *",
-            "required": true,
-            "size": "md",
-            "type": "email"
-          },
-          "type": {
-            "resolvedName": "EmailInput"
-          }
-        },
-        "9XAhj1-KWt": {
-          "custom": {},
-          "displayName": "Container",
-          "hidden": false,
-          "isCanvas": true,
-          "linkedNodes": {},
-          "nodes": [
-            "LFiFGezgcL",
-            "yraprtzr35",
-            "9u0Dth6zJY",
-            "XRYAV2RO21"
-          ],
-          "parent": "ROOT",
-          "props": {
-            "align": "start",
-            "background": "#ffffff00",
-            "data-editor-type": "container",
-            "direction": "row",
-            "id": "9XAhj1-KWt",
-            "justify": "center",
-            "paddingX": "4",
-            "paddingY": "1",
-            "spaceBetween": "0.5",
-            "st-items-grow": 0,
-            "width": "100%"
-          },
-          "type": {
-            "resolvedName": "Container"
-          }
-        },
-        "9u0Dth6zJY": {
-          "custom": {},
-          "displayName": "Text",
-          "hidden": false,
-          "isCanvas": false,
-          "linkedNodes": {},
-          "nodes": [],
-          "parent": "9XAhj1-KWt",
-          "props": {
-            "children": "and",
-            "full-width": false,
-            "id": "9u0Dth6zJY",
-            "isEnriched": true,
-            "italic": false,
-            "link-target-blank": true,
-            "mode": "primary",
-            "text-align": "center",
-            "tooltipText": "Tooltip text",
-            "variant": "body1"
-          },
-          "type": {
-            "resolvedName": "Text"
-          }
-        },
-        "ImJgP2GEdz": {
-          "custom": {},
-          "displayName": "Error Message",
-          "hidden": false,
-          "isCanvas": false,
-          "linkedNodes": {},
-          "nodes": [],
-          "parent": "ROOT",
-          "props": {
-            "data-type": "error-message",
-            "full-width": false,
-            "hide-when-empty": true,
-            "id": "ImJgP2GEdz",
-            "italic": false,
-            "link-target-blank": true,
-            "mode": "error",
-            "text-align": "center",
-            "variant": "body1"
-          },
-          "type": {
-            "resolvedName": "ErrorMessage"
-          }
-        },
-        "LFiFGezgcL": {
-          "custom": {},
-          "displayName": "Text",
-          "hidden": false,
-          "isCanvas": false,
-          "linkedNodes": {},
-          "nodes": [],
-          "parent": "9XAhj1-KWt",
-          "props": {
-            "children": "By signing up, I agree to the Company's",
-            "full-width": false,
-            "id": "LFiFGezgcL",
-            "isEnriched": true,
-            "italic": false,
-            "link-target-blank": true,
-            "mode": "primary",
-            "text-align": "center",
-            "tooltipText": "Tooltip text",
-            "variant": "body1"
-          },
-          "type": {
-            "resolvedName": "Text"
-          }
-        },
-        "NqE2Qh0Sq6": {
-          "custom": {},
-          "displayName": "Text",
-          "hidden": false,
-          "isCanvas": false,
-          "linkedNodes": {},
-          "nodes": [],
-          "parent": "ROOT",
-          "props": {
-            "children": "Testing normal change jul 5\n\n",
-            "full-width": false,
-            "id": "NqE2Qh0Sq6",
-            "isEnriched": true,
-            "italic": false,
-            "link-target-blank": true,
-            "mode": "primary",
-            "text-align": "center",
-            "tooltipText": "Tooltip text",
-            "variant": "h3"
-          },
-          "type": {
-            "resolvedName": "Text"
-          }
-        },
-        "ROOT": {
-          "custom": {},
-          "displayName": "Container",
-          "hidden": false,
-          "isCanvas": true,
-          "linkedNodes": {},
-          "nodes": [
-            "NqE2Qh0Sq6",
-            "6KGtvzyiH_",
-            "9XAhj1-KWt",
-            "ekknuJxLv5",
-            "WdJMmKNDSv",
-            "WrcNhwLdaS",
-            "ImJgP2GEdz"
-          ],
-          "props": {
-            "align": "center",
-            "background": "",
-            "data-editor-type": "container",
-            "direction": "column",
-            "id": "ROOT",
-            "justify": "center",
-            "paddingX": "4",
-            "paddingY": "8",
-            "spaceBetween": "4",
-            "st-items-grow": 0,
-            "width": "100%"
-          },
-          "type": {
-            "resolvedName": "Container"
-          }
-        },
-        "WN6nz9hWd5": {
-          "custom": {
-            "subType": "social",
-            "type": "button"
-          },
-          "displayName": "Google Button",
-          "hidden": false,
-          "isCanvas": false,
-          "linkedNodes": {},
-          "nodes": [],
-          "parent": "WrcNhwLdaS",
-          "props": {
-            "aria-label": "Sign in with Google",
-            "children": "Sign up with Google",
-            "color": "primary",
-            "data-descope-provider": "google",
-            "data-type": "social",
-            "formNoValidate": true,
-            "full-width": true,
-            "id": "WN6nz9hWd5",
-            "mode": "primary",
-            "shape": "",
-            "size": "md",
-            "st-label-spacing": "10px",
-            "startIcon": "google",
-            "startIconColorText": false,
-            "tooltipText": "Tooltip text",
-            "variant": "outline"
-          },
-          "type": {
-            "resolvedName": "GoogleButton"
-          }
-        },
-        "WdJMmKNDSv": {
-          "custom": {},
-          "displayName": "Divider",
-          "hidden": false,
-          "isCanvas": false,
-          "linkedNodes": {},
-          "nodes": [],
-          "parent": "ROOT",
-          "props": {
-            "children": "OR",
-            "id": "WdJMmKNDSv",
-            "italic": false,
-            "mode": "primary",
-            "variant": "body1",
-            "vertical": false
-          },
-          "type": {
-            "resolvedName": "Divider"
-          }
-        },
-        "WrcNhwLdaS": {
-          "custom": {},
-          "displayName": "Container",
-          "hidden": false,
-          "isCanvas": true,
-          "linkedNodes": {},
-          "nodes": [
-            "WN6nz9hWd5"
-          ],
-          "parent": "ROOT",
-          "props": {
-            "align": "center",
-            "background": "#ffffff00",
-            "data-editor-type": "container",
-            "direction": "column",
-            "id": "WrcNhwLdaS",
-            "justify": "start",
-            "paddingX": "0",
-            "paddingY": "1",
-            "spaceBetween": "1.5",
-            "st-items-grow": 0,
-            "width": "100%"
-          },
-          "type": {
-            "resolvedName": "Container"
-          }
-        },
-        "XRYAV2RO21": {
-          "custom": {},
-          "displayName": "Link",
-          "hidden": false,
-          "isCanvas": false,
-          "linkedNodes": {},
-          "nodes": [],
-          "parent": "9XAhj1-KWt",
-          "props": {
-            "children": "Terms of Service",
-            "full-width": false,
-            "href": "",
-            "id": "XRYAV2RO21",
-            "italic": false,
-            "mode": "primary",
-            "target": "_blank",
-            "text-align": "center",
-            "tooltipText": "Tooltip text",
-            "variant": "body1"
-          },
-          "type": {
-            "resolvedName": "Link"
-          }
-        },
-        "ekknuJxLv5": {
-          "custom": {
-            "type": "button"
-          },
-          "displayName": "Button",
-          "hidden": false,
-          "isCanvas": false,
-          "linkedNodes": {},
-          "nodes": [],
-          "parent": "ROOT",
-          "props": {
-            "children": "Sign Up",
-            "color": "primary",
-            "data-type": "button",
-            "formNoValidate": false,
-            "full-width": true,
-            "id": "ekknuJxLv5",
-            "mode": "primary",
-            "size": "md",
-            "tooltipText": "Tooltip text",
-            "variant": "contained"
-          },
-          "type": {
-            "resolvedName": "Button"
-          }
-        },
-        "yraprtzr35": {
-          "custom": {},
-          "displayName": "Link",
-          "hidden": false,
-          "isCanvas": false,
-          "linkedNodes": {},
-          "nodes": [],
-          "parent": "9XAhj1-KWt",
-          "props": {
-            "children": "Privacy Statement",
-            "full-width": false,
-            "href": "",
-            "id": "yraprtzr35",
-            "italic": false,
-            "mode": "primary",
-            "target": "_blank",
-            "text-align": "center",
-            "tooltipText": "Tooltip text",
-            "variant": "body1"
-          },
-          "type": {
-            "resolvedName": "Link"
-          }
-        }
-      },
       "id": "0",
       "inputKeys": [
         "email"
-      ],
-      "inputsMetadata": [
-        {
-          "displayName": "Email Input",
-          "key": "email"
-        }
-      ],
-      "interactions": [
-        {
-          "icon": "google",
-          "id": "WN6nz9hWd5",
-          "label": "Sign up with Google",
-          "subType": "social",
-          "type": "button"
-        },
-        {
-          "id": "ekknuJxLv5",
-          "label": "Sign Up",
-          "type": "button"
-        }
       ],
       "name": "Sign Up Screen",
       "next": {
@@ -389,10 +20,13 @@
           {
             "interactionId": "WN6nz9hWd5",
             "taskId": "19"
+          },
+          {
+            "interactionId": "Gjob4tKKNP",
+            "taskId": "19"
           }
         ]
       },
-      "recoveryCodesData": [],
       "screenId": "SC3FTN76Wa9lfYJY6sq7uvfTz5l9Q",
       "type": "screen",
       "view": {
@@ -410,12 +44,6 @@
       "id": "12",
       "inputKeys": [
         "fullName"
-      ],
-      "inputsMetadata": [
-        {
-          "displayName": "Full Name Input",
-          "key": "fullName"
-        }
       ],
       "name": "User Information",
       "next": {
@@ -526,12 +154,10 @@
       }
     },
     "14": {
-      "allInputKeys": [],
       "contextKeys": [
         "sentTo.maskedEmail"
       ],
       "id": "14",
-      "inputsMetadata": [],
       "name": "Magic Link Sent",
       "next": {
         "rules": [
@@ -557,9 +183,7 @@
       }
     },
     "15": {
-      "allInputKeys": [],
       "id": "15",
-      "inputsMetadata": [],
       "name": "Verified Successfully",
       "next": {},
       "screenId": "SC3FTN74CzqMebG5xYsRgRe3zFbQ8",
@@ -670,12 +294,10 @@
       }
     },
     "17": {
-      "allInputKeys": [],
       "contextKeys": [
         "sentTo.maskedEmail"
       ],
       "id": "17",
-      "inputsMetadata": [],
       "name": "Magic Link Sent",
       "next": {
         "rules": [
@@ -697,9 +319,7 @@
       }
     },
     "18": {
-      "allInputKeys": [],
       "id": "18",
-      "inputsMetadata": [],
       "name": "Verified Successfully",
       "next": {},
       "screenId": "SC3FTN77hXxEjsFSk1yr8MnhbiMl0",
@@ -882,46 +502,6 @@
         "y": 144
       }
     },
-    "21": {
-      "action": "scriptlet",
-      "arguments": {
-        "outputPath": {
-          "type": "inline",
-          "value": "scriptletResult"
-        },
-        "overrideForm": {
-          "type": "inline",
-          "value": ""
-        },
-        "scriptArgs": {
-          "type": "inline",
-          "value": [
-            {
-              "key": "arg1",
-              "type": "context",
-              "value": "form.displayName"
-            }
-          ]
-        },
-        "scriptCode": {
-          "type": "inline",
-          "value": "asset:value-af65f64f651b344f99e9b892484e5e3298a2af945198e3dde390bcedd4a2588f.txt"
-        }
-      },
-      "errorHandlingV2": {
-        "ScriptletFailed": {
-          "errorHandlingType": "automatic"
-        }
-      },
-      "id": "21",
-      "name": "Test",
-      "next": {},
-      "type": "automated",
-      "view": {
-        "x": 264,
-        "y": -36
-      }
-    },
     "22": {
       "action": "connector",
       "arguments": {
@@ -1044,6 +624,78 @@
         "y": 120
       }
     },
+    "24": {
+      "action": "sign-up-or-in-otp-email",
+      "arguments": {
+        "extraTemplateVals": {
+          "type": "inline",
+          "value": ""
+        },
+        "providerId": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "id": "24",
+      "name": "Sign Up or In / OTP / Email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "25"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 2880,
+        "y": -300
+      }
+    },
+    "25": {
+      "allInputKeys": [
+        "code"
+      ],
+      "calculatedInputKeys": true,
+      "contextKeys": [
+        "sentTo.maskedEmail"
+      ],
+      "id": "25",
+      "name": "Verify OTP",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "resend",
+            "taskId": "24"
+          },
+          {
+            "interactionId": "oneTimeCodeId",
+            "taskId": "26"
+          }
+        ]
+      },
+      "screenId": "SC3HUGAcKm6iZ2oCXvMvTsqZNW6wE",
+      "type": "screen",
+      "view": {
+        "x": 3312,
+        "y": -300
+      }
+    },
+    "26": {
+      "action": "verify-code-otp-email",
+      "id": "26",
+      "name": "Verify Code / OTP / Email",
+      "next": {},
+      "type": "automated",
+      "view": {
+        "x": 3744,
+        "y": -300
+      }
+    },
     "5": {
       "allInputKeys": [
         "email",
@@ -1053,16 +705,6 @@
       "inputKeys": [
         "email",
         "fullName"
-      ],
-      "inputsMetadata": [
-        {
-          "displayName": "Email Input",
-          "key": "email"
-        },
-        {
-          "displayName": "Full Name Input",
-          "key": "fullName"
-        }
       ],
       "name": "User Information - Unverified - Email Only",
       "next": {
@@ -1098,12 +740,6 @@
       "id": "7",
       "inputKeys": [
         "fullName"
-      ],
-      "inputsMetadata": [
-        {
-          "displayName": "Full Name Input",
-          "key": "fullName"
-        }
       ],
       "name": "User Information",
       "next": {

@@ -85,6 +85,37 @@
         "resolvedName": "Text"
       }
     },
+    "Gjob4tKKNP": {
+      "custom": {
+        "subType": "social",
+        "type": "button"
+      },
+      "displayName": "Apple Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+        "aria-label": "Sign in with Apple",
+        "children": "Sign in with Apple",
+        "color": "primary",
+        "data-descope-provider": "apple",
+        "data-type": "social",
+        "formNoValidate": true,
+        "full-width": false,
+        "id": "Gjob4tKKNP",
+        "size": "md",
+        "st-label-spacing": "10px",
+        "startIcon": "apple",
+        "startIconColorText": false,
+        "tooltipText": "Tooltip text",
+        "variant": "outline"
+      },
+      "type": {
+        "resolvedName": "AppleButton"
+      }
+    },
     "ImJgP2GEdz": {
       "custom": {},
       "displayName": "Error Message",
@@ -169,6 +200,7 @@
         "ekknuJxLv5",
         "WdJMmKNDSv",
         "WrcNhwLdaS",
+        "Gjob4tKKNP",
         "ImJgP2GEdz"
       ],
       "props": {
@@ -356,6 +388,13 @@
       "id": "ekknuJxLv5",
       "label": "Sign Up",
       "subType": "",
+      "type": "button"
+    },
+    {
+      "icon": "apple",
+      "id": "Gjob4tKKNP",
+      "label": "Sign in with Apple",
+      "subType": "social",
       "type": "button"
     }
   ],

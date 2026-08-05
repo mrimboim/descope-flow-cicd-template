@@ -1,5 +1,5 @@
 {
-  "componentsVersion": "3.14.7",
+  "componentsVersion": "3.18.2",
   "description": "Default Descope Sign Up flow; enables users to sign up via Magic Link or Social Logins. Registration information includes Full Name.",
   "disabled": false,
   "fingerprint": false,
@@ -17,7 +17,8 @@
     "user-information-XYlw",
     "user-information-unverified-email-only",
     "verified-successfully-FbQ8",
-    "verified-successfully-iMl0"
+    "verified-successfully-iMl0",
+    "verify-otp"
   ],
   "sharedInteractions": [
     {
@@ -30,10 +31,6 @@
       "type": "success"
     },
     {
-      "id": "21.success",
-      "type": "success"
-    },
-    {
       "id": "22.success",
       "label": "Success",
       "type": "success"
@@ -41,6 +38,15 @@
     {
       "id": "23.success",
       "label": "Success",
+      "type": "success"
+    },
+    {
+      "id": "25.pnOqEGpL1b",
+      "label": "Choose another authentication method"
+    },
+    {
+      "id": "26.success",
+      "label": "Successful authentication",
       "type": "success"
     }
   ]
