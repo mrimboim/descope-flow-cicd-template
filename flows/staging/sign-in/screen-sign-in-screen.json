@@ -24,35 +24,35 @@
         "resolvedName": "Link"
       }
     },
-    "7GQnOKn5hG": {
+    "Cf2ZQ46VfU": {
       "custom": {
         "subType": "social",
         "type": "button"
       },
-      "displayName": "Facebook Button",
+      "displayName": "Apple Button",
       "hidden": false,
       "isCanvas": false,
       "linkedNodes": {},
       "nodes": [],
       "parent": "ROOT",
       "props": {
-        "aria-label": "Sign in with Facebook",
-        "children": "Sign in with Facebook",
+        "aria-label": "Sign in with Apple",
+        "children": "Sign in with Apple",
         "color": "primary",
-        "data-descope-provider": "facebook",
+        "data-descope-provider": "apple",
         "data-type": "social",
         "formNoValidate": true,
         "full-width": true,
-        "id": "7GQnOKn5hG",
+        "id": "Cf2ZQ46VfU",
         "size": "md",
         "st-label-spacing": "10px",
-        "startIcon": "facebook",
+        "startIcon": "apple",
         "startIconColorText": false,
         "tooltipText": "Tooltip text",
         "variant": "outline"
       },
       "type": {
-        "resolvedName": "FacebookButton"
+        "resolvedName": "AppleButton"
       }
     },
     "IcQvsZ54WE": {
@@ -115,8 +115,7 @@
         "ro0hUNzmTB",
         "_Lh3K_C2J_",
         "X1NGL9Nm9z",
-        "7GQnOKn5hG",
-        "cf5EF1n0xK",
+        "Cf2ZQ46VfU",
         "n1Uhr1hcw0",
         "vnhmHHhrzY"
       ],
@@ -250,6 +249,7 @@
       "nodes": [],
       "parent": "ROOT",
       "props": {
+        "autoComplete": "webauthn",
         "bordered": true,
         "copy-to-clipboard": false,
         "data-errormessage-pattern-mismatch": "Must be a valid email",
@@ -270,37 +270,6 @@
         "resolvedName": "EmailInput"
       }
     },
-    "cf5EF1n0xK": {
-      "custom": {
-        "subType": "social",
-        "type": "button"
-      },
-      "displayName": "Github Button",
-      "hidden": false,
-      "isCanvas": false,
-      "linkedNodes": {},
-      "nodes": [],
-      "parent": "ROOT",
-      "props": {
-        "aria-label": "Sign in with Github",
-        "children": "Sign in with Github",
-        "color": "primary",
-        "data-descope-provider": "github",
-        "data-type": "social",
-        "formNoValidate": true,
-        "full-width": true,
-        "id": "cf5EF1n0xK",
-        "size": "md",
-        "st-label-spacing": "10px",
-        "startIcon": "github",
-        "startIconColorText": false,
-        "tooltipText": "Tooltip text",
-        "variant": "outline"
-      },
-      "type": {
-        "resolvedName": "GithubButton"
-      }
-    },
     "eMTNXK-AHL": {
       "custom": {},
       "displayName": "Text",
@@ -310,7 +279,7 @@
       "nodes": [],
       "parent": "ROOT",
       "props": {
-        "children": "Hello world 2\n\n",
+        "children": "Welcome to Descope\n\n",
         "full-width": false,
         "id": "eMTNXK-AHL",
         "isEnriched": true,
@@ -408,6 +377,13 @@
   },
   "interactions": [
     {
+      "icon": "apple",
+      "id": "Cf2ZQ46VfU",
+      "label": "Sign in with Apple",
+      "subType": "social",
+      "type": "button"
+    },
+    {
       "icon": "google",
       "id": "WSMbfRepR0",
       "label": "Sign in with Google",
@@ -422,18 +398,11 @@
       "type": "button"
     },
     {
-      "icon": "github",
-      "id": "cf5EF1n0xK",
-      "label": "Sign in with Github",
-      "subType": "social",
-      "type": "button"
-    },
-    {
-      "icon": "facebook",
-      "id": "7GQnOKn5hG",
-      "label": "Sign in with Facebook",
-      "subType": "social",
-      "type": "button"
+      "icon": "passkey",
+      "id": "bL-cGpwCvI",
+      "label": "",
+      "subType": "",
+      "type": "input"
     }
   ],
   "screenId": "SC3FTN79pmvnowDHvPHC0CZppOHHU"

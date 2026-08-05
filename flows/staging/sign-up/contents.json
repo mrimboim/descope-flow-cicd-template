@@ -23,6 +23,7 @@
           "nodes": [],
           "parent": "ROOT",
           "props": {
+            "autoComplete": "webauthn",
             "bordered": true,
             "copy-to-clipboard": false,
             "data-errormessage-pattern-mismatch": "Must be a valid email",
@@ -153,7 +154,7 @@
           "nodes": [],
           "parent": "ROOT",
           "props": {
-            "children": "Testing normal change jul 5\n\n",
+            "children": "Welcome\n\n",
             "full-width": false,
             "id": "NqE2Qh0Sq6",
             "isEnriched": true,
@@ -181,6 +182,7 @@
             "ekknuJxLv5",
             "WdJMmKNDSv",
             "WrcNhwLdaS",
+            "keR6MsQTnS",
             "ImJgP2GEdz"
           ],
           "props": {
@@ -330,6 +332,37 @@
             "resolvedName": "Button"
           }
         },
+        "keR6MsQTnS": {
+          "custom": {
+            "subType": "social",
+            "type": "button"
+          },
+          "displayName": "Facebook Button",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "ROOT",
+          "props": {
+            "aria-label": "Sign in with Facebook",
+            "children": "Sign in with Facebook",
+            "color": "primary",
+            "data-descope-provider": "facebook",
+            "data-type": "social",
+            "formNoValidate": true,
+            "full-width": true,
+            "id": "keR6MsQTnS",
+            "size": "md",
+            "st-label-spacing": "10px",
+            "startIcon": "facebook",
+            "startIconColorText": false,
+            "tooltipText": "Tooltip text",
+            "variant": "outline"
+          },
+          "type": {
+            "resolvedName": "FacebookButton"
+          }
+        },
         "yraprtzr35": {
           "custom": {},
           "displayName": "Link",
@@ -367,6 +400,12 @@
       ],
       "interactions": [
         {
+          "icon": "passkey",
+          "id": "6KGtvzyiH_",
+          "label": "",
+          "type": "input"
+        },
+        {
           "icon": "google",
           "id": "WN6nz9hWd5",
           "label": "Sign up with Google",
@@ -377,17 +416,32 @@
           "id": "ekknuJxLv5",
           "label": "Sign Up",
           "type": "button"
+        },
+        {
+          "icon": "facebook",
+          "id": "keR6MsQTnS",
+          "label": "Sign in with Facebook",
+          "subType": "social",
+          "type": "button"
         }
       ],
       "name": "Sign Up Screen",
       "next": {
         "rules": [
           {
+            "interactionId": "6KGtvzyiH_",
+            "taskId": "27"
+          },
+          {
             "interactionId": "ekknuJxLv5",
             "taskId": "13"
           },
           {
             "interactionId": "WN6nz9hWd5",
+            "taskId": "19"
+          },
+          {
+            "interactionId": "keR6MsQTnS",
             "taskId": "19"
           }
         ]
@@ -680,10 +734,6 @@
       "next": {
         "rules": [
           {
-            "interactionId": "polling",
-            "taskId": "18"
-          },
-          {
             "interactionId": "resend",
             "taskId": "16"
           }
@@ -694,19 +744,6 @@
       "view": {
         "x": 3456,
         "y": -504
-      }
-    },
-    "18": {
-      "allInputKeys": [],
-      "id": "18",
-      "inputsMetadata": [],
-      "name": "Verified Successfully",
-      "next": {},
-      "screenId": "SC3FTN77hXxEjsFSk1yr8MnhbiMl0",
-      "type": "screen",
-      "view": {
-        "x": 2952,
-        "y": 204
       }
     },
     "19": {
@@ -821,227 +858,146 @@
         "y": 1416
       }
     },
-    "20": {
-      "action": "connector",
+    "24": {
+      "action": "sign-up-or-in-otp-email",
       "arguments": {
-        "args": {
-          "type": "inline",
-          "value": [
-            {
-              "key": "endpoint",
-              "type": "string",
-              "value": ""
-            },
-            {
-              "key": "timeout",
-              "type": "number",
-              "value": 3
-            },
-            {
-              "key": "payload",
-              "type": "string",
-              "value": "{}"
-            }
-          ]
-        },
-        "async": {
-          "type": "inline",
-          "value": false
-        },
-        "command": {
-          "type": "inline",
-          "value": "get"
-        },
-        "connectorId": {
-          "type": "inline",
-          "value": "CI3FTNEPbQ3bnJis8wiwSRDizhLwS"
-        },
-        "resultPath": {
-          "type": "inline",
-          "value": "httpResult"
-        },
-        "templateId": {
-          "type": "inline",
-          "value": "http"
-        }
-      },
-      "errorHandlingV2": {
-        "ConnectorFailed": {
-          "errorHandlingType": "automatic"
-        },
-        "request_error": {
-          "errorHandlingType": "automatic"
-        }
-      },
-      "id": "20",
-      "name": "APPPLE",
-      "next": {},
-      "type": "automated",
-      "view": {
-        "x": 780,
-        "y": 144
-      }
-    },
-    "21": {
-      "action": "scriptlet",
-      "arguments": {
-        "outputPath": {
-          "type": "inline",
-          "value": "scriptletResult"
-        },
-        "overrideForm": {
+        "extraTemplateVals": {
           "type": "inline",
           "value": ""
         },
-        "scriptArgs": {
+        "providerId": {
           "type": "inline",
-          "value": [
-            {
-              "key": "arg1",
-              "type": "context",
-              "value": "form.displayName"
-            }
-          ]
-        },
-        "scriptCode": {
-          "type": "inline",
-          "value": "asset:value-af65f64f651b344f99e9b892484e5e3298a2af945198e3dde390bcedd4a2588f.txt"
-        }
-      },
-      "errorHandlingV2": {
-        "ScriptletFailed": {
-          "errorHandlingType": "automatic"
-        }
-      },
-      "id": "21",
-      "name": "Test",
-      "next": {},
-      "type": "automated",
-      "view": {
-        "x": 264,
-        "y": -36
-      }
-    },
-    "22": {
-      "action": "connector",
-      "arguments": {
-        "args": {
-          "type": "inline",
-          "value": [
-            {
-              "key": "endpoint",
-              "type": "string",
-              "value": ""
-            },
-            {
-              "key": "timeout",
-              "type": "number",
-              "value": 3
-            },
-            {
-              "key": "payload",
-              "type": "string",
-              "value": "{}"
-            }
-          ]
-        },
-        "async": {
-          "type": "inline",
-          "value": false
-        },
-        "command": {
-          "type": "inline",
-          "value": "get"
-        },
-        "connectorId": {
-          "type": "inline",
-          "value": "CI3FTNEPbQ3bnJis8wiwSRDizhLwS"
-        },
-        "resultPath": {
-          "type": "inline",
-          "value": "httpResult"
+          "value": ""
         },
         "templateId": {
           "type": "inline",
-          "value": "http"
+          "value": ""
         }
       },
-      "errorHandlingV2": {
-        "ConnectorFailed": {
-          "errorHandlingType": "automatic"
-        },
-        "request_error": {
-          "errorHandlingType": "automatic"
-        }
+      "id": "24",
+      "name": "Sign Up or In / OTP / Email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "25"
+          }
+        ]
       },
-      "id": "22",
-      "name": "Generic HTTP / GET",
-      "next": {},
       "type": "automated",
       "view": {
-        "x": 1236,
-        "y": 180
+        "x": 2880,
+        "y": -300
       }
     },
-    "23": {
-      "action": "connector",
-      "arguments": {
-        "args": {
-          "type": "inline",
-          "value": [
-            {
-              "key": "endpoint",
-              "type": "string",
-              "value": ""
-            },
-            {
-              "key": "timeout",
-              "type": "number",
-              "value": 3
-            },
-            {
-              "key": "payload",
-              "type": "string",
-              "value": "{}"
-            }
-          ]
-        },
-        "async": {
-          "type": "inline",
-          "value": false
-        },
-        "command": {
-          "type": "inline",
-          "value": "get"
-        },
-        "connectorId": {
-          "type": "inline",
-          "value": "CI3FTNEPbQ3bnJis8wiwSRDizhLwS"
-        },
-        "resultPath": {
-          "type": "inline",
-          "value": "httpResult"
-        },
-        "templateId": {
-          "type": "inline",
-          "value": "http"
+    "25": {
+      "allInputKeys": [
+        "code"
+      ],
+      "calculatedInputKeys": true,
+      "contextKeys": [
+        "sentTo.maskedEmail"
+      ],
+      "id": "25",
+      "inputsMetadata": [
+        {
+          "displayName": "One Time Code",
+          "key": "code"
         }
+      ],
+      "name": "Verify OTP",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "resend",
+            "taskId": "24"
+          },
+          {
+            "interactionId": "oneTimeCodeId",
+            "taskId": "26"
+          }
+        ]
       },
-      "errorHandlingV2": {
-        "ConnectorFailed": {
-          "errorHandlingType": "automatic"
-        },
-        "request_error": {
-          "errorHandlingType": "automatic"
-        }
-      },
-      "id": "23",
-      "name": "Get user",
+      "screenId": "SC3HUGAcKm6iZ2oCXvMvTsqZNW6wE",
+      "type": "screen",
+      "view": {
+        "x": 3312,
+        "y": -300
+      }
+    },
+    "26": {
+      "action": "verify-code-otp-email",
+      "id": "26",
+      "name": "Verify Code / OTP / Email",
       "next": {},
       "type": "automated",
       "view": {
-        "x": 1656,
-        "y": 120
+        "x": 3744,
+        "y": -300
+      }
+    },
+    "27": {
+      "action": "webauthn-sign-up-or-in-start",
+      "arguments": {
+        "finishStepId": {
+          "type": "inline",
+          "value": "27.end"
+        },
+        "restrictPasskeyTypes": {
+          "type": "inline",
+          "value": ""
+        },
+        "userVerificationDiscouraged": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "id": "27",
+      "name": "Sign Up or In / Passkeys (WebAuthn)",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "27.end"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 828,
+        "y": -840
+      }
+    },
+    "27.end": {
+      "action": "webauthn-sign-up-or-in-finish",
+      "arguments": {
+        "finishStepId": {
+          "type": "inline",
+          "value": "27.end"
+        },
+        "restrictPasskeyTypes": {
+          "type": "inline",
+          "value": ""
+        },
+        "userVerificationDiscouraged": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "id": "27.end",
+      "name": "Sign Up or In / Passkeys (WebAuthn)",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "6"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 828,
+        "y": -840
       }
     },
     "5": {
