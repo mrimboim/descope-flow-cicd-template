@@ -1,0 +1,3666 @@
+{
+  "startTask": "74",
+  "tasks": {
+    "0": {
+      "action": "logged-in",
+      "id": "0",
+      "name": "End",
+      "next": {},
+      "type": "automated",
+      "view": {
+        "x": 11628,
+        "y": 672
+      }
+    },
+    "1": {
+      "allInputKeys": [
+        "email"
+      ],
+      "calculatedInputKeys": true,
+      "id": "1",
+      "inputKeys": [
+        "email"
+      ],
+      "name": "Sign up or sign in With Email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "COcMh1vzSn",
+            "taskId": "23"
+          },
+          {
+            "interactionId": "C3_h_gd8kc",
+            "taskId": "33"
+          },
+          {
+            "interactionId": "tI2yuCspWe",
+            "taskId": "33"
+          },
+          {
+            "interactionId": "Ms-RHbvu5r",
+            "taskId": "25"
+          }
+        ]
+      },
+      "screenId": "SC2sdKDb5jfJ7Om6vQM0IEXPhiPHQ",
+      "type": "screen",
+      "view": {
+        "x": 3408,
+        "y": 792
+      }
+    },
+    "10": {
+      "action": "oauth-start",
+      "arguments": {
+        "allowSetDefaultProvider": {
+          "type": "inline",
+          "value": false
+        },
+        "defaultProvider": {
+          "type": "inline",
+          "value": ""
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": "10.end"
+        },
+        "forceNonNative": {
+          "type": "inline",
+          "value": false
+        },
+        "loginHint": {
+          "type": "inline",
+          "value": ""
+        },
+        "popup": {
+          "type": "inline",
+          "value": false
+        },
+        "prompt": {
+          "type": "inline",
+          "value": []
+        },
+        "rawResponse": {
+          "type": "inline",
+          "value": false
+        },
+        "redirectUrl": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "errorHandlingV2": {
+        "ActionErrorTenantDisabled": {
+          "errorHandlingType": "automatic"
+        },
+        "ActionErrorTenantRequiresSSO": {
+          "errorHandlingType": "automatic"
+        },
+        "OAuthExchangeCodeFailed": {
+          "errorHandlingType": "custom"
+        },
+        "OAuthExchangeNativeOAuthFailed": {
+          "errorHandlingType": "custom"
+        },
+        "OAuthStartFailed": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "10",
+      "name": "Sign Up or In / OAuth",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "10.end"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 6312,
+        "y": 492
+      }
+    },
+    "10.end": {
+      "action": "exchange-oauth-code",
+      "arguments": {
+        "allowSetDefaultProvider": {
+          "type": "inline",
+          "value": false
+        },
+        "defaultProvider": {
+          "type": "inline",
+          "value": ""
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": "10.end"
+        },
+        "forceNonNative": {
+          "type": "inline",
+          "value": false
+        },
+        "loginHint": {
+          "type": "inline",
+          "value": ""
+        },
+        "popup": {
+          "type": "inline",
+          "value": false
+        },
+        "prompt": {
+          "type": "inline",
+          "value": []
+        },
+        "rawResponse": {
+          "type": "inline",
+          "value": false
+        },
+        "redirectUrl": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "errorHandlingV2": {
+        "ActionErrorTenantDisabled": {
+          "errorHandlingType": "automatic"
+        },
+        "ActionErrorTenantRequiresSSO": {
+          "errorHandlingType": "automatic"
+        },
+        "OAuthExchangeCodeFailed": {
+          "errorHandlingType": "custom"
+        },
+        "OAuthExchangeNativeOAuthFailed": {
+          "errorHandlingType": "custom"
+        },
+        "OAuthStartFailed": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "10.end",
+      "name": "Sign Up or In / OAuth",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "72"
+          },
+          {
+            "interactionId": "OAuthExchangeCodeFailed",
+            "taskId": "73"
+          },
+          {
+            "interactionId": "OAuthExchangeNativeOAuthFailed",
+            "taskId": "73"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 6312,
+        "y": 492
+      }
+    },
+    "11": {
+      "action": "scriptlet",
+      "arguments": {
+        "outputPath": {
+          "type": "inline",
+          "value": "formatPhoneResponse"
+        },
+        "overrideForm": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "form.phone",
+              "type": "context",
+              "value": "{{scripts.formatPhoneResponse.formattedPhone}}"
+            }
+          ]
+        },
+        "scriptArgs": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "phone",
+              "type": "context",
+              "value": "form.phone"
+            }
+          ]
+        },
+        "scriptCode": {
+          "type": "inline",
+          "value": "asset:value-0073c90b4b4bc9e7a5a92e0e56cc4ab71da4af18f9ea5c81bad2b68783b5c43e.txt"
+        }
+      },
+      "errorHandlingV2": {
+        "ScriptletFailed": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "11",
+      "name": "Format Phone number format",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "6"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 6312,
+        "y": 1008
+      }
+    },
+    "12": {
+      "arguments": {
+        "flowId": {
+          "type": "inline",
+          "value": "get-or-create-common-id"
+        }
+      },
+      "id": "12",
+      "name": "Get or Create CommonId",
+      "next": {},
+      "type": "flow",
+      "view": {
+        "x": 9696,
+        "y": 516
+      }
+    },
+    "14": {
+      "arguments": {
+        "flowId": {
+          "type": "inline",
+          "value": "store-pii-from-social"
+        }
+      },
+      "id": "14",
+      "name": "Store PII from Social Providers",
+      "next": {},
+      "type": "flow",
+      "view": {
+        "x": 11148,
+        "y": 600
+      }
+    },
+    "15": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "endpoint",
+              "type": "string",
+              "value": "/callback-passwordless-start"
+            },
+            {
+              "key": "timeout",
+              "type": "number",
+              "value": 3
+            },
+            {
+              "key": "payload",
+              "type": "string",
+              "value": "{\n  \"email\": \"{{form.email}}\",\n  \"grx_unique_id\": \"{{form.grxUniqueId}}\",\n  \"platform\": \"{{form.platform}}\",\n  \"authentication_source\": \"{{form.authenticationSource}}\",\n  \"marketing_metadata\": {\n    \"utmSource\": \"{{form.utm_source}}\",\n    \"utmMedium\": \"{{form.utm_medium}}\",\n    \"utmCampaign\": \"{{form.utm_campaign}}\",\n    \"utmTerm\": \"{{form.utm_term}}\",\n    \"utmContent\": \"{{form.utm_content}}\"\n  }\n}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "post"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2rHMPJbcctEB9tTmb0jtLY7BpKf"
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": "httpResult"
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "http"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "request_error": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "15",
+      "name": "Registration start with email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "3"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 984,
+        "y": 720
+      }
+    },
+    "17": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "endpoint",
+              "type": "string",
+              "value": "/callback-passwordless-start"
+            },
+            {
+              "key": "timeout",
+              "type": "number",
+              "value": 3
+            },
+            {
+              "key": "payload",
+              "type": "string",
+              "value": "{\n  \"phone_number\": \"{{form.phone}}\",\n  \"grx_unique_id\": \"{{form.grxUniqueId}}\",\n  \"platform\": \"{{form.platform}}\",\n  \"authentication_source\": \"{{form.authenticationSource}}\",\n  \"marketing_metadata\": {\n    \"utmSource\": \"{{form.utm_source}}\",\n    \"utmMedium\": \"{{form.utm_medium}}\",\n    \"utmCampaign\": \"{{form.utm_campaign}}\",\n    \"utmTerm\": \"{{form.utm_term}}\",\n    \"utmContent\": \"{{form.utm_content}}\"\n  }\n}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "post"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2rHMPJbcctEB9tTmb0jtLY7BpKf"
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": "httpResult"
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "http"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "request_error": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "17",
+      "name": "Registration start with phone",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "11"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 5820,
+        "y": 984
+      }
+    },
+    "21": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "Form Viewed"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "email sign up/sign in"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "component_description",
+                  "type": "string",
+                  "value": "email"
+                },
+                {
+                  "key": "authentication_source",
+                  "type": "context",
+                  "value": "form.authenticationSource"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{unauthUser.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "21",
+      "name": "Track - Form Viewed - Email flow",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "1"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 984,
+        "y": 1464
+      }
+    },
+    "22": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "Form Viewed"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "phone sign up/sign in"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "component_description",
+                  "type": "string",
+                  "value": "sms"
+                },
+                {
+                  "key": "authentication_source",
+                  "type": "context",
+                  "value": "form.authenticationSource"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{user.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "22",
+      "name": "Track - Form Viewed - Phone flow",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "9"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 4368,
+        "y": 1320
+      }
+    },
+    "23": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "Form Submitted"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "email sign up/sign in"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "component_description",
+                  "type": "string",
+                  "value": "email"
+                },
+                {
+                  "key": "authentication_source",
+                  "type": "context",
+                  "value": "form.authenticationSource"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{unauthUser.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "23",
+      "name": "Track - Form Submitted - Email flow",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "15"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 3888,
+        "y": 84
+      }
+    },
+    "24": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "Form Submitted"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "phone sign up/sign in"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "component_description",
+                  "type": "string",
+                  "value": "sms"
+                },
+                {
+                  "key": "authentication_source",
+                  "type": "context",
+                  "value": "form.authenticationSource"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{unauthUser.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "24",
+      "name": "Track - Form Submitted - Phone flow",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "17"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 5340,
+        "y": 744
+      }
+    },
+    "25": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "CTA Selected"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "”email sign up/sign in”"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "component_description",
+                  "type": "string",
+                  "value": "email"
+                },
+                {
+                  "key": "cta_type",
+                  "type": "string",
+                  "value": "sign in with mobile"
+                },
+                {
+                  "key": "authentication_source",
+                  "type": "context",
+                  "value": "form.authenticationSource"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{user.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "25",
+      "name": "Track - CTA Selected - Use Mobile Number",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "22"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 3888,
+        "y": 1320
+      }
+    },
+    "27": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "Form Viewed"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "OTP verification"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "component_description",
+                  "type": "string",
+                  "value": "sms"
+                },
+                {
+                  "key": "authentication_source",
+                  "type": "context",
+                  "value": "form.authenticationSource"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{unauthUser.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "27",
+      "name": "Track - Form Viewed - Phone OTP Verification",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "7"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 7272,
+        "y": 1068
+      }
+    },
+    "29": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "Form Submitted"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "OTP verification"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "component_description",
+                  "type": "string",
+                  "value": "sms"
+                },
+                {
+                  "key": "authentication_source",
+                  "type": "context",
+                  "value": "form.authenticationSource"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{unauthUser.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "29",
+      "name": "Track - Form Submitted - Phone OTP Verification",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "8"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 8244,
+        "y": 1404
+      }
+    },
+    "3": {
+      "action": "sign-up-or-in-otp-email",
+      "arguments": {
+        "extraTemplateVals": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "email",
+              "type": "context",
+              "value": "form.email"
+            }
+          ]
+        },
+        "providerId": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "errorHandlingV2": {
+        "ActionErrorRateLimitExceeded": {
+          "errorHandlingType": "automatic"
+        },
+        "ActionErrorTenantDisabled": {
+          "errorHandlingType": "automatic"
+        },
+        "ActionErrorTenantRequiresSSO": {
+          "errorHandlingType": "automatic"
+        },
+        "OTPSignUpOrInEmailFailed": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "3",
+      "name": "Sign Up or In / OTP / Email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "4"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 1464,
+        "y": 756
+      }
+    },
+    "30": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "CTA Selected"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "OTP verification"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "component_description",
+                  "type": "string",
+                  "value": "email"
+                },
+                {
+                  "key": "cta_type",
+                  "type": "string",
+                  "value": "send another code"
+                },
+                {
+                  "key": "authentication_source",
+                  "type": "context",
+                  "value": "form.authenticationSource"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{user.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "30",
+      "name": "Track - CTA Selected - Send Another Code",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "3"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 2916,
+        "y": 780
+      }
+    },
+    "31": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "CTA Selected"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "OTP verification"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "component_description",
+                  "type": "string",
+                  "value": "sms"
+                },
+                {
+                  "key": "cta_type",
+                  "type": "string",
+                  "value": "send another code"
+                },
+                {
+                  "key": "authentication_source",
+                  "type": "context",
+                  "value": "form.authenticationSource"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{user.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "31",
+      "name": "Track - CTA Selected - Send Another Code",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "6"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 8244,
+        "y": 924
+      }
+    },
+    "32": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "CTA Selected"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "email sign up/sign in"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "component_description",
+                  "type": "string",
+                  "value": "email"
+                },
+                {
+                  "key": "cta_type",
+                  "type": "string",
+                  "value": "continue with google"
+                },
+                {
+                  "key": "authentication_source",
+                  "type": "context",
+                  "value": "form.authenticationSource"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{user.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "32",
+      "name": "Track - CTA Selected - Google",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "10"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 5820,
+        "y": 96
+      }
+    },
+    "33": {
+      "conditions": [
+        {
+          "atomicConditions": [
+            {
+              "operator": "contains",
+              "predicate": {
+                "type": "inline",
+                "value": "google"
+              },
+              "target": {
+                "type": "context",
+                "value": "provider"
+              }
+            }
+          ],
+          "interactionId": "frf6fqn1neb",
+          "name": "if continue with Google"
+        },
+        {
+          "atomicConditions": [
+            {
+              "operator": "contains",
+              "predicate": {
+                "type": "inline",
+                "value": "apple"
+              },
+              "target": {
+                "type": "context",
+                "value": "provider"
+              }
+            }
+          ],
+          "interactionId": "zkmo56imthm",
+          "name": "continue with Apple"
+        },
+        {
+          "interactionId": "ELSE",
+          "name": "Other Providers"
+        }
+      ],
+      "id": "33",
+      "name": "Selected Social Provider",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "frf6fqn1neb",
+            "taskId": "32"
+          },
+          {
+            "interactionId": "zkmo56imthm",
+            "taskId": "34"
+          },
+          {
+            "interactionId": "ELSE",
+            "taskId": "0"
+          }
+        ]
+      },
+      "type": "condition",
+      "view": {
+        "x": 5340,
+        "y": 288
+      }
+    },
+    "34": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "CTA Selected"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "email sign up/sign in"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "component_description",
+                  "type": "string",
+                  "value": "email"
+                },
+                {
+                  "key": "cta_type",
+                  "type": "string",
+                  "value": "continue with apple"
+                },
+                {
+                  "key": "authentication_source",
+                  "type": "context",
+                  "value": "form.authenticationSource"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{user.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "34",
+      "name": "Track - CTA Selected - Apple",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "10"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 5820,
+        "y": 336
+      }
+    },
+    "35": {
+      "conditions": [
+        {
+          "atomicConditions": [
+            {
+              "operator": "contains",
+              "predicate": {
+                "type": "inline",
+                "value": "google"
+              },
+              "target": {
+                "type": "context",
+                "value": "provider"
+              }
+            }
+          ],
+          "interactionId": "frf6fqn1neb",
+          "name": "if continue with Google"
+        },
+        {
+          "atomicConditions": [
+            {
+              "operator": "contains",
+              "predicate": {
+                "type": "inline",
+                "value": "apple"
+              },
+              "target": {
+                "type": "context",
+                "value": "provider"
+              }
+            }
+          ],
+          "interactionId": "zkmo56imthm",
+          "name": "continue with Apple"
+        },
+        {
+          "interactionId": "ELSE",
+          "name": "Other Providers"
+        }
+      ],
+      "id": "35",
+      "name": "Selected Social Provider",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "frf6fqn1neb",
+            "taskId": "36"
+          },
+          {
+            "interactionId": "zkmo56imthm",
+            "taskId": "37"
+          },
+          {
+            "interactionId": "ELSE",
+            "taskId": "0"
+          }
+        ]
+      },
+      "type": "condition",
+      "view": {
+        "x": 5340,
+        "y": 984
+      }
+    },
+    "36": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "CTA Selected"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "phone sign up/sign in"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "component_description",
+                  "type": "string",
+                  "value": "email"
+                },
+                {
+                  "key": "cta_type",
+                  "type": "string",
+                  "value": "continue with google"
+                },
+                {
+                  "key": "authentication_source",
+                  "type": "context",
+                  "value": "form.authenticationSource"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{user.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "36",
+      "name": "Track - CTA Selected - Google",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "10"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 5820,
+        "y": 744
+      }
+    },
+    "37": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "CTA Selected"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "phone sign up/sign in"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "component_description",
+                  "type": "string",
+                  "value": "email"
+                },
+                {
+                  "key": "cta_type",
+                  "type": "string",
+                  "value": "continue with apple"
+                },
+                {
+                  "key": "authentication_source",
+                  "type": "context",
+                  "value": "form.authenticationSource"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{user.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "37",
+      "name": "Track - CTA Selected - Apple",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "10"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 5820,
+        "y": 1224
+      }
+    },
+    "38": {
+      "conditions": [
+        {
+          "atomicConditions": [
+            {
+              "operator": "not-empty",
+              "predicate": {
+                "type": "inline",
+                "value": ""
+              },
+              "target": {
+                "type": "context",
+                "value": "form.email"
+              }
+            }
+          ],
+          "errorHandling": {
+            "errorHandlingType": "automatic",
+            "errorMessage": "Enter a valid verification code."
+          },
+          "interactionId": "1ee4simo6qo",
+          "name": "Always True"
+        },
+        {
+          "interactionId": "ELSE",
+          "name": "Else"
+        }
+      ],
+      "id": "38",
+      "name": "Set Custom Error Message",
+      "next": {},
+      "type": "condition",
+      "view": {
+        "x": 4368,
+        "y": 228
+      }
+    },
+    "39": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "Account Verification Failed"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "OTP verification"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "auth_method",
+                  "type": "string",
+                  "value": "email"
+                },
+                {
+                  "key": "error_message",
+                  "type": "string",
+                  "value": "Enter a valid verification code."
+                },
+                {
+                  "key": "reason",
+                  "type": "string",
+                  "value": "user_error"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{unauthUser.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "39",
+      "name": "Track - Account Verification Failed - Email OTP Verification",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "38"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 3864,
+        "y": 288
+      }
+    },
+    "4": {
+      "allInputKeys": [
+        "code"
+      ],
+      "calculatedInputKeys": true,
+      "contextKeys": [
+        "form.email"
+      ],
+      "id": "4",
+      "name": "Verify Email OTP",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "UL8ixDtINn",
+            "taskId": "52"
+          },
+          {
+            "interactionId": "trOjxh3OUH",
+            "taskId": "5"
+          },
+          {
+            "interactionId": "resend",
+            "taskId": "30"
+          },
+          {
+            "interactionId": "oneTimeCodeId",
+            "taskId": "5"
+          }
+        ]
+      },
+      "screenId": "SC2sdKDZVB48SjhSw9oJinqfoUKPc",
+      "type": "screen",
+      "view": {
+        "x": 2436,
+        "y": 336
+      }
+    },
+    "40": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "Account Verification Failed"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "OTP verification"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "auth_method",
+                  "type": "string",
+                  "value": "email"
+                },
+                {
+                  "key": "error_message",
+                  "type": "string",
+                  "value": "Verification codes expire after 3 attempts. Request a new code and try again."
+                },
+                {
+                  "key": "reason",
+                  "type": "string",
+                  "value": "user_error"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{unauthUser.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "40",
+      "name": "Track - Account Verification Failed - Email OTP Verification",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "41"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 3888,
+        "y": 564
+      }
+    },
+    "41": {
+      "conditions": [
+        {
+          "atomicConditions": [
+            {
+              "operator": "not-empty",
+              "predicate": {
+                "type": "inline",
+                "value": ""
+              },
+              "target": {
+                "type": "context",
+                "value": "form.email"
+              }
+            }
+          ],
+          "errorHandling": {
+            "errorHandlingType": "automatic",
+            "errorMessage": "Verification codes expire after 3 attempts. Request a new code and try again."
+          },
+          "interactionId": "1ee4simo6qo",
+          "name": "Always True"
+        },
+        {
+          "interactionId": "ELSE",
+          "name": "Else"
+        }
+      ],
+      "id": "41",
+      "name": "Set Custom Error Message",
+      "next": {},
+      "type": "condition",
+      "view": {
+        "x": 4368,
+        "y": 516
+      }
+    },
+    "42": {
+      "conditions": [
+        {
+          "atomicConditions": [
+            {
+              "operator": "not-empty",
+              "predicate": {
+                "type": "inline",
+                "value": ""
+              },
+              "target": {
+                "type": "context",
+                "value": "form.phone"
+              }
+            }
+          ],
+          "errorHandling": {
+            "errorHandlingType": "automatic",
+            "errorMessage": "Enter a valid verification code."
+          },
+          "interactionId": "1ee4simo6qo",
+          "name": "Always True"
+        },
+        {
+          "interactionId": "ELSE",
+          "name": "Else"
+        }
+      ],
+      "id": "42",
+      "name": "Set Custom Error Message",
+      "next": {},
+      "type": "condition",
+      "view": {
+        "x": 9696,
+        "y": 1068
+      }
+    },
+    "43": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "Account Verification Failed"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "OTP verification"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "auth_method",
+                  "type": "string",
+                  "value": "sms"
+                },
+                {
+                  "key": "error_message",
+                  "type": "string",
+                  "value": "Enter a valid verification code."
+                },
+                {
+                  "key": "reason",
+                  "type": "string",
+                  "value": "user_error"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{unauthUser.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "43",
+      "name": "Track - Account Verification Failed - Phone OTP Verification",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "42"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 9264,
+        "y": 1104
+      }
+    },
+    "44": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "Account Verification Failed"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "OTP verification"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "auth_method",
+                  "type": "string",
+                  "value": "sms"
+                },
+                {
+                  "key": "error_message",
+                  "type": "string",
+                  "value": "Verification codes expire after 3 attempts. Request a new code and try again."
+                },
+                {
+                  "key": "reason",
+                  "type": "string",
+                  "value": "user_error"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{unauthUser.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "44",
+      "name": "Track - Account Verification Failed - Phone OTP Verification",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "45"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 9216,
+        "y": 1356
+      }
+    },
+    "45": {
+      "conditions": [
+        {
+          "atomicConditions": [
+            {
+              "operator": "not-empty",
+              "predicate": {
+                "type": "inline",
+                "value": ""
+              },
+              "target": {
+                "type": "context",
+                "value": "form.phone"
+              }
+            }
+          ],
+          "errorHandling": {
+            "errorHandlingType": "automatic",
+            "errorMessage": "Verification codes expire after 3 attempts. Request a new code and try again."
+          },
+          "interactionId": "1ee4simo6qo",
+          "name": "Always True"
+        },
+        {
+          "interactionId": "ELSE",
+          "name": "Else"
+        }
+      ],
+      "id": "45",
+      "name": "Set Custom Error Message",
+      "next": {},
+      "type": "condition",
+      "view": {
+        "x": 9696,
+        "y": 1356
+      }
+    },
+    "46": {
+      "arguments": {
+        "flowId": {
+          "type": "inline",
+          "value": "set-last-auth-method"
+        }
+      },
+      "id": "46",
+      "name": "Set Last Auth Method",
+      "next": {},
+      "type": "flow",
+      "view": {
+        "x": 10176,
+        "y": 540
+      }
+    },
+    "47": {
+      "action": "scriptlet",
+      "arguments": {
+        "outputPath": {
+          "type": "inline",
+          "value": "appNameObj"
+        },
+        "overrideForm": {
+          "type": "inline",
+          "value": ""
+        },
+        "scriptArgs": {
+          "type": "inline",
+          "value": []
+        },
+        "scriptCode": {
+          "type": "inline",
+          "value": "/*\n Build app name object required for segment and amplitude events\n*/\nreturn {\n    name: \"descope\",\n  version: \"1\"\n};\n"
+        }
+      },
+      "errorHandlingV2": {
+        "ScriptletFailed": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "47",
+      "name": "BuildAppNameJson",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "51"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 12,
+        "y": 1380
+      }
+    },
+    "49": {
+      "arguments": {
+        "flowId": {
+          "type": "inline",
+          "value": "execute-callback-verify-user"
+        }
+      },
+      "id": "49",
+      "name": "Execute Callback Verify User",
+      "next": {},
+      "type": "flow",
+      "view": {
+        "x": 10668,
+        "y": 576
+      }
+    },
+    "5": {
+      "action": "verify-code-otp-email",
+      "errorHandlingV2": {
+        "OTPVerifyCodeEmailFailed": {
+          "errorHandlingType": "customWithError",
+          "errorMessage": "Enter a valid verification code."
+        },
+        "OTPVerifyCodeExpired": {
+          "errorHandlingType": "custom"
+        }
+      },
+      "id": "5",
+      "name": "Verify Code / OTP / Email",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "72"
+          },
+          {
+            "interactionId": "OTPVerifyCodeEmailFailed",
+            "taskId": "39"
+          },
+          {
+            "interactionId": "OTPVerifyCodeExpired",
+            "taskId": "40"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 3408,
+        "y": 456
+      }
+    },
+    "51": {
+      "conditions": [
+        {
+          "atomicConditions": [
+            {
+              "operator": "not-empty",
+              "predicate": {
+                "type": "inline",
+                "value": ""
+              },
+              "target": {
+                "type": "context",
+                "value": "form.email"
+              }
+            },
+            {
+              "operator": "is-true",
+              "predicate": {
+                "type": "inline",
+                "value": "true"
+              },
+              "target": {
+                "type": "context",
+                "value": "form.skipToOTP"
+              }
+            }
+          ],
+          "interactionId": "moh81o1pzbn",
+          "name": "email and skipToOTP exist"
+        },
+        {
+          "atomicConditions": [
+            {
+              "operator": "not-empty",
+              "predicate": {
+                "type": "inline",
+                "value": ""
+              },
+              "target": {
+                "type": "context",
+                "value": "form.phone"
+              }
+            },
+            {
+              "operator": "is-true",
+              "predicate": {
+                "type": "inline",
+                "value": "true"
+              },
+              "target": {
+                "type": "context",
+                "value": "form.skipToOTP"
+              }
+            }
+          ],
+          "interactionId": "726ntgdneud",
+          "name": "phone and skipToOTP exist"
+        },
+        {
+          "atomicConditions": [
+            {
+              "operator": "not-empty",
+              "predicate": {
+                "type": "inline",
+                "value": ""
+              },
+              "target": {
+                "type": "context",
+                "value": "form.email"
+              }
+            }
+          ],
+          "interactionId": "8o23la75ljp",
+          "name": "Email field exist in form"
+        },
+        {
+          "atomicConditions": [
+            {
+              "operator": "not-empty",
+              "predicate": {
+                "type": "inline",
+                "value": ""
+              },
+              "target": {
+                "type": "context",
+                "value": "form.phone"
+              }
+            }
+          ],
+          "interactionId": "ypdaecrffsl",
+          "name": "Phone field exist in form"
+        },
+        {
+          "interactionId": "ELSE",
+          "name": "No Email or Phone field"
+        }
+      ],
+      "id": "51",
+      "name": "Prepopulate email or Phone field",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "moh81o1pzbn",
+            "taskId": "15"
+          },
+          {
+            "interactionId": "726ntgdneud",
+            "taskId": "17"
+          },
+          {
+            "interactionId": "8o23la75ljp",
+            "taskId": "21"
+          },
+          {
+            "interactionId": "ypdaecrffsl",
+            "taskId": "25"
+          },
+          {
+            "interactionId": "ELSE",
+            "taskId": "21"
+          }
+        ]
+      },
+      "type": "condition",
+      "view": {
+        "x": 504,
+        "y": 1320
+      }
+    },
+    "52": {
+      "conditions": [
+        {
+          "atomicConditions": [
+            {
+              "operator": "is-true",
+              "predicate": {
+                "type": "inline",
+                "value": ""
+              },
+              "target": {
+                "type": "context",
+                "value": "form.skipToOTP"
+              }
+            }
+          ],
+          "interactionId": "rszpz3v18i9",
+          "name": "skip to OTP is true"
+        },
+        {
+          "interactionId": "ELSE",
+          "name": "Else"
+        }
+      ],
+      "id": "52",
+      "name": "If skipping to OTP",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "rszpz3v18i9",
+            "taskId": "53"
+          },
+          {
+            "interactionId": "ELSE",
+            "taskId": "1"
+          }
+        ]
+      },
+      "type": "condition",
+      "view": {
+        "x": 2916,
+        "y": 12
+      }
+    },
+    "53": {
+      "allInputKeys": [
+        "email"
+      ],
+      "calculatedInputKeys": true,
+      "id": "53",
+      "inputKeys": [
+        "email"
+      ],
+      "name": "Sign up or sign in With Email, No Socials",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "COcMh1vzSn",
+            "taskId": "23"
+          }
+        ]
+      },
+      "screenId": "SC2zbtsIDZNgGLQ3lKB9Pk8g71Zso",
+      "type": "screen",
+      "view": {
+        "x": 3408,
+        "y": 12
+      }
+    },
+    "54": {
+      "conditions": [
+        {
+          "atomicConditions": [
+            {
+              "operator": "is-true",
+              "predicate": {
+                "type": "inline",
+                "value": ""
+              },
+              "target": {
+                "type": "context",
+                "value": "form.skipToOTP"
+              }
+            }
+          ],
+          "interactionId": "rszpz3v18i9",
+          "name": "skip to OTP is true"
+        },
+        {
+          "interactionId": "ELSE",
+          "name": "Else"
+        }
+      ],
+      "id": "54",
+      "name": "If skipping to OTP",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "rszpz3v18i9",
+            "taskId": "55"
+          },
+          {
+            "interactionId": "ELSE",
+            "taskId": "9"
+          }
+        ]
+      },
+      "type": "condition",
+      "view": {
+        "x": 8244,
+        "y": 744
+      }
+    },
+    "55": {
+      "allInputKeys": [
+        "phone"
+      ],
+      "calculatedInputKeys": true,
+      "id": "55",
+      "inputKeys": [
+        "phone"
+      ],
+      "name": "Sign up or sign in with Phone, No Socials",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "COcMh1vzSn",
+            "taskId": "24"
+          }
+        ]
+      },
+      "screenId": "SC2zbuhttEKJ8iBsgxpGVst8pQMVq",
+      "type": "screen",
+      "view": {
+        "x": 8724,
+        "y": 744
+      }
+    },
+    "6": {
+      "action": "sign-up-or-in-otp-sms",
+      "arguments": {
+        "extraTemplateVals": {
+          "type": "inline"
+        },
+        "providerId": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "errorHandlingV2": {
+        "ActionErrorRateLimitExceeded": {
+          "errorHandlingType": "automatic"
+        },
+        "OTPSignUpOrInPhoneCallBlockedByTwilioFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "OTPSignUpOrInPhoneFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "OTPSignUpOrInPhoneRateLimitByProviderFailed": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "6",
+      "name": "Sign Up or In / OTP / SMS",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "27"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 6792,
+        "y": 1044
+      }
+    },
+    "60": {
+      "action": "connector",
+      "arguments": {
+        "args": {
+          "type": "inline",
+          "value": [
+            {
+              "key": "event",
+              "type": "string",
+              "value": "CTA Selected"
+            },
+            {
+              "key": "anonymousId",
+              "type": "string",
+              "value": "{{form.grxUniqueId}}"
+            },
+            {
+              "key": "properties",
+              "type": "string",
+              "value": [
+                {
+                  "key": "component_name",
+                  "type": "string",
+                  "value": "phone sign up/sign in"
+                },
+                {
+                  "key": "product_area",
+                  "type": "string",
+                  "value": "universal_login"
+                },
+                {
+                  "key": "component_description",
+                  "type": "string",
+                  "value": "sms"
+                },
+                {
+                  "key": "cta_type",
+                  "type": "string",
+                  "value": "sign in with email"
+                },
+                {
+                  "key": "authentication_source",
+                  "type": "context",
+                  "value": "form.authenticationSource"
+                }
+              ]
+            },
+            {
+              "key": "context",
+              "type": "string",
+              "value": [
+                {
+                  "key": "tenant_id",
+                  "type": "string",
+                  "value": "gdrx"
+                },
+                {
+                  "key": "app",
+                  "type": "context",
+                  "value": "scripts.appNameObj"
+                },
+                {
+                  "key": "is_hcp_mode",
+                  "type": "context",
+                  "value": "form.isHcpMode"
+                }
+              ]
+            },
+            {
+              "key": "userId",
+              "type": "string",
+              "value": "{{user.customAttributes.commonId}}"
+            }
+          ]
+        },
+        "async": {
+          "type": "inline",
+          "value": true
+        },
+        "command": {
+          "type": "inline",
+          "value": "track"
+        },
+        "connectorId": {
+          "type": "inline",
+          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
+        },
+        "exchangeStepId": {
+          "type": "inline",
+          "value": ""
+        },
+        "resultPath": {
+          "type": "inline",
+          "value": ""
+        },
+        "templateId": {
+          "type": "inline",
+          "value": "segment"
+        }
+      },
+      "errorHandlingV2": {
+        "ConnectorFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "generic_error": {
+          "errorHandlingType": "automatic"
+        },
+        "missing_field": {
+          "errorHandlingType": "automatic"
+        }
+      },
+      "id": "60",
+      "name": "Track - CTA Selected - Use Email Address",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "1"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 5340,
+        "y": 1320
+      }
+    },
+    "7": {
+      "allInputKeys": [
+        "code"
+      ],
+      "calculatedInputKeys": true,
+      "contextKeys": [
+        "scripts.formatPhoneResponse.formattedPhone"
+      ],
+      "id": "7",
+      "name": "Verify Phone OTP",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "Awmv_YJxY3",
+            "taskId": "54"
+          },
+          {
+            "interactionId": "00CiP4JWrW",
+            "taskId": "29"
+          },
+          {
+            "interactionId": "resend",
+            "taskId": "31"
+          },
+          {
+            "interactionId": "oneTimeCodeId",
+            "taskId": "29"
+          }
+        ]
+      },
+      "screenId": "SC2sdKDatkOgunGSZ5XZUs7Vo6Po9",
+      "type": "screen",
+      "view": {
+        "x": 7764,
+        "y": 1056
+      }
+    },
+    "72": {
+      "arguments": {
+        "flowId": {
+          "type": "inline",
+          "value": "trusted-phone-evaluation"
+        }
+      },
+      "id": "72",
+      "name": "Trusted Phone Evaluation",
+      "next": {},
+      "type": "flow",
+      "view": {
+        "x": 9216,
+        "y": 480
+      }
+    },
+    "73": {
+      "action": "generate-audit-event",
+      "arguments": {
+        "customAuditActionName": {
+          "type": "inline",
+          "value": "Failed OAuth Exchange Event"
+        },
+        "customAuditData": {
+          "type": "inline"
+        },
+        "customAuditType": {
+          "type": "inline",
+          "value": "warn"
+        }
+      },
+      "id": "73",
+      "name": "Generate Failed OAuth Exchange Event Log",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "1"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 6792,
+        "y": 588
+      }
+    },
+    "74": {
+      "allInputKeys": [
+        "email"
+      ],
+      "calculatedInputKeys": true,
+      "id": "74",
+      "inputKeys": [
+        "email"
+      ],
+      "name": "New Screen",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "GYC07nV1lW",
+            "taskId": "3"
+          }
+        ]
+      },
+      "screenId": "SC3DJjPTJ5Vkv1f3NZPyok5ok0xDg",
+      "type": "screen",
+      "view": {
+        "x": 804,
+        "y": 180
+      }
+    },
+    "8": {
+      "action": "verify-code-otp-sms",
+      "errorHandlingV2": {
+        "OTPVerifyCodeExpired": {
+          "errorHandlingType": "custom"
+        },
+        "OTPVerifyCodePhoneFailed": {
+          "errorHandlingType": "custom"
+        }
+      },
+      "id": "8",
+      "name": "Verify Code / OTP / SMS",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "72"
+          },
+          {
+            "interactionId": "OTPVerifyCodePhoneFailed",
+            "taskId": "43"
+          },
+          {
+            "interactionId": "OTPVerifyCodeExpired",
+            "taskId": "44"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 8724,
+        "y": 1236
+      }
+    },
+    "9": {
+      "allInputKeys": [
+        "phone"
+      ],
+      "calculatedInputKeys": true,
+      "id": "9",
+      "inputKeys": [
+        "phone"
+      ],
+      "name": "Sign up or sign in with Phone",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "COcMh1vzSn",
+            "taskId": "24"
+          },
+          {
+            "interactionId": "C3_h_gd8kc",
+            "taskId": "35"
+          },
+          {
+            "interactionId": "mqOwHPAkxR",
+            "taskId": "35"
+          },
+          {
+            "interactionId": "Ms-RHbvu5r",
+            "taskId": "60"
+          }
+        ]
+      },
+      "screenId": "SC2sdN9Uawp5AtYCynmLcbCxTn2uL",
+      "type": "screen",
+      "view": {
+        "x": 4860,
+        "y": 960
+      }
+    },
+    "start": {
+      "id": "start",
+      "name": "start",
+      "next": {
+        "rules": [
+          {
+            "taskId": "74"
+          }
+        ]
+      },
+      "view": {
+        "x": 12,
+        "y": 1644
+      }
+    }
+  }
+}

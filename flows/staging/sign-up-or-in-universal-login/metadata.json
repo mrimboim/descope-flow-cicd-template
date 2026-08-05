@@ -1,0 +1,38 @@
+{
+  "componentsVersion": "3.18.2",
+  "description": "P2qBOYWRz0jtS7wdvY8ZSAxZGbdi - This flow is used to replicate existing Universal login flow in Auth0",
+  "disabled": false,
+  "fingerprint": false,
+  "name": "Sign Up or In - Universal login",
+  "screens": [
+    "3DJjPTJ5Vkv1f3NZPyok5ok0xDg",
+    "sign-up-or-sign-in-with-email",
+    "sign-up-or-sign-in-with-email-no-socials",
+    "sign-up-or-sign-in-with-phone",
+    "sign-up-or-sign-in-with-phone-no-socials",
+    "verify-email-otp",
+    "verify-phone-otp"
+  ],
+  "sharedInteractions": [
+    {
+      "id": "0.success",
+      "type": "success"
+    },
+    {
+      "id": "38.ELSE",
+      "label": "Else"
+    },
+    {
+      "id": "41.ELSE",
+      "label": "Else"
+    },
+    {
+      "id": "42.ELSE",
+      "label": "Else"
+    },
+    {
+      "id": "45.ELSE",
+      "label": "Else"
+    }
+  ]
+}
