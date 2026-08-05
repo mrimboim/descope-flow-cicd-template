@@ -279,7 +279,7 @@
       "nodes": [],
       "parent": "ROOT",
       "props": {
-        "children": "Welcome to Descope\n\n",
+        "children": "Welcome to Descope again\n\n",
         "full-width": false,
         "id": "eMTNXK-AHL",
         "isEnriched": true,
@@ -377,6 +377,13 @@
   },
   "interactions": [
     {
+      "icon": "apple",
+      "id": "Cf2ZQ46VfU",
+      "label": "Sign in with Apple",
+      "subType": "social",
+      "type": "button"
+    },
+    {
       "icon": "google",
       "id": "WSMbfRepR0",
       "label": "Sign in with Google",
@@ -396,13 +403,6 @@
       "label": "",
       "subType": "",
       "type": "input"
-    },
-    {
-      "icon": "apple",
-      "id": "Cf2ZQ46VfU",
-      "label": "Sign in with Apple",
-      "subType": "social",
-      "type": "button"
     }
   ],
   "screenId": "SC3FTN79pmvnowDHvPHC0CZppOHHU"

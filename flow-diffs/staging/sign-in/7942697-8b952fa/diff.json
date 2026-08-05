@@ -1,0 +1,208 @@
+{
+ "componentsVersion": {
+  "new": "3.18.2",
+  "old": "3.18.2"
+ },
+ "conditions": {},
+ "edges": {
+  "added": [
+   [
+    "8",
+    "OAuthStartFailed",
+    "4"
+   ]
+  ],
+  "removed": [],
+  "rewired": []
+ },
+ "errors": [
+  {
+   "error": "ActionErrorTenantDisabled",
+   "new": {
+    "errorHandlingType": "automatic"
+   },
+   "old": null,
+   "status": "added",
+   "task": "8",
+   "taskName": "Sign In / OAuth"
+  },
+  {
+   "error": "ActionErrorTenantRequiresSSO",
+   "new": {
+    "errorHandlingType": "automatic"
+   },
+   "old": null,
+   "status": "added",
+   "task": "8",
+   "taskName": "Sign In / OAuth"
+  },
+  {
+   "error": "OAuthCanceled",
+   "new": {
+    "errorHandlingType": "automatic"
+   },
+   "old": null,
+   "status": "added",
+   "task": "8",
+   "taskName": "Sign In / OAuth"
+  },
+  {
+   "error": "OAuthExchangeCodeFailed",
+   "new": {
+    "errorHandlingType": "automatic"
+   },
+   "old": null,
+   "status": "added",
+   "task": "8",
+   "taskName": "Sign In / OAuth"
+  },
+  {
+   "error": "OAuthExchangeNativeOAuthFailed",
+   "new": {
+    "errorHandlingType": "automatic"
+   },
+   "old": null,
+   "status": "added",
+   "task": "8",
+   "taskName": "Sign In / OAuth"
+  },
+  {
+   "error": "OAuthStartFailed",
+   "new": {
+    "errorHandlingType": "customWithError",
+    "errorMessage": "Yes"
+   },
+   "old": null,
+   "status": "added",
+   "task": "8",
+   "taskName": "Sign In / OAuth"
+  }
+ ],
+ "flowId": "sign-in",
+ "screens": {
+  "added": [],
+  "modified": {
+   "SC3FTN79pmvnowDHvPHC0CZppOHHU": {
+    "nodes_added": [],
+    "nodes_removed": [],
+    "prop_changes": {
+     "eMTNXK-AHL": [
+      [
+       "children",
+       "Welcome to Descope\n\n",
+       "Welcome to Descope again\n\n"
+      ]
+     ]
+    }
+   }
+  },
+  "noise_suppressed": 0,
+  "removed": []
+ },
+ "tasks": {
+  "added": [],
+  "derived_only": [],
+  "field_changes": {
+   "0": [
+    [
+     "htmlTemplate.eMTNXK-AHL.props.children",
+     "Welcome to Descope\n\n",
+     "Welcome to Descope again\n\n"
+    ],
+    [
+     "interactions",
+     [
+      {
+       "icon": "google",
+       "id": "WSMbfRepR0",
+       "label": "Sign in with Google",
+       "subType": "social",
+       "type": "button"
+      },
+      {
+       "id": "_Lh3K_C2J_",
+       "label": "Sign In",
+       "type": "button"
+      },
+      {
+       "icon": "passkey",
+       "id": "bL-cGpwCvI",
+       "type": "input"
+      },
+      {
+       "icon": "apple",
+       "id": "Cf2ZQ46VfU",
+       "label": "Sign in with Apple",
+       "subType": "social",
+       "type": "button"
+      }
+     ],
+     [
+      {
+       "icon": "apple",
+       "id": "Cf2ZQ46VfU",
+       "label": "Sign in with Apple",
+       "subType": "social",
+       "type": "button"
+      },
+      {
+       "icon": "google",
+       "id": "WSMbfRepR0",
+       "label": "Sign in with Google",
+       "subType": "social",
+       "type": "button"
+      },
+      {
+       "id": "_Lh3K_C2J_",
+       "label": "Sign In",
+       "type": "button"
+      },
+      {
+       "icon": "passkey",
+       "id": "bL-cGpwCvI",
+       "type": "input"
+      }
+     ]
+    ]
+   ],
+   "8": [
+    [
+     "arguments.allowSetDefaultProvider.value",
+     null,
+     false
+    ],
+    [
+     "arguments.forceNonNative.value",
+     null,
+     false
+    ],
+    [
+     "arguments.popup.value",
+     null,
+     false
+    ],
+    [
+     "arguments.rawResponse.value",
+     null,
+     false
+    ]
+   ]
+  },
+  "modified": {
+   "0": [
+    "htmlTemplate",
+    "interactions",
+    "screen"
+   ],
+   "8": [
+    "arguments",
+    "errorHandlingV2"
+   ]
+  },
+  "moved": [
+   "8",
+   "9"
+  ],
+  "removed": []
+ }
+}

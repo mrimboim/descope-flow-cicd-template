@@ -291,7 +291,7 @@
           "nodes": [],
           "parent": "ROOT",
           "props": {
-            "children": "Welcome to Descope\n\n",
+            "children": "Welcome to Descope again\n\n",
             "full-width": false,
             "id": "eMTNXK-AHL",
             "isEnriched": true,
@@ -399,6 +399,13 @@
       ],
       "interactions": [
         {
+          "icon": "apple",
+          "id": "Cf2ZQ46VfU",
+          "label": "Sign in with Apple",
+          "subType": "social",
+          "type": "button"
+        },
+        {
           "icon": "google",
           "id": "WSMbfRepR0",
           "label": "Sign in with Google",
@@ -415,13 +422,6 @@
           "id": "bL-cGpwCvI",
           "label": "",
           "type": "input"
-        },
-        {
-          "icon": "apple",
-          "id": "Cf2ZQ46VfU",
-          "label": "Sign in with Apple",
-          "subType": "social",
-          "type": "button"
         }
       ],
       "name": "Sign In Screen",
@@ -436,11 +436,11 @@
             "taskId": "5"
           },
           {
-            "interactionId": "WSMbfRepR0",
+            "interactionId": "Cf2ZQ46VfU",
             "taskId": "8"
           },
           {
-            "interactionId": "Cf2ZQ46VfU",
+            "interactionId": "WSMbfRepR0",
             "taskId": "8"
           }
         ]
@@ -596,7 +596,7 @@
       "arguments": {
         "allowSetDefaultProvider": {
           "type": "inline",
-          "value": ""
+          "value": false
         },
         "defaultProvider": {
           "type": "inline",
@@ -608,7 +608,7 @@
         },
         "forceNonNative": {
           "type": "inline",
-          "value": ""
+          "value": false
         },
         "loginHint": {
           "type": "inline",
@@ -616,7 +616,7 @@
         },
         "popup": {
           "type": "inline",
-          "value": ""
+          "value": false
         },
         "prompt": {
           "type": "inline",
@@ -624,17 +624,42 @@
         },
         "rawResponse": {
           "type": "inline",
-          "value": ""
+          "value": false
         },
         "redirectUrl": {
           "type": "inline",
           "value": ""
         }
       },
+      "errorHandlingV2": {
+        "ActionErrorTenantDisabled": {
+          "errorHandlingType": "automatic"
+        },
+        "ActionErrorTenantRequiresSSO": {
+          "errorHandlingType": "automatic"
+        },
+        "OAuthCanceled": {
+          "errorHandlingType": "automatic"
+        },
+        "OAuthExchangeCodeFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "OAuthExchangeNativeOAuthFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "OAuthStartFailed": {
+          "errorHandlingType": "customWithError",
+          "errorMessage": "Yes"
+        }
+      },
       "id": "8",
       "name": "Sign In / OAuth",
       "next": {
         "rules": [
+          {
+            "interactionId": "OAuthStartFailed",
+            "taskId": "4"
+          },
           {
             "interactionId": "success",
             "taskId": "8.end"
@@ -643,7 +668,7 @@
       },
       "type": "automated",
       "view": {
-        "x": 1176,
+        "x": 1056,
         "y": 468
       }
     },
@@ -652,7 +677,7 @@
       "arguments": {
         "allowSetDefaultProvider": {
           "type": "inline",
-          "value": ""
+          "value": false
         },
         "defaultProvider": {
           "type": "inline",
@@ -664,7 +689,7 @@
         },
         "forceNonNative": {
           "type": "inline",
-          "value": ""
+          "value": false
         },
         "loginHint": {
           "type": "inline",
@@ -672,7 +697,7 @@
         },
         "popup": {
           "type": "inline",
-          "value": ""
+          "value": false
         },
         "prompt": {
           "type": "inline",
@@ -680,11 +705,32 @@
         },
         "rawResponse": {
           "type": "inline",
-          "value": ""
+          "value": false
         },
         "redirectUrl": {
           "type": "inline",
           "value": ""
+        }
+      },
+      "errorHandlingV2": {
+        "ActionErrorTenantDisabled": {
+          "errorHandlingType": "automatic"
+        },
+        "ActionErrorTenantRequiresSSO": {
+          "errorHandlingType": "automatic"
+        },
+        "OAuthCanceled": {
+          "errorHandlingType": "automatic"
+        },
+        "OAuthExchangeCodeFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "OAuthExchangeNativeOAuthFailed": {
+          "errorHandlingType": "automatic"
+        },
+        "OAuthStartFailed": {
+          "errorHandlingType": "customWithError",
+          "errorMessage": "Yes"
         }
       },
       "id": "8.end",
@@ -699,7 +745,7 @@
       },
       "type": "automated",
       "view": {
-        "x": 1176,
+        "x": 1056,
         "y": 468
       }
     },
@@ -731,8 +777,8 @@
       },
       "type": "automated",
       "view": {
-        "x": 948,
-        "y": 276
+        "x": 1152,
+        "y": 240
       }
     },
     "9.end": {
@@ -763,8 +809,8 @@
       },
       "type": "automated",
       "view": {
-        "x": 948,
-        "y": 276
+        "x": 1152,
+        "y": 240
       }
     },
     "start": {
