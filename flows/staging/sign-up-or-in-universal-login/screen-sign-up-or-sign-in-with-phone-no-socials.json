@@ -16,6 +16,7 @@
         "country-input-label": "Code",
         "country-input-placeholder": "Code",
         "data-errormessage-missing-value": "Required",
+        "data-errormessage-pattern-mismatch": "Please match the requested format.",
         "data-errormessage-pattern-mismatch-too-short": "Enter a valid US mobile phone number.",
         "data-errormessage-value-missing": "Please fill out this field.",
         "default-code": "US",
@@ -58,6 +59,7 @@
         "id": "COcMh1vzSn",
         "mode": "primary",
         "size": "md",
+        "tooltipText": "Tooltip text",
         "variant": "contained"
       },
       "type": {
@@ -109,6 +111,7 @@
         "link-target-blank": true,
         "mode": "secondary",
         "text-align": "left",
+        "tooltipText": "Tooltip text",
         "variant": "body2"
       },
       "type": {
@@ -178,7 +181,7 @@
       "nodes": [],
       "parent": "DY-8rUNtnX",
       "props": {
-        "children": "Sign up or log in\n\n",
+        "children": "Sign up \n\n",
         "full-width": true,
         "id": "cDmtaSAoSF",
         "isEnriched": true,
@@ -186,6 +189,7 @@
         "link-target-blank": true,
         "mode": "primary",
         "text-align": "left",
+        "tooltipText": "Tooltip text",
         "variant": "h1"
       },
       "type": {
@@ -261,6 +265,7 @@
         "link-target-blank": true,
         "mode": "secondary",
         "text-align": "left",
+        "tooltipText": "Tooltip text",
         "variant": "body2"
       },
       "type": {

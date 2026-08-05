@@ -1,5 +1,5 @@
 {
-  "startTask": "74",
+  "startTask": "47",
   "tasks": {
     "0": {
       "action": "logged-in",
@@ -8,7 +8,7 @@
       "next": {},
       "type": "automated",
       "view": {
-        "x": 11628,
+        "x": 11868,
         "y": 672
       }
     },
@@ -20,6 +20,12 @@
       "id": "1",
       "inputKeys": [
         "email"
+      ],
+      "inputsMetadata": [
+        {
+          "displayName": "Email Input",
+          "key": "email"
+        }
       ],
       "name": "Sign up or sign in With Email",
       "next": {
@@ -270,22 +276,6 @@
       "view": {
         "x": 9696,
         "y": 516
-      }
-    },
-    "14": {
-      "arguments": {
-        "flowId": {
-          "type": "inline",
-          "value": "store-pii-from-social"
-        }
-      },
-      "id": "14",
-      "name": "Store PII from Social Providers",
-      "next": {},
-      "type": "flow",
-      "view": {
-        "x": 11148,
-        "y": 600
       }
     },
     "15": {
@@ -1335,133 +1325,6 @@
         "y": 756
       }
     },
-    "30": {
-      "action": "connector",
-      "arguments": {
-        "args": {
-          "type": "inline",
-          "value": [
-            {
-              "key": "event",
-              "type": "string",
-              "value": "CTA Selected"
-            },
-            {
-              "key": "anonymousId",
-              "type": "string",
-              "value": "{{form.grxUniqueId}}"
-            },
-            {
-              "key": "properties",
-              "type": "string",
-              "value": [
-                {
-                  "key": "component_name",
-                  "type": "string",
-                  "value": "OTP verification"
-                },
-                {
-                  "key": "product_area",
-                  "type": "string",
-                  "value": "universal_login"
-                },
-                {
-                  "key": "component_description",
-                  "type": "string",
-                  "value": "email"
-                },
-                {
-                  "key": "cta_type",
-                  "type": "string",
-                  "value": "send another code"
-                },
-                {
-                  "key": "authentication_source",
-                  "type": "context",
-                  "value": "form.authenticationSource"
-                }
-              ]
-            },
-            {
-              "key": "context",
-              "type": "string",
-              "value": [
-                {
-                  "key": "tenant_id",
-                  "type": "string",
-                  "value": "gdrx"
-                },
-                {
-                  "key": "app",
-                  "type": "context",
-                  "value": "scripts.appNameObj"
-                },
-                {
-                  "key": "is_hcp_mode",
-                  "type": "context",
-                  "value": "form.isHcpMode"
-                }
-              ]
-            },
-            {
-              "key": "userId",
-              "type": "string",
-              "value": "{{user.customAttributes.commonId}}"
-            }
-          ]
-        },
-        "async": {
-          "type": "inline",
-          "value": true
-        },
-        "command": {
-          "type": "inline",
-          "value": "track"
-        },
-        "connectorId": {
-          "type": "inline",
-          "value": "CI2ramx3YxCQhyblXPw63LTqPvh5C"
-        },
-        "exchangeStepId": {
-          "type": "inline",
-          "value": ""
-        },
-        "resultPath": {
-          "type": "inline",
-          "value": ""
-        },
-        "templateId": {
-          "type": "inline",
-          "value": "segment"
-        }
-      },
-      "errorHandlingV2": {
-        "ConnectorFailed": {
-          "errorHandlingType": "automatic"
-        },
-        "generic_error": {
-          "errorHandlingType": "automatic"
-        },
-        "missing_field": {
-          "errorHandlingType": "automatic"
-        }
-      },
-      "id": "30",
-      "name": "Track - CTA Selected - Send Another Code",
-      "next": {
-        "rules": [
-          {
-            "interactionId": "success",
-            "taskId": "3"
-          }
-        ]
-      },
-      "type": "automated",
-      "view": {
-        "x": 2916,
-        "y": 780
-      }
-    },
     "31": {
       "action": "connector",
       "arguments": {
@@ -2400,6 +2263,12 @@
         "form.email"
       ],
       "id": "4",
+      "inputsMetadata": [
+        {
+          "displayName": "One Time Code",
+          "key": "code"
+        }
+      ],
       "name": "Verify Email OTP",
       "next": {
         "rules": [
@@ -2410,10 +2279,6 @@
           {
             "interactionId": "trOjxh3OUH",
             "taskId": "5"
-          },
-          {
-            "interactionId": "resend",
-            "taskId": "30"
           },
           {
             "interactionId": "oneTimeCodeId",
@@ -2973,8 +2838,8 @@
       },
       "type": "automated",
       "view": {
-        "x": 12,
-        "y": 1380
+        "x": 204,
+        "y": 1764
       }
     },
     "49": {
@@ -3210,6 +3075,12 @@
       "inputKeys": [
         "email"
       ],
+      "inputsMetadata": [
+        {
+          "displayName": "Email Input",
+          "key": "email"
+        }
+      ],
       "name": "Sign up or sign in With Email, No Socials",
       "next": {
         "rules": [
@@ -3275,9 +3146,301 @@
         "phone"
       ],
       "calculatedInputKeys": true,
+      "clientScripts": [],
+      "componentsConditions": [],
+      "componentsConnectors": {},
+      "connectorComponentProps": {},
+      "dynamicSelects": {},
+      "htmlTemplate": {
+        "5CKkpbQqxG": {
+          "custom": {
+            "type": "input"
+          },
+          "displayName": "Phone Input",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "ROOT",
+          "props": {
+            "autoDetect": false,
+            "bordered": true,
+            "country-input-label": "Code",
+            "country-input-placeholder": "Code",
+            "data-errormessage-missing-value": "Required",
+            "data-errormessage-pattern-mismatch": "Please match the requested format.",
+            "data-errormessage-pattern-mismatch-too-short": "Enter a valid US mobile phone number.",
+            "data-errormessage-value-missing": "Please fill out this field.",
+            "default-code": "US",
+            "format-value": false,
+            "full-width": true,
+            "id": "5CKkpbQqxG",
+            "label": "Mobile phone number",
+            "label-type": "floating",
+            "maxlength": "20",
+            "minlength": "6",
+            "name": "phone",
+            "phone-input-placeholder": "",
+            "required": true,
+            "size": "md",
+            "strict-validation": false,
+            "type": "tel",
+            "variant": "inputBox"
+          },
+          "type": {
+            "resolvedName": "PhoneInput"
+          }
+        },
+        "COcMh1vzSn": {
+          "custom": {
+            "type": "button"
+          },
+          "displayName": "Button",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "sJzJr1_Ek8",
+          "props": {
+            "auto-submit": true,
+            "children": "Continue",
+            "color": "primary",
+            "data-type": "button",
+            "formNoValidate": false,
+            "full-width": true,
+            "id": "COcMh1vzSn",
+            "mode": "primary",
+            "size": "md",
+            "tooltipText": "Tooltip text",
+            "variant": "contained"
+          },
+          "type": {
+            "resolvedName": "Button"
+          }
+        },
+        "DY-8rUNtnX": {
+          "custom": {},
+          "displayName": "Container",
+          "hidden": false,
+          "isCanvas": true,
+          "linkedNodes": {},
+          "nodes": [
+            "cDmtaSAoSF",
+            "snOmO2tgDH"
+          ],
+          "parent": "ROOT",
+          "props": {
+            "align": "start",
+            "background": "#ffffff00",
+            "data-editor-type": "container",
+            "direction": "column",
+            "id": "DY-8rUNtnX",
+            "justify": "start",
+            "paddingX": "0",
+            "paddingY": "0",
+            "spaceBetween": "2.5",
+            "st-items-grow": 0,
+            "width": "100%"
+          },
+          "type": {
+            "resolvedName": "Container"
+          }
+        },
+        "NVjtLu2y7Y": {
+          "custom": {},
+          "displayName": "Text",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "ROOT",
+          "props": {
+            "children": "You also consent to receive marketing texts from or on behalf of GoodRx, to any number you provide to us, to which messages may be sent by automatic telephone dialing system. Consent to texts not required to use our services. If you don't want texts, please register with email.\n\n",
+            "full-width": true,
+            "id": "NVjtLu2y7Y",
+            "isEnriched": true,
+            "italic": false,
+            "link-target-blank": true,
+            "mode": "secondary",
+            "text-align": "left",
+            "tooltipText": "Tooltip text",
+            "variant": "body2"
+          },
+          "type": {
+            "resolvedName": "Text"
+          }
+        },
+        "O6g57IzhQ9": {
+          "custom": {},
+          "displayName": "Error Message",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "ROOT",
+          "props": {
+            "data-type": "error-message",
+            "full-width": true,
+            "hide-when-empty": true,
+            "id": "O6g57IzhQ9",
+            "italic": false,
+            "link-target-blank": true,
+            "mode": "error",
+            "text-align": "center",
+            "variant": "body2"
+          },
+          "type": {
+            "resolvedName": "ErrorMessage"
+          }
+        },
+        "ROOT": {
+          "custom": {},
+          "displayName": "Container",
+          "hidden": false,
+          "isCanvas": true,
+          "linkedNodes": {},
+          "nodes": [
+            "DY-8rUNtnX",
+            "5CKkpbQqxG",
+            "NVjtLu2y7Y",
+            "O6g57IzhQ9",
+            "sJzJr1_Ek8",
+            "hGxhWctyve"
+          ],
+          "props": {
+            "align": "center",
+            "background": "",
+            "data-editor-type": "container",
+            "direction": "column",
+            "id": "ROOT",
+            "justify": "center",
+            "paddingX": "5",
+            "paddingY": "5",
+            "spaceBetween": "4",
+            "st-items-grow": 0,
+            "width": "100%"
+          },
+          "type": {
+            "resolvedName": "Container"
+          }
+        },
+        "cDmtaSAoSF": {
+          "custom": {},
+          "displayName": "Text",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "DY-8rUNtnX",
+          "props": {
+            "children": "Sign up \n\n",
+            "full-width": true,
+            "id": "cDmtaSAoSF",
+            "isEnriched": true,
+            "italic": false,
+            "link-target-blank": true,
+            "mode": "primary",
+            "text-align": "left",
+            "tooltipText": "Tooltip text",
+            "variant": "h1"
+          },
+          "type": {
+            "resolvedName": "Text"
+          }
+        },
+        "hGxhWctyve": {
+          "custom": {},
+          "displayName": "Container",
+          "hidden": false,
+          "isCanvas": true,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "ROOT",
+          "props": {
+            "align": "start",
+            "background": "#ffffff00",
+            "data-editor-type": "container",
+            "direction": "row",
+            "id": "hGxhWctyve",
+            "justify": "center",
+            "paddingX": "0",
+            "paddingY": "0",
+            "spaceBetween": "2",
+            "st-items-grow": 0,
+            "width": "100%"
+          },
+          "type": {
+            "resolvedName": "Container"
+          }
+        },
+        "sJzJr1_Ek8": {
+          "custom": {},
+          "displayName": "Container",
+          "hidden": false,
+          "isCanvas": true,
+          "linkedNodes": {},
+          "nodes": [
+            "COcMh1vzSn"
+          ],
+          "parent": "ROOT",
+          "props": {
+            "align": "start",
+            "background": "#ffffff00",
+            "data-editor-type": "container",
+            "direction": "row",
+            "id": "sJzJr1_Ek8",
+            "justify": "center",
+            "paddingX": "0",
+            "paddingY": "0",
+            "spaceBetween": "0",
+            "st-items-grow": 0,
+            "width": "100%"
+          },
+          "type": {
+            "resolvedName": "Container"
+          }
+        },
+        "snOmO2tgDH": {
+          "custom": {},
+          "displayName": "Text",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "DY-8rUNtnX",
+          "props": {
+            "children": "By continuing, you agree to the [GoodRx Terms of Use](https://support.goodrx.com/hc/en-us/articles/115005225563-GoodRx-Terms-of-Use037\u0026m=dev) and [Privacy Policy](https://www.goodrx.com/about/privacy-policy).\n\n",
+            "full-width": true,
+            "id": "snOmO2tgDH",
+            "isEnriched": true,
+            "italic": false,
+            "link-target-blank": true,
+            "mode": "secondary",
+            "text-align": "left",
+            "tooltipText": "Tooltip text",
+            "variant": "body2"
+          },
+          "type": {
+            "resolvedName": "Text"
+          }
+        }
+      },
       "id": "55",
       "inputKeys": [
         "phone"
+      ],
+      "inputsMetadata": [
+        {
+          "displayName": "Phone Input",
+          "key": "phone"
+        }
+      ],
+      "interactions": [
+        {
+          "id": "COcMh1vzSn",
+          "label": "Continue",
+          "type": "button"
+        }
       ],
       "name": "Sign up or sign in with Phone, No Socials",
       "next": {
@@ -3288,6 +3451,7 @@
           }
         ]
       },
+      "recoveryCodesData": [],
       "screenId": "SC2zbuhttEKJ8iBsgxpGVst8pQMVq",
       "type": "screen",
       "view": {
@@ -3476,6 +3640,12 @@
         "scripts.formatPhoneResponse.formattedPhone"
       ],
       "id": "7",
+      "inputsMetadata": [
+        {
+          "displayName": "One Time Code",
+          "key": "code"
+        }
+      ],
       "name": "Verify Phone OTP",
       "next": {
         "rules": [
@@ -3560,6 +3730,12 @@
       "inputKeys": [
         "email"
       ],
+      "inputsMetadata": [
+        {
+          "displayName": "Email Input",
+          "key": "email"
+        }
+      ],
       "name": "New Screen",
       "next": {
         "rules": [
@@ -3619,6 +3795,12 @@
       "inputKeys": [
         "phone"
       ],
+      "inputsMetadata": [
+        {
+          "displayName": "Phone Input",
+          "key": "phone"
+        }
+      ],
       "name": "Sign up or sign in with Phone",
       "next": {
         "rules": [
@@ -3653,7 +3835,8 @@
       "next": {
         "rules": [
           {
-            "taskId": "74"
+            "interactionId": "",
+            "taskId": "47"
           }
         ]
       },

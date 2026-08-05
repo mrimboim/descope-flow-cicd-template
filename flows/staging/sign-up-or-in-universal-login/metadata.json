@@ -19,6 +19,11 @@
       "type": "success"
     },
     {
+      "id": "4.resend",
+      "label": "Send another code",
+      "type": "button"
+    },
+    {
       "id": "38.ELSE",
       "label": "Else"
     },
