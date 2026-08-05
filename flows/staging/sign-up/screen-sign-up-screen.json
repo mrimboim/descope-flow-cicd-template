@@ -11,6 +11,7 @@
       "nodes": [],
       "parent": "ROOT",
       "props": {
+        "autoComplete": "webauthn",
         "bordered": true,
         "copy-to-clipboard": false,
         "data-errormessage-pattern-mismatch": "Must be a valid email",
@@ -85,37 +86,6 @@
         "resolvedName": "Text"
       }
     },
-    "Gjob4tKKNP": {
-      "custom": {
-        "subType": "social",
-        "type": "button"
-      },
-      "displayName": "Apple Button",
-      "hidden": false,
-      "isCanvas": false,
-      "linkedNodes": {},
-      "nodes": [],
-      "parent": "ROOT",
-      "props": {
-        "aria-label": "Sign in with Apple",
-        "children": "Sign in with Apple",
-        "color": "primary",
-        "data-descope-provider": "apple",
-        "data-type": "social",
-        "formNoValidate": true,
-        "full-width": false,
-        "id": "Gjob4tKKNP",
-        "size": "md",
-        "st-label-spacing": "10px",
-        "startIcon": "apple",
-        "startIconColorText": false,
-        "tooltipText": "Tooltip text",
-        "variant": "outline"
-      },
-      "type": {
-        "resolvedName": "AppleButton"
-      }
-    },
     "ImJgP2GEdz": {
       "custom": {},
       "displayName": "Error Message",
@@ -172,7 +142,7 @@
       "nodes": [],
       "parent": "ROOT",
       "props": {
-        "children": "Testing normal change jul 5\n\n",
+        "children": "Welcome\n\n",
         "full-width": false,
         "id": "NqE2Qh0Sq6",
         "isEnriched": true,
@@ -200,7 +170,7 @@
         "ekknuJxLv5",
         "WdJMmKNDSv",
         "WrcNhwLdaS",
-        "Gjob4tKKNP",
+        "keR6MsQTnS",
         "ImJgP2GEdz"
       ],
       "props": {
@@ -350,6 +320,37 @@
         "resolvedName": "Button"
       }
     },
+    "keR6MsQTnS": {
+      "custom": {
+        "subType": "social",
+        "type": "button"
+      },
+      "displayName": "Facebook Button",
+      "hidden": false,
+      "isCanvas": false,
+      "linkedNodes": {},
+      "nodes": [],
+      "parent": "ROOT",
+      "props": {
+        "aria-label": "Sign in with Facebook",
+        "children": "Sign in with Facebook",
+        "color": "primary",
+        "data-descope-provider": "facebook",
+        "data-type": "social",
+        "formNoValidate": true,
+        "full-width": true,
+        "id": "keR6MsQTnS",
+        "size": "md",
+        "st-label-spacing": "10px",
+        "startIcon": "facebook",
+        "startIconColorText": false,
+        "tooltipText": "Tooltip text",
+        "variant": "outline"
+      },
+      "type": {
+        "resolvedName": "FacebookButton"
+      }
+    },
     "yraprtzr35": {
       "custom": {},
       "displayName": "Link",
@@ -377,6 +378,13 @@
   },
   "interactions": [
     {
+      "icon": "passkey",
+      "id": "6KGtvzyiH_",
+      "label": "",
+      "subType": "",
+      "type": "input"
+    },
+    {
       "icon": "google",
       "id": "WN6nz9hWd5",
       "label": "Sign up with Google",
@@ -391,9 +399,9 @@
       "type": "button"
     },
     {
-      "icon": "apple",
-      "id": "Gjob4tKKNP",
-      "label": "Sign in with Apple",
+      "icon": "facebook",
+      "id": "keR6MsQTnS",
+      "label": "Sign in with Facebook",
       "subType": "social",
       "type": "button"
     }

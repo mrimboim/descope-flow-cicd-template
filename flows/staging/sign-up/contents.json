@@ -6,13 +6,432 @@
         "email"
       ],
       "calculatedInputKeys": true,
+      "clientScripts": [],
+      "componentsConditions": [],
+      "componentsConnectors": {},
+      "connectorComponentProps": {},
+      "dynamicSelects": {},
+      "htmlTemplate": {
+        "6KGtvzyiH_": {
+          "custom": {
+            "type": "input"
+          },
+          "displayName": "Email Input",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "ROOT",
+          "props": {
+            "autoComplete": "webauthn",
+            "bordered": true,
+            "copy-to-clipboard": false,
+            "data-errormessage-pattern-mismatch": "Must be a valid email",
+            "data-errormessage-value-missing": "Please fill out this field.",
+            "full-width": true,
+            "id": "6KGtvzyiH_",
+            "label": "",
+            "label-type": "static",
+            "max": 100,
+            "name": "email",
+            "pattern": "^[\\w._%+-]+@[\\w.-]+\\.[A-Za-z]{2,}$",
+            "placeholder": "Email address *",
+            "required": true,
+            "size": "md",
+            "type": "email"
+          },
+          "type": {
+            "resolvedName": "EmailInput"
+          }
+        },
+        "9XAhj1-KWt": {
+          "custom": {},
+          "displayName": "Container",
+          "hidden": false,
+          "isCanvas": true,
+          "linkedNodes": {},
+          "nodes": [
+            "LFiFGezgcL",
+            "yraprtzr35",
+            "9u0Dth6zJY",
+            "XRYAV2RO21"
+          ],
+          "parent": "ROOT",
+          "props": {
+            "align": "start",
+            "background": "#ffffff00",
+            "data-editor-type": "container",
+            "direction": "row",
+            "id": "9XAhj1-KWt",
+            "justify": "center",
+            "paddingX": "4",
+            "paddingY": "1",
+            "spaceBetween": "0.5",
+            "st-items-grow": 0,
+            "width": "100%"
+          },
+          "type": {
+            "resolvedName": "Container"
+          }
+        },
+        "9u0Dth6zJY": {
+          "custom": {},
+          "displayName": "Text",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "9XAhj1-KWt",
+          "props": {
+            "children": "and",
+            "full-width": false,
+            "id": "9u0Dth6zJY",
+            "isEnriched": true,
+            "italic": false,
+            "link-target-blank": true,
+            "mode": "primary",
+            "text-align": "center",
+            "tooltipText": "Tooltip text",
+            "variant": "body1"
+          },
+          "type": {
+            "resolvedName": "Text"
+          }
+        },
+        "ImJgP2GEdz": {
+          "custom": {},
+          "displayName": "Error Message",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "ROOT",
+          "props": {
+            "data-type": "error-message",
+            "full-width": false,
+            "hide-when-empty": true,
+            "id": "ImJgP2GEdz",
+            "italic": false,
+            "link-target-blank": true,
+            "mode": "error",
+            "text-align": "center",
+            "variant": "body1"
+          },
+          "type": {
+            "resolvedName": "ErrorMessage"
+          }
+        },
+        "LFiFGezgcL": {
+          "custom": {},
+          "displayName": "Text",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "9XAhj1-KWt",
+          "props": {
+            "children": "By signing up, I agree to the Company's",
+            "full-width": false,
+            "id": "LFiFGezgcL",
+            "isEnriched": true,
+            "italic": false,
+            "link-target-blank": true,
+            "mode": "primary",
+            "text-align": "center",
+            "tooltipText": "Tooltip text",
+            "variant": "body1"
+          },
+          "type": {
+            "resolvedName": "Text"
+          }
+        },
+        "NqE2Qh0Sq6": {
+          "custom": {},
+          "displayName": "Text",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "ROOT",
+          "props": {
+            "children": "Welcome\n\n",
+            "full-width": false,
+            "id": "NqE2Qh0Sq6",
+            "isEnriched": true,
+            "italic": false,
+            "link-target-blank": true,
+            "mode": "primary",
+            "text-align": "center",
+            "tooltipText": "Tooltip text",
+            "variant": "h3"
+          },
+          "type": {
+            "resolvedName": "Text"
+          }
+        },
+        "ROOT": {
+          "custom": {},
+          "displayName": "Container",
+          "hidden": false,
+          "isCanvas": true,
+          "linkedNodes": {},
+          "nodes": [
+            "NqE2Qh0Sq6",
+            "6KGtvzyiH_",
+            "9XAhj1-KWt",
+            "ekknuJxLv5",
+            "WdJMmKNDSv",
+            "WrcNhwLdaS",
+            "keR6MsQTnS",
+            "ImJgP2GEdz"
+          ],
+          "props": {
+            "align": "center",
+            "background": "",
+            "data-editor-type": "container",
+            "direction": "column",
+            "id": "ROOT",
+            "justify": "center",
+            "paddingX": "4",
+            "paddingY": "8",
+            "spaceBetween": "4",
+            "st-items-grow": 0,
+            "width": "100%"
+          },
+          "type": {
+            "resolvedName": "Container"
+          }
+        },
+        "WN6nz9hWd5": {
+          "custom": {
+            "subType": "social",
+            "type": "button"
+          },
+          "displayName": "Google Button",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "WrcNhwLdaS",
+          "props": {
+            "aria-label": "Sign in with Google",
+            "children": "Sign up with Google",
+            "color": "primary",
+            "data-descope-provider": "google",
+            "data-type": "social",
+            "formNoValidate": true,
+            "full-width": true,
+            "id": "WN6nz9hWd5",
+            "mode": "primary",
+            "shape": "",
+            "size": "md",
+            "st-label-spacing": "10px",
+            "startIcon": "google",
+            "startIconColorText": false,
+            "tooltipText": "Tooltip text",
+            "variant": "outline"
+          },
+          "type": {
+            "resolvedName": "GoogleButton"
+          }
+        },
+        "WdJMmKNDSv": {
+          "custom": {},
+          "displayName": "Divider",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "ROOT",
+          "props": {
+            "children": "OR",
+            "id": "WdJMmKNDSv",
+            "italic": false,
+            "mode": "primary",
+            "variant": "body1",
+            "vertical": false
+          },
+          "type": {
+            "resolvedName": "Divider"
+          }
+        },
+        "WrcNhwLdaS": {
+          "custom": {},
+          "displayName": "Container",
+          "hidden": false,
+          "isCanvas": true,
+          "linkedNodes": {},
+          "nodes": [
+            "WN6nz9hWd5"
+          ],
+          "parent": "ROOT",
+          "props": {
+            "align": "center",
+            "background": "#ffffff00",
+            "data-editor-type": "container",
+            "direction": "column",
+            "id": "WrcNhwLdaS",
+            "justify": "start",
+            "paddingX": "0",
+            "paddingY": "1",
+            "spaceBetween": "1.5",
+            "st-items-grow": 0,
+            "width": "100%"
+          },
+          "type": {
+            "resolvedName": "Container"
+          }
+        },
+        "XRYAV2RO21": {
+          "custom": {},
+          "displayName": "Link",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "9XAhj1-KWt",
+          "props": {
+            "children": "Terms of Service",
+            "full-width": false,
+            "href": "",
+            "id": "XRYAV2RO21",
+            "italic": false,
+            "mode": "primary",
+            "target": "_blank",
+            "text-align": "center",
+            "tooltipText": "Tooltip text",
+            "variant": "body1"
+          },
+          "type": {
+            "resolvedName": "Link"
+          }
+        },
+        "ekknuJxLv5": {
+          "custom": {
+            "type": "button"
+          },
+          "displayName": "Button",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "ROOT",
+          "props": {
+            "children": "Sign Up",
+            "color": "primary",
+            "data-type": "button",
+            "formNoValidate": false,
+            "full-width": true,
+            "id": "ekknuJxLv5",
+            "mode": "primary",
+            "size": "md",
+            "tooltipText": "Tooltip text",
+            "variant": "contained"
+          },
+          "type": {
+            "resolvedName": "Button"
+          }
+        },
+        "keR6MsQTnS": {
+          "custom": {
+            "subType": "social",
+            "type": "button"
+          },
+          "displayName": "Facebook Button",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "ROOT",
+          "props": {
+            "aria-label": "Sign in with Facebook",
+            "children": "Sign in with Facebook",
+            "color": "primary",
+            "data-descope-provider": "facebook",
+            "data-type": "social",
+            "formNoValidate": true,
+            "full-width": true,
+            "id": "keR6MsQTnS",
+            "size": "md",
+            "st-label-spacing": "10px",
+            "startIcon": "facebook",
+            "startIconColorText": false,
+            "tooltipText": "Tooltip text",
+            "variant": "outline"
+          },
+          "type": {
+            "resolvedName": "FacebookButton"
+          }
+        },
+        "yraprtzr35": {
+          "custom": {},
+          "displayName": "Link",
+          "hidden": false,
+          "isCanvas": false,
+          "linkedNodes": {},
+          "nodes": [],
+          "parent": "9XAhj1-KWt",
+          "props": {
+            "children": "Privacy Statement",
+            "full-width": false,
+            "href": "",
+            "id": "yraprtzr35",
+            "italic": false,
+            "mode": "primary",
+            "target": "_blank",
+            "text-align": "center",
+            "tooltipText": "Tooltip text",
+            "variant": "body1"
+          },
+          "type": {
+            "resolvedName": "Link"
+          }
+        }
+      },
       "id": "0",
       "inputKeys": [
         "email"
       ],
+      "inputsMetadata": [
+        {
+          "displayName": "Email Input",
+          "key": "email"
+        }
+      ],
+      "interactions": [
+        {
+          "icon": "passkey",
+          "id": "6KGtvzyiH_",
+          "label": "",
+          "type": "input"
+        },
+        {
+          "icon": "google",
+          "id": "WN6nz9hWd5",
+          "label": "Sign up with Google",
+          "subType": "social",
+          "type": "button"
+        },
+        {
+          "id": "ekknuJxLv5",
+          "label": "Sign Up",
+          "type": "button"
+        },
+        {
+          "icon": "facebook",
+          "id": "keR6MsQTnS",
+          "label": "Sign in with Facebook",
+          "subType": "social",
+          "type": "button"
+        }
+      ],
       "name": "Sign Up Screen",
       "next": {
         "rules": [
+          {
+            "interactionId": "6KGtvzyiH_",
+            "taskId": "27"
+          },
           {
             "interactionId": "ekknuJxLv5",
             "taskId": "13"
@@ -22,11 +441,12 @@
             "taskId": "19"
           },
           {
-            "interactionId": "Gjob4tKKNP",
+            "interactionId": "keR6MsQTnS",
             "taskId": "19"
           }
         ]
       },
+      "recoveryCodesData": [],
       "screenId": "SC3FTN76Wa9lfYJY6sq7uvfTz5l9Q",
       "type": "screen",
       "view": {
@@ -44,6 +464,12 @@
       "id": "12",
       "inputKeys": [
         "fullName"
+      ],
+      "inputsMetadata": [
+        {
+          "displayName": "Full Name Input",
+          "key": "fullName"
+        }
       ],
       "name": "User Information",
       "next": {
@@ -154,10 +580,12 @@
       }
     },
     "14": {
+      "allInputKeys": [],
       "contextKeys": [
         "sentTo.maskedEmail"
       ],
       "id": "14",
+      "inputsMetadata": [],
       "name": "Magic Link Sent",
       "next": {
         "rules": [
@@ -183,7 +611,9 @@
       }
     },
     "15": {
+      "allInputKeys": [],
       "id": "15",
+      "inputsMetadata": [],
       "name": "Verified Successfully",
       "next": {},
       "screenId": "SC3FTN74CzqMebG5xYsRgRe3zFbQ8",
@@ -294,17 +724,15 @@
       }
     },
     "17": {
+      "allInputKeys": [],
       "contextKeys": [
         "sentTo.maskedEmail"
       ],
       "id": "17",
+      "inputsMetadata": [],
       "name": "Magic Link Sent",
       "next": {
         "rules": [
-          {
-            "interactionId": "polling",
-            "taskId": "18"
-          },
           {
             "interactionId": "resend",
             "taskId": "16"
@@ -316,17 +744,6 @@
       "view": {
         "x": 3456,
         "y": -504
-      }
-    },
-    "18": {
-      "id": "18",
-      "name": "Verified Successfully",
-      "next": {},
-      "screenId": "SC3FTN77hXxEjsFSk1yr8MnhbiMl0",
-      "type": "screen",
-      "view": {
-        "x": 2952,
-        "y": 204
       }
     },
     "19": {
@@ -441,189 +858,6 @@
         "y": 1416
       }
     },
-    "20": {
-      "action": "connector",
-      "arguments": {
-        "args": {
-          "type": "inline",
-          "value": [
-            {
-              "key": "endpoint",
-              "type": "string",
-              "value": ""
-            },
-            {
-              "key": "timeout",
-              "type": "number",
-              "value": 3
-            },
-            {
-              "key": "payload",
-              "type": "string",
-              "value": "{}"
-            }
-          ]
-        },
-        "async": {
-          "type": "inline",
-          "value": false
-        },
-        "command": {
-          "type": "inline",
-          "value": "get"
-        },
-        "connectorId": {
-          "type": "inline",
-          "value": "CI3FTNEPbQ3bnJis8wiwSRDizhLwS"
-        },
-        "resultPath": {
-          "type": "inline",
-          "value": "httpResult"
-        },
-        "templateId": {
-          "type": "inline",
-          "value": "http"
-        }
-      },
-      "errorHandlingV2": {
-        "ConnectorFailed": {
-          "errorHandlingType": "automatic"
-        },
-        "request_error": {
-          "errorHandlingType": "automatic"
-        }
-      },
-      "id": "20",
-      "name": "APPPLE",
-      "next": {},
-      "type": "automated",
-      "view": {
-        "x": 780,
-        "y": 144
-      }
-    },
-    "22": {
-      "action": "connector",
-      "arguments": {
-        "args": {
-          "type": "inline",
-          "value": [
-            {
-              "key": "endpoint",
-              "type": "string",
-              "value": ""
-            },
-            {
-              "key": "timeout",
-              "type": "number",
-              "value": 3
-            },
-            {
-              "key": "payload",
-              "type": "string",
-              "value": "{}"
-            }
-          ]
-        },
-        "async": {
-          "type": "inline",
-          "value": false
-        },
-        "command": {
-          "type": "inline",
-          "value": "get"
-        },
-        "connectorId": {
-          "type": "inline",
-          "value": "CI3FTNEPbQ3bnJis8wiwSRDizhLwS"
-        },
-        "resultPath": {
-          "type": "inline",
-          "value": "httpResult"
-        },
-        "templateId": {
-          "type": "inline",
-          "value": "http"
-        }
-      },
-      "errorHandlingV2": {
-        "ConnectorFailed": {
-          "errorHandlingType": "automatic"
-        },
-        "request_error": {
-          "errorHandlingType": "automatic"
-        }
-      },
-      "id": "22",
-      "name": "Generic HTTP / GET",
-      "next": {},
-      "type": "automated",
-      "view": {
-        "x": 1236,
-        "y": 180
-      }
-    },
-    "23": {
-      "action": "connector",
-      "arguments": {
-        "args": {
-          "type": "inline",
-          "value": [
-            {
-              "key": "endpoint",
-              "type": "string",
-              "value": ""
-            },
-            {
-              "key": "timeout",
-              "type": "number",
-              "value": 3
-            },
-            {
-              "key": "payload",
-              "type": "string",
-              "value": "{}"
-            }
-          ]
-        },
-        "async": {
-          "type": "inline",
-          "value": false
-        },
-        "command": {
-          "type": "inline",
-          "value": "get"
-        },
-        "connectorId": {
-          "type": "inline",
-          "value": "CI3FTNEPbQ3bnJis8wiwSRDizhLwS"
-        },
-        "resultPath": {
-          "type": "inline",
-          "value": "httpResult"
-        },
-        "templateId": {
-          "type": "inline",
-          "value": "http"
-        }
-      },
-      "errorHandlingV2": {
-        "ConnectorFailed": {
-          "errorHandlingType": "automatic"
-        },
-        "request_error": {
-          "errorHandlingType": "automatic"
-        }
-      },
-      "id": "23",
-      "name": "Get user",
-      "next": {},
-      "type": "automated",
-      "view": {
-        "x": 1656,
-        "y": 120
-      }
-    },
     "24": {
       "action": "sign-up-or-in-otp-email",
       "arguments": {
@@ -665,6 +899,12 @@
         "sentTo.maskedEmail"
       ],
       "id": "25",
+      "inputsMetadata": [
+        {
+          "displayName": "One Time Code",
+          "key": "code"
+        }
+      ],
       "name": "Verify OTP",
       "next": {
         "rules": [
@@ -696,6 +936,70 @@
         "y": -300
       }
     },
+    "27": {
+      "action": "webauthn-sign-up-or-in-start",
+      "arguments": {
+        "finishStepId": {
+          "type": "inline",
+          "value": "27.end"
+        },
+        "restrictPasskeyTypes": {
+          "type": "inline",
+          "value": ""
+        },
+        "userVerificationDiscouraged": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "id": "27",
+      "name": "Sign Up or In / Passkeys (WebAuthn)",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "27.end"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 828,
+        "y": -840
+      }
+    },
+    "27.end": {
+      "action": "webauthn-sign-up-or-in-finish",
+      "arguments": {
+        "finishStepId": {
+          "type": "inline",
+          "value": "27.end"
+        },
+        "restrictPasskeyTypes": {
+          "type": "inline",
+          "value": ""
+        },
+        "userVerificationDiscouraged": {
+          "type": "inline",
+          "value": ""
+        }
+      },
+      "id": "27.end",
+      "name": "Sign Up or In / Passkeys (WebAuthn)",
+      "next": {
+        "rules": [
+          {
+            "interactionId": "success",
+            "taskId": "6"
+          }
+        ]
+      },
+      "type": "automated",
+      "view": {
+        "x": 828,
+        "y": -840
+      }
+    },
     "5": {
       "allInputKeys": [
         "email",
@@ -705,6 +1009,16 @@
       "inputKeys": [
         "email",
         "fullName"
+      ],
+      "inputsMetadata": [
+        {
+          "displayName": "Email Input",
+          "key": "email"
+        },
+        {
+          "displayName": "Full Name Input",
+          "key": "fullName"
+        }
       ],
       "name": "User Information - Unverified - Email Only",
       "next": {
@@ -740,6 +1054,12 @@
       "id": "7",
       "inputKeys": [
         "fullName"
+      ],
+      "inputsMetadata": [
+        {
+          "displayName": "Full Name Input",
+          "key": "fullName"
+        }
       ],
       "name": "User Information",
       "next": {
